@@ -132,6 +132,8 @@
 		A2689FD216308E9E00E1AFFB /* VideoModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VideoModule-Info.plist"; sourceTree = "<group>"; };
 		A2689FD416308E9E00E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A2689FD616308E9E00E1AFFB /* VideoModule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoModule-Prefix.pch"; sourceTree = "<group>"; };
+		A2689FEB1630B7A800E1AFFB /* nbb_theme.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = nbb_theme.py; sourceTree = "<group>"; };
+		A2689FEC1630B7A800E1AFFB /* setup.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = setup.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 		A2689F6316308CE500E1AFFB = {
 			isa = PBXGroup;
 			children = (
+				A2689FEA1630B7A800E1AFFB /* Themes */,
 				A2689F7816308CE500E1AFFB /* Neon Boom Box */,
 				A2689F9516308CE500E1AFFB /* Neon Boom BoxTests */,
 				A2689FAD16308DCB00E1AFFB /* NBBCore */,
@@ -322,6 +325,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A2689FEA1630B7A800E1AFFB /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				A2689FEB1630B7A800E1AFFB /* nbb_theme.py */,
+				A2689FEC1630B7A800E1AFFB /* setup.py */,
+			);
+			name = Themes;
+			path = themes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -344,6 +357,7 @@
 				A2689F6C16308CE500E1AFFB /* Resources */,
 				A2689FE316308F1500E1AFFB /* CopyFiles */,
 				A2689FE016308F0200E1AFFB /* CopyFiles */,
+				A2689FE91630B49700E1AFFB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -519,6 +533,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		A2689FE91630B49700E1AFFB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# compile themes and install to bundle\npython themes/setup.py py2app --extension .nbbtheme --dist-dir \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
