@@ -1,0 +1,902 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A2689F7316308CE500E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
+		A2689F7D16308CE500E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689F7B16308CE500E1AFFB /* InfoPlist.strings */; };
+		A2689F7F16308CE500E1AFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689F7E16308CE500E1AFFB /* main.m */; };
+		A2689F8316308CE500E1AFFB /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A2689F8116308CE500E1AFFB /* Credits.rtf */; };
+		A2689F8616308CE500E1AFFB /* NBBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689F8516308CE500E1AFFB /* NBBAppDelegate.m */; };
+		A2689F8916308CE500E1AFFB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2689F8716308CE500E1AFFB /* MainMenu.xib */; };
+		A2689F9116308CE500E1AFFB /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F9016308CE500E1AFFB /* SenTestingKit.framework */; };
+		A2689F9216308CE500E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
+		A2689F9A16308CE500E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689F9816308CE500E1AFFB /* InfoPlist.strings */; };
+		A2689F9D16308CE500E1AFFB /* Neon_Boom_BoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689F9C16308CE500E1AFFB /* Neon_Boom_BoxTests.m */; };
+		A2689FAC16308DCB00E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
+		A2689FB216308DCB00E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689FB016308DCB00E1AFFB /* InfoPlist.strings */; };
+		A2689FB616308DCB00E1AFFB /* NBBCore.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689FB516308DCB00E1AFFB /* NBBCore.m */; };
+		A2689FBF16308E6F00E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
+		A2689FC516308E6F00E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689FC316308E6F00E1AFFB /* InfoPlist.strings */; };
+		A2689FCF16308E9E00E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
+		A2689FD516308E9E00E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689FD316308E9E00E1AFFB /* InfoPlist.strings */; };
+		A2689FE116308F0C00E1AFFB /* MusicModule.nbb in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2689FBE16308E6F00E1AFFB /* MusicModule.nbb */; };
+		A2689FE216308F1000E1AFFB /* VideoModule.nbb in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2689FCE16308E9E00E1AFFB /* VideoModule.nbb */; };
+		A2689FE416308F1D00E1AFFB /* NBBCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A2689F9316308CE500E1AFFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2689F6516308CE500E1AFFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2689F6D16308CE500E1AFFB;
+			remoteInfo = "Neon Boom Box";
+		};
+		A2689FDA16308EEA00E1AFFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2689F6516308CE500E1AFFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2689FAA16308DCB00E1AFFB;
+			remoteInfo = NBBCore;
+		};
+		A2689FDC16308EED00E1AFFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2689F6516308CE500E1AFFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2689FBD16308E6F00E1AFFB;
+			remoteInfo = MusicModule;
+		};
+		A2689FDE16308EF000E1AFFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2689F6516308CE500E1AFFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2689FCD16308E9E00E1AFFB;
+			remoteInfo = VideoModule;
+		};
+		A2689FE516308F2700E1AFFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2689F6516308CE500E1AFFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2689FAA16308DCB00E1AFFB;
+			remoteInfo = NBBCore;
+		};
+		A2689FE716308F2B00E1AFFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2689F6516308CE500E1AFFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2689FAA16308DCB00E1AFFB;
+			remoteInfo = NBBCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A2689FE016308F0200E1AFFB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A2689FE216308F1000E1AFFB /* VideoModule.nbb in CopyFiles */,
+				A2689FE116308F0C00E1AFFB /* MusicModule.nbb in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689FE316308F1500E1AFFB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A2689FE416308F1D00E1AFFB /* NBBCore.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A2689F6E16308CE500E1AFFB /* Neon Boom Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Neon Boom Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2689F7216308CE500E1AFFB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A2689F7516308CE500E1AFFB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A2689F7616308CE500E1AFFB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A2689F7716308CE500E1AFFB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A2689F7A16308CE500E1AFFB /* Neon Boom Box-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Neon Boom Box-Info.plist"; sourceTree = "<group>"; };
+		A2689F7C16308CE500E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A2689F7E16308CE500E1AFFB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A2689F8016308CE500E1AFFB /* Neon Boom Box-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Neon Boom Box-Prefix.pch"; sourceTree = "<group>"; };
+		A2689F8216308CE500E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		A2689F8416308CE500E1AFFB /* NBBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBBAppDelegate.h; sourceTree = "<group>"; };
+		A2689F8516308CE500E1AFFB /* NBBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBBAppDelegate.m; sourceTree = "<group>"; };
+		A2689F8816308CE500E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		A2689F8F16308CE500E1AFFB /* Neon Boom BoxTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Neon Boom BoxTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2689F9016308CE500E1AFFB /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A2689F9716308CE500E1AFFB /* Neon Boom BoxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Neon Boom BoxTests-Info.plist"; sourceTree = "<group>"; };
+		A2689F9916308CE500E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A2689F9B16308CE500E1AFFB /* Neon_Boom_BoxTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Neon_Boom_BoxTests.h; sourceTree = "<group>"; };
+		A2689F9C16308CE500E1AFFB /* Neon_Boom_BoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Neon_Boom_BoxTests.m; sourceTree = "<group>"; };
+		A2689FAB16308DCB00E1AFFB /* NBBCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NBBCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2689FAF16308DCB00E1AFFB /* NBBCore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NBBCore-Info.plist"; sourceTree = "<group>"; };
+		A2689FB116308DCB00E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A2689FB316308DCB00E1AFFB /* NBBCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NBBCore-Prefix.pch"; sourceTree = "<group>"; };
+		A2689FB416308DCB00E1AFFB /* NBBCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBBCore.h; sourceTree = "<group>"; };
+		A2689FB516308DCB00E1AFFB /* NBBCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBBCore.m; sourceTree = "<group>"; };
+		A2689FBE16308E6F00E1AFFB /* MusicModule.nbb */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicModule.nbb; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2689FC216308E6F00E1AFFB /* MusicModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MusicModule-Info.plist"; sourceTree = "<group>"; };
+		A2689FC416308E6F00E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A2689FC616308E6F00E1AFFB /* MusicModule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicModule-Prefix.pch"; sourceTree = "<group>"; };
+		A2689FCE16308E9E00E1AFFB /* VideoModule.nbb */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoModule.nbb; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2689FD216308E9E00E1AFFB /* VideoModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VideoModule-Info.plist"; sourceTree = "<group>"; };
+		A2689FD416308E9E00E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A2689FD616308E9E00E1AFFB /* VideoModule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoModule-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A2689F6B16308CE500E1AFFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689F7316308CE500E1AFFB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689F8B16308CE500E1AFFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689F9116308CE500E1AFFB /* SenTestingKit.framework in Frameworks */,
+				A2689F9216308CE500E1AFFB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689FA716308DCB00E1AFFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689FAC16308DCB00E1AFFB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689FBB16308E6F00E1AFFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689FBF16308E6F00E1AFFB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689FCB16308E9E00E1AFFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689FCF16308E9E00E1AFFB /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A2689F6316308CE500E1AFFB = {
+			isa = PBXGroup;
+			children = (
+				A2689F7816308CE500E1AFFB /* Neon Boom Box */,
+				A2689F9516308CE500E1AFFB /* Neon Boom BoxTests */,
+				A2689FAD16308DCB00E1AFFB /* NBBCore */,
+				A2689FC016308E6F00E1AFFB /* MusicModule */,
+				A2689FD016308E9E00E1AFFB /* VideoModule */,
+				A2689F7116308CE500E1AFFB /* Frameworks */,
+				A2689F6F16308CE500E1AFFB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A2689F6F16308CE500E1AFFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2689F6E16308CE500E1AFFB /* Neon Boom Box.app */,
+				A2689F8F16308CE500E1AFFB /* Neon Boom BoxTests.octest */,
+				A2689FAB16308DCB00E1AFFB /* NBBCore.framework */,
+				A2689FBE16308E6F00E1AFFB /* MusicModule.nbb */,
+				A2689FCE16308E9E00E1AFFB /* VideoModule.nbb */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A2689F7116308CE500E1AFFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2689F7216308CE500E1AFFB /* Cocoa.framework */,
+				A2689F9016308CE500E1AFFB /* SenTestingKit.framework */,
+				A2689F7416308CE500E1AFFB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A2689F7416308CE500E1AFFB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2689F7516308CE500E1AFFB /* AppKit.framework */,
+				A2689F7616308CE500E1AFFB /* CoreData.framework */,
+				A2689F7716308CE500E1AFFB /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		A2689F7816308CE500E1AFFB /* Neon Boom Box */ = {
+			isa = PBXGroup;
+			children = (
+				A2689F8416308CE500E1AFFB /* NBBAppDelegate.h */,
+				A2689F8516308CE500E1AFFB /* NBBAppDelegate.m */,
+				A2689F8716308CE500E1AFFB /* MainMenu.xib */,
+				A2689F7916308CE500E1AFFB /* Supporting Files */,
+			);
+			path = "Neon Boom Box";
+			sourceTree = "<group>";
+		};
+		A2689F7916308CE500E1AFFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2689F7A16308CE500E1AFFB /* Neon Boom Box-Info.plist */,
+				A2689F7B16308CE500E1AFFB /* InfoPlist.strings */,
+				A2689F7E16308CE500E1AFFB /* main.m */,
+				A2689F8016308CE500E1AFFB /* Neon Boom Box-Prefix.pch */,
+				A2689F8116308CE500E1AFFB /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2689F9516308CE500E1AFFB /* Neon Boom BoxTests */ = {
+			isa = PBXGroup;
+			children = (
+				A2689F9B16308CE500E1AFFB /* Neon_Boom_BoxTests.h */,
+				A2689F9C16308CE500E1AFFB /* Neon_Boom_BoxTests.m */,
+				A2689F9616308CE500E1AFFB /* Supporting Files */,
+			);
+			path = "Neon Boom BoxTests";
+			sourceTree = "<group>";
+		};
+		A2689F9616308CE500E1AFFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2689F9716308CE500E1AFFB /* Neon Boom BoxTests-Info.plist */,
+				A2689F9816308CE500E1AFFB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2689FAD16308DCB00E1AFFB /* NBBCore */ = {
+			isa = PBXGroup;
+			children = (
+				A2689FB416308DCB00E1AFFB /* NBBCore.h */,
+				A2689FB516308DCB00E1AFFB /* NBBCore.m */,
+				A2689FAE16308DCB00E1AFFB /* Supporting Files */,
+			);
+			path = NBBCore;
+			sourceTree = "<group>";
+		};
+		A2689FAE16308DCB00E1AFFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2689FAF16308DCB00E1AFFB /* NBBCore-Info.plist */,
+				A2689FB016308DCB00E1AFFB /* InfoPlist.strings */,
+				A2689FB316308DCB00E1AFFB /* NBBCore-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2689FC016308E6F00E1AFFB /* MusicModule */ = {
+			isa = PBXGroup;
+			children = (
+				A2689FC116308E6F00E1AFFB /* Supporting Files */,
+			);
+			path = MusicModule;
+			sourceTree = "<group>";
+		};
+		A2689FC116308E6F00E1AFFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2689FC216308E6F00E1AFFB /* MusicModule-Info.plist */,
+				A2689FC316308E6F00E1AFFB /* InfoPlist.strings */,
+				A2689FC616308E6F00E1AFFB /* MusicModule-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A2689FD016308E9E00E1AFFB /* VideoModule */ = {
+			isa = PBXGroup;
+			children = (
+				A2689FD116308E9E00E1AFFB /* Supporting Files */,
+			);
+			path = VideoModule;
+			sourceTree = "<group>";
+		};
+		A2689FD116308E9E00E1AFFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2689FD216308E9E00E1AFFB /* VideoModule-Info.plist */,
+				A2689FD316308E9E00E1AFFB /* InfoPlist.strings */,
+				A2689FD616308E9E00E1AFFB /* VideoModule-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A2689FA816308DCB00E1AFFB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A2689F6D16308CE500E1AFFB /* Neon Boom Box */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2689FA016308CE500E1AFFB /* Build configuration list for PBXNativeTarget "Neon Boom Box" */;
+			buildPhases = (
+				A2689F6A16308CE500E1AFFB /* Sources */,
+				A2689F6B16308CE500E1AFFB /* Frameworks */,
+				A2689F6C16308CE500E1AFFB /* Resources */,
+				A2689FE316308F1500E1AFFB /* CopyFiles */,
+				A2689FE016308F0200E1AFFB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2689FDB16308EEA00E1AFFB /* PBXTargetDependency */,
+				A2689FDF16308EF000E1AFFB /* PBXTargetDependency */,
+				A2689FDD16308EED00E1AFFB /* PBXTargetDependency */,
+			);
+			name = "Neon Boom Box";
+			productName = "Neon Boom Box";
+			productReference = A2689F6E16308CE500E1AFFB /* Neon Boom Box.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A2689F8E16308CE500E1AFFB /* Neon Boom BoxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2689FA316308CE500E1AFFB /* Build configuration list for PBXNativeTarget "Neon Boom BoxTests" */;
+			buildPhases = (
+				A2689F8A16308CE500E1AFFB /* Sources */,
+				A2689F8B16308CE500E1AFFB /* Frameworks */,
+				A2689F8C16308CE500E1AFFB /* Resources */,
+				A2689F8D16308CE500E1AFFB /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2689F9416308CE500E1AFFB /* PBXTargetDependency */,
+			);
+			name = "Neon Boom BoxTests";
+			productName = "Neon Boom BoxTests";
+			productReference = A2689F8F16308CE500E1AFFB /* Neon Boom BoxTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		A2689FAA16308DCB00E1AFFB /* NBBCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2689FB716308DCB00E1AFFB /* Build configuration list for PBXNativeTarget "NBBCore" */;
+			buildPhases = (
+				A2689FA616308DCB00E1AFFB /* Sources */,
+				A2689FA716308DCB00E1AFFB /* Frameworks */,
+				A2689FA816308DCB00E1AFFB /* Headers */,
+				A2689FA916308DCB00E1AFFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NBBCore;
+			productName = NBBCore;
+			productReference = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A2689FBD16308E6F00E1AFFB /* MusicModule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2689FC716308E6F00E1AFFB /* Build configuration list for PBXNativeTarget "MusicModule" */;
+			buildPhases = (
+				A2689FBA16308E6F00E1AFFB /* Sources */,
+				A2689FBB16308E6F00E1AFFB /* Frameworks */,
+				A2689FBC16308E6F00E1AFFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2689FE616308F2700E1AFFB /* PBXTargetDependency */,
+			);
+			name = MusicModule;
+			productName = MusicModule;
+			productReference = A2689FBE16308E6F00E1AFFB /* MusicModule.nbb */;
+			productType = "com.apple.product-type.bundle";
+		};
+		A2689FCD16308E9E00E1AFFB /* VideoModule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2689FD716308E9E00E1AFFB /* Build configuration list for PBXNativeTarget "VideoModule" */;
+			buildPhases = (
+				A2689FCA16308E9E00E1AFFB /* Sources */,
+				A2689FCB16308E9E00E1AFFB /* Frameworks */,
+				A2689FCC16308E9E00E1AFFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A2689FE816308F2B00E1AFFB /* PBXTargetDependency */,
+			);
+			name = VideoModule;
+			productName = VideoModule;
+			productReference = A2689FCE16308E9E00E1AFFB /* VideoModule.nbb */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A2689F6516308CE500E1AFFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = NBB;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = NBB;
+			};
+			buildConfigurationList = A2689F6816308CE500E1AFFB /* Build configuration list for PBXProject "Neon Boom Box" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A2689F6316308CE500E1AFFB;
+			productRefGroup = A2689F6F16308CE500E1AFFB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A2689F6D16308CE500E1AFFB /* Neon Boom Box */,
+				A2689F8E16308CE500E1AFFB /* Neon Boom BoxTests */,
+				A2689FAA16308DCB00E1AFFB /* NBBCore */,
+				A2689FBD16308E6F00E1AFFB /* MusicModule */,
+				A2689FCD16308E9E00E1AFFB /* VideoModule */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A2689F6C16308CE500E1AFFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689F7D16308CE500E1AFFB /* InfoPlist.strings in Resources */,
+				A2689F8316308CE500E1AFFB /* Credits.rtf in Resources */,
+				A2689F8916308CE500E1AFFB /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689F8C16308CE500E1AFFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689F9A16308CE500E1AFFB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689FA916308DCB00E1AFFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689FB216308DCB00E1AFFB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689FBC16308E6F00E1AFFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689FC516308E6F00E1AFFB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689FCC16308E9E00E1AFFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689FD516308E9E00E1AFFB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A2689F8D16308CE500E1AFFB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A2689F6A16308CE500E1AFFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689F7F16308CE500E1AFFB /* main.m in Sources */,
+				A2689F8616308CE500E1AFFB /* NBBAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689F8A16308CE500E1AFFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689F9D16308CE500E1AFFB /* Neon_Boom_BoxTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689FA616308DCB00E1AFFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2689FB616308DCB00E1AFFB /* NBBCore.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689FBA16308E6F00E1AFFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2689FCA16308E9E00E1AFFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A2689F9416308CE500E1AFFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2689F6D16308CE500E1AFFB /* Neon Boom Box */;
+			targetProxy = A2689F9316308CE500E1AFFB /* PBXContainerItemProxy */;
+		};
+		A2689FDB16308EEA00E1AFFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2689FAA16308DCB00E1AFFB /* NBBCore */;
+			targetProxy = A2689FDA16308EEA00E1AFFB /* PBXContainerItemProxy */;
+		};
+		A2689FDD16308EED00E1AFFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2689FBD16308E6F00E1AFFB /* MusicModule */;
+			targetProxy = A2689FDC16308EED00E1AFFB /* PBXContainerItemProxy */;
+		};
+		A2689FDF16308EF000E1AFFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2689FCD16308E9E00E1AFFB /* VideoModule */;
+			targetProxy = A2689FDE16308EF000E1AFFB /* PBXContainerItemProxy */;
+		};
+		A2689FE616308F2700E1AFFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2689FAA16308DCB00E1AFFB /* NBBCore */;
+			targetProxy = A2689FE516308F2700E1AFFB /* PBXContainerItemProxy */;
+		};
+		A2689FE816308F2B00E1AFFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2689FAA16308DCB00E1AFFB /* NBBCore */;
+			targetProxy = A2689FE716308F2B00E1AFFB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A2689F7B16308CE500E1AFFB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2689F7C16308CE500E1AFFB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A2689F8116308CE500E1AFFB /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2689F8216308CE500E1AFFB /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		A2689F8716308CE500E1AFFB /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2689F8816308CE500E1AFFB /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		A2689F9816308CE500E1AFFB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2689F9916308CE500E1AFFB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A2689FB016308DCB00E1AFFB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2689FB116308DCB00E1AFFB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A2689FC316308E6F00E1AFFB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2689FC416308E6F00E1AFFB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A2689FD316308E9E00E1AFFB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A2689FD416308E9E00E1AFFB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A2689F9E16308CE500E1AFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A2689F9F16308CE500E1AFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A2689FA116308CE500E1AFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neon Boom Box/Neon Boom Box-Prefix.pch";
+				INFOPLIST_FILE = "Neon Boom Box/Neon Boom Box-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A2689FA216308CE500E1AFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neon Boom Box/Neon Boom Box-Prefix.pch";
+				INFOPLIST_FILE = "Neon Boom Box/Neon Boom Box-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A2689FA416308CE500E1AFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Neon Boom Box.app/Contents/MacOS/Neon Boom Box";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neon Boom Box/Neon Boom Box-Prefix.pch";
+				INFOPLIST_FILE = "Neon Boom BoxTests/Neon Boom BoxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A2689FA516308CE500E1AFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Neon Boom Box.app/Contents/MacOS/Neon Boom Box";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Neon Boom Box/Neon Boom Box-Prefix.pch";
+				INFOPLIST_FILE = "Neon Boom BoxTests/Neon Boom BoxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		A2689FB816308DCB00E1AFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NBBCore/NBBCore-Prefix.pch";
+				INFOPLIST_FILE = "NBBCore/NBBCore-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		A2689FB916308DCB00E1AFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NBBCore/NBBCore-Prefix.pch";
+				INFOPLIST_FILE = "NBBCore/NBBCore-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		A2689FC816308E6F00E1AFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MusicModule/MusicModule-Prefix.pch";
+				INFOPLIST_FILE = "MusicModule/MusicModule-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = nbb;
+			};
+			name = Debug;
+		};
+		A2689FC916308E6F00E1AFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MusicModule/MusicModule-Prefix.pch";
+				INFOPLIST_FILE = "MusicModule/MusicModule-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = nbb;
+			};
+			name = Release;
+		};
+		A2689FD816308E9E00E1AFFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VideoModule/VideoModule-Prefix.pch";
+				INFOPLIST_FILE = "VideoModule/VideoModule-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = nbb;
+			};
+			name = Debug;
+		};
+		A2689FD916308E9E00E1AFFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VideoModule/VideoModule-Prefix.pch";
+				INFOPLIST_FILE = "VideoModule/VideoModule-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = nbb;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A2689F6816308CE500E1AFFB /* Build configuration list for PBXProject "Neon Boom Box" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2689F9E16308CE500E1AFFB /* Debug */,
+				A2689F9F16308CE500E1AFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2689FA016308CE500E1AFFB /* Build configuration list for PBXNativeTarget "Neon Boom Box" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2689FA116308CE500E1AFFB /* Debug */,
+				A2689FA216308CE500E1AFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A2689FA316308CE500E1AFFB /* Build configuration list for PBXNativeTarget "Neon Boom BoxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2689FA416308CE500E1AFFB /* Debug */,
+				A2689FA516308CE500E1AFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A2689FB716308DCB00E1AFFB /* Build configuration list for PBXNativeTarget "NBBCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2689FB816308DCB00E1AFFB /* Debug */,
+				A2689FB916308DCB00E1AFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A2689FC716308E6F00E1AFFB /* Build configuration list for PBXNativeTarget "MusicModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2689FC816308E6F00E1AFFB /* Debug */,
+				A2689FC916308E6F00E1AFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A2689FD716308E9E00E1AFFB /* Build configuration list for PBXNativeTarget "VideoModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2689FD816308E9E00E1AFFB /* Debug */,
+				A2689FD916308E9E00E1AFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A2689F6516308CE500E1AFFB /* Project object */;
+}
