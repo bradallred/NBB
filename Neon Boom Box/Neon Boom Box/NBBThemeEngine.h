@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NBBWindow.h"
 
 @interface NBBThemeEngine : NSObject
 {}
-@property(nonatomic, retain) IBOutlet NSWindow *window;
+@property(nonatomic, retain) IBOutlet NBBWindow *window;
 @end
