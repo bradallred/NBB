@@ -37,6 +37,16 @@
 		A2DBB0671631A90000C32443 /* NBBThemeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0661631A90000C32443 /* NBBThemeEngine.m */; };
 		A2DBB06A1631A93E00C32443 /* NBBModule.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0681631A93E00C32443 /* NBBModule.h */; };
 		A2DBB06B1631A93E00C32443 /* NBBModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0691631A93E00C32443 /* NBBModule.m */; };
+		A2DBB0721631B05C00C32443 /* NBBButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0701631B05C00C32443 /* NBBButton.h */; };
+		A2DBB0731631B05C00C32443 /* NBBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0711631B05C00C32443 /* NBBButton.m */; };
+		A2DBB0761631B0A000C32443 /* NBBWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0741631B0A000C32443 /* NBBWindow.h */; };
+		A2DBB0771631B0A000C32443 /* NBBWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0751631B0A000C32443 /* NBBWindow.m */; };
+		A2DBB07A1631B12E00C32443 /* NBBTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0781631B12E00C32443 /* NBBTableView.h */; };
+		A2DBB07B1631B12E00C32443 /* NBBTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0791631B12E00C32443 /* NBBTableView.m */; };
+		A2DBB07E1631B18800C32443 /* NBBTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB07C1631B18700C32443 /* NBBTextField.h */; };
+		A2DBB07F1631B18800C32443 /* NBBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB07D1631B18800C32443 /* NBBTextField.m */; };
+		A2DBB0821631B1BE00C32443 /* NBBSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0801631B1BE00C32443 /* NBBSlider.h */; };
+		A2DBB0831631B1BE00C32443 /* NBBSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0811631B1BE00C32443 /* NBBSlider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +171,16 @@
 		A2DBB06D1631A95600C32443 /* NBBTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NBBTheme.m; path = ../NBBCore/NBBTheme.m; sourceTree = "<group>"; };
 		A2DBB06E1631A95600C32443 /* NBBThemeEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBBThemeEngine.h; sourceTree = "<group>"; };
 		A2DBB06F1631A95600C32443 /* NBBThemeEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBBThemeEngine.m; sourceTree = "<group>"; };
+		A2DBB0701631B05C00C32443 /* NBBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBButton.h; sourceTree = "<group>"; };
+		A2DBB0711631B05C00C32443 /* NBBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBButton.m; sourceTree = "<group>"; };
+		A2DBB0741631B0A000C32443 /* NBBWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBWindow.h; sourceTree = "<group>"; };
+		A2DBB0751631B0A000C32443 /* NBBWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBWindow.m; sourceTree = "<group>"; };
+		A2DBB0781631B12E00C32443 /* NBBTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBTableView.h; sourceTree = "<group>"; };
+		A2DBB0791631B12E00C32443 /* NBBTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBTableView.m; sourceTree = "<group>"; };
+		A2DBB07C1631B18700C32443 /* NBBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBTextField.h; sourceTree = "<group>"; };
+		A2DBB07D1631B18800C32443 /* NBBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBTextField.m; sourceTree = "<group>"; };
+		A2DBB0801631B1BE00C32443 /* NBBSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBSlider.h; sourceTree = "<group>"; };
+		A2DBB0811631B1BE00C32443 /* NBBSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBSlider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,12 +322,22 @@
 		A2689FAD16308DCB00E1AFFB /* NBBCore */ = {
 			isa = PBXGroup;
 			children = (
+				A2DBB0701631B05C00C32443 /* NBBButton.h */,
+				A2DBB0711631B05C00C32443 /* NBBButton.m */,
 				A2689FB416308DCB00E1AFFB /* NBBCore.h */,
 				A2689FB516308DCB00E1AFFB /* NBBCore.m */,
 				A2DBB0681631A93E00C32443 /* NBBModule.h */,
 				A2DBB0691631A93E00C32443 /* NBBModule.m */,
+				A2DBB0801631B1BE00C32443 /* NBBSlider.h */,
+				A2DBB0811631B1BE00C32443 /* NBBSlider.m */,
+				A2DBB0781631B12E00C32443 /* NBBTableView.h */,
+				A2DBB0791631B12E00C32443 /* NBBTableView.m */,
+				A2DBB07C1631B18700C32443 /* NBBTextField.h */,
+				A2DBB07D1631B18800C32443 /* NBBTextField.m */,
 				A2DBB0551631A73900C32443 /* NBBTheme.h */,
 				A2DBB0561631A73900C32443 /* NBBTheme.m */,
+				A2DBB0741631B0A000C32443 /* NBBWindow.h */,
+				A2DBB0751631B0A000C32443 /* NBBWindow.m */,
 				A2689FAE16308DCB00E1AFFB /* Supporting Files */,
 			);
 			path = NBBCore;
@@ -409,6 +439,11 @@
 			files = (
 				A2DBB0591631A73900C32443 /* NBBTheme.h in Headers */,
 				A2DBB06A1631A93E00C32443 /* NBBModule.h in Headers */,
+				A2DBB0721631B05C00C32443 /* NBBButton.h in Headers */,
+				A2DBB0761631B0A000C32443 /* NBBWindow.h in Headers */,
+				A2DBB07A1631B12E00C32443 /* NBBTableView.h in Headers */,
+				A2DBB07E1631B18800C32443 /* NBBTextField.h in Headers */,
+				A2DBB0821631B1BE00C32443 /* NBBSlider.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +678,11 @@
 				A2689FB616308DCB00E1AFFB /* NBBCore.m in Sources */,
 				A2DBB05A1631A73900C32443 /* NBBTheme.m in Sources */,
 				A2DBB06B1631A93E00C32443 /* NBBModule.m in Sources */,
+				A2DBB0731631B05C00C32443 /* NBBButton.m in Sources */,
+				A2DBB0771631B0A000C32443 /* NBBWindow.m in Sources */,
+				A2DBB07B1631B12E00C32443 /* NBBTableView.m in Sources */,
+				A2DBB07F1631B18800C32443 /* NBBTextField.m in Sources */,
+				A2DBB0831631B1BE00C32443 /* NBBSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
