@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 NBB. All rights reserved.
 //
 
+#import <Cocoa/Cocoa.h>
+
 @interface NBBTheme : NSObject
 
 @end
