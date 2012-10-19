@@ -27,12 +27,16 @@
 		A2689FE116308F0C00E1AFFB /* MusicModule.nbb in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2689FBE16308E6F00E1AFFB /* MusicModule.nbb */; };
 		A2689FE216308F1000E1AFFB /* VideoModule.nbb in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2689FCE16308E9E00E1AFFB /* VideoModule.nbb */; };
 		A2689FE416308F1D00E1AFFB /* NBBCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
-		A2689FEF1630BDA000E1AFFB /* NBBModule.h in Headers */ = {isa = PBXBuildFile; fileRef = A2689FED1630BDA000E1AFFB /* NBBModule.h */; };
-		A2689FF01630BDA000E1AFFB /* NBBModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689FEE1630BDA000E1AFFB /* NBBModule.m */; };
 		A2689FF51630BFD300E1AFFB /* NBBMusicModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689FF41630BFD300E1AFFB /* NBBMusicModule.m */; };
 		A2689FF91630BFF300E1AFFB /* NBBVideoModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689FF71630BFED00E1AFFB /* NBBVideoModule.m */; };
 		A2689FFA1630C12C00E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A2689FFB1630C13100E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
+		A268A0041630F64A00E1AFFB /* nbb_theme.py in Resources */ = {isa = PBXBuildFile; fileRef = A268A0031630F64A00E1AFFB /* nbb_theme.py */; };
+		A2DBB0591631A73900C32443 /* NBBTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0551631A73900C32443 /* NBBTheme.h */; };
+		A2DBB05A1631A73900C32443 /* NBBTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0561631A73900C32443 /* NBBTheme.m */; };
+		A2DBB0671631A90000C32443 /* NBBThemeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0661631A90000C32443 /* NBBThemeEngine.m */; };
+		A2DBB06A1631A93E00C32443 /* NBBModule.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0681631A93E00C32443 /* NBBModule.h */; };
+		A2DBB06B1631A93E00C32443 /* NBBModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0691631A93E00C32443 /* NBBModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,7 +142,6 @@
 		A2689FD216308E9E00E1AFFB /* VideoModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VideoModule-Info.plist"; sourceTree = "<group>"; };
 		A2689FD416308E9E00E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A2689FD616308E9E00E1AFFB /* VideoModule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoModule-Prefix.pch"; sourceTree = "<group>"; };
-		A2689FEB1630B7A800E1AFFB /* nbb_theme.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = nbb_theme.py; sourceTree = "<group>"; };
 		A2689FEC1630B7A800E1AFFB /* setup.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = setup.py; sourceTree = "<group>"; };
 		A2689FED1630BDA000E1AFFB /* NBBModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBBModule.h; path = ../modules/NBBModule.h; sourceTree = "<group>"; };
 		A2689FEE1630BDA000E1AFFB /* NBBModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBBModule.m; path = ../modules/NBBModule.m; sourceTree = "<group>"; };
@@ -146,6 +149,18 @@
 		A2689FF41630BFD300E1AFFB /* NBBMusicModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBMusicModule.m; sourceTree = "<group>"; };
 		A2689FF61630BFED00E1AFFB /* NBBVideoModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBVideoModule.h; sourceTree = "<group>"; };
 		A2689FF71630BFED00E1AFFB /* NBBVideoModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBVideoModule.m; sourceTree = "<group>"; };
+		A268A0031630F64A00E1AFFB /* nbb_theme.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = nbb_theme.py; sourceTree = "<group>"; };
+		A268A0051630F69800E1AFFB /* NBBTheme.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = NBBTheme.py; sourceTree = "<group>"; };
+		A2DBB0551631A73900C32443 /* NBBTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBTheme.h; sourceTree = "<group>"; };
+		A2DBB0561631A73900C32443 /* NBBTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBTheme.m; sourceTree = "<group>"; };
+		A2DBB0651631A90000C32443 /* NBBThemeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBThemeEngine.h; sourceTree = "<group>"; };
+		A2DBB0661631A90000C32443 /* NBBThemeEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBThemeEngine.m; sourceTree = "<group>"; };
+		A2DBB0681631A93E00C32443 /* NBBModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBModule.h; sourceTree = "<group>"; };
+		A2DBB0691631A93E00C32443 /* NBBModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBModule.m; sourceTree = "<group>"; };
+		A2DBB06C1631A95600C32443 /* NBBTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NBBTheme.h; path = ../NBBCore/NBBTheme.h; sourceTree = "<group>"; };
+		A2DBB06D1631A95600C32443 /* NBBTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NBBTheme.m; path = ../NBBCore/NBBTheme.m; sourceTree = "<group>"; };
+		A2DBB06E1631A95600C32443 /* NBBThemeEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBBThemeEngine.h; sourceTree = "<group>"; };
+		A2DBB06F1631A95600C32443 /* NBBThemeEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NBBThemeEngine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,9 +258,11 @@
 		A2689F7816308CE500E1AFFB /* Neon Boom Box */ = {
 			isa = PBXGroup;
 			children = (
+				A2689F8716308CE500E1AFFB /* MainMenu.xib */,
 				A2689F8416308CE500E1AFFB /* NBBAppDelegate.h */,
 				A2689F8516308CE500E1AFFB /* NBBAppDelegate.m */,
-				A2689F8716308CE500E1AFFB /* MainMenu.xib */,
+				A2DBB0651631A90000C32443 /* NBBThemeEngine.h */,
+				A2DBB0661631A90000C32443 /* NBBThemeEngine.m */,
 				A2689F7916308CE500E1AFFB /* Supporting Files */,
 			);
 			path = "Neon Boom Box";
@@ -287,6 +304,10 @@
 			children = (
 				A2689FB416308DCB00E1AFFB /* NBBCore.h */,
 				A2689FB516308DCB00E1AFFB /* NBBCore.m */,
+				A2DBB0681631A93E00C32443 /* NBBModule.h */,
+				A2DBB0691631A93E00C32443 /* NBBModule.m */,
+				A2DBB0551631A73900C32443 /* NBBTheme.h */,
+				A2DBB0561631A73900C32443 /* NBBTheme.m */,
 				A2689FAE16308DCB00E1AFFB /* Supporting Files */,
 			);
 			path = NBBCore;
@@ -347,7 +368,12 @@
 		A2689FEA1630B7A800E1AFFB /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				A2689FEB1630B7A800E1AFFB /* nbb_theme.py */,
+				A2DBB06C1631A95600C32443 /* NBBTheme.h */,
+				A2DBB06D1631A95600C32443 /* NBBTheme.m */,
+				A2DBB06E1631A95600C32443 /* NBBThemeEngine.h */,
+				A2DBB06F1631A95600C32443 /* NBBThemeEngine.m */,
+				A268A0021630F64A00E1AFFB /* nbb */,
+				A268A0051630F69800E1AFFB /* NBBTheme.py */,
 				A2689FEC1630B7A800E1AFFB /* setup.py */,
 			);
 			name = Themes;
@@ -366,6 +392,14 @@
 			path = themes;
 			sourceTree = "<group>";
 		};
+		A268A0021630F64A00E1AFFB /* nbb */ = {
+			isa = PBXGroup;
+			children = (
+				A268A0031630F64A00E1AFFB /* nbb_theme.py */,
+			);
+			path = nbb;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -373,7 +407,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2689FEF1630BDA000E1AFFB /* NBBModule.h in Headers */,
+				A2DBB0591631A73900C32443 /* NBBTheme.h in Headers */,
+				A2DBB06A1631A93E00C32443 /* NBBModule.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +566,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2689FB216308DCB00E1AFFB /* InfoPlist.strings in Resources */,
+				A268A0041630F64A00E1AFFB /* nbb_theme.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +624,7 @@
 			files = (
 				A2689F7F16308CE500E1AFFB /* main.m in Sources */,
 				A2689F8616308CE500E1AFFB /* NBBAppDelegate.m in Sources */,
+				A2DBB0671631A90000C32443 /* NBBThemeEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,7 +641,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2689FB616308DCB00E1AFFB /* NBBCore.m in Sources */,
-				A2689FF01630BDA000E1AFFB /* NBBModule.m in Sources */,
+				A2DBB05A1631A73900C32443 /* NBBTheme.m in Sources */,
+				A2DBB06B1631A93E00C32443 /* NBBModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -925,6 +963,7 @@
 				A2689FA216308CE500E1AFFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2689FA316308CE500E1AFFB /* Build configuration list for PBXNativeTarget "Neon Boom BoxTests" */ = {
 			isa = XCConfigurationList;
@@ -933,6 +972,7 @@
 				A2689FA516308CE500E1AFFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2689FB716308DCB00E1AFFB /* Build configuration list for PBXNativeTarget "NBBCore" */ = {
 			isa = XCConfigurationList;
@@ -941,6 +981,7 @@
 				A2689FB916308DCB00E1AFFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2689FC716308E6F00E1AFFB /* Build configuration list for PBXNativeTarget "MusicModule" */ = {
 			isa = XCConfigurationList;
@@ -949,6 +990,7 @@
 				A2689FC916308E6F00E1AFFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2689FD716308E9E00E1AFFB /* Build configuration list for PBXNativeTarget "VideoModule" */ = {
 			isa = XCConfigurationList;
@@ -957,6 +999,7 @@
 				A2689FD916308E9E00E1AFFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
