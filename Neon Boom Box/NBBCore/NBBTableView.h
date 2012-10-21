@@ -7,7 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NBBThemable.h"
 
-@interface NBBTableView : NSTableView
+@interface NBBTableView : NSTableView <NBBThemable>
 
 @end
