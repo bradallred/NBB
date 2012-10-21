@@ -7,7 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NBBThemable.h"
 
-@interface NBBSlider : NSSlider
+@interface NBBSlider : NSSlider <NBBThemable>
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NBBThemable.h"
 
-@interface NBBButton : NSButton
+@interface NBBButton : NSButton <NBBThemable>
 
 @end

@@ -1,5 +1,5 @@
 //
-//  NBBTextField.h
+//  NBBThemable.h
 //  Neon Boom Box
 //
 //  Created by Brad on 10/19/12.
@@ -7,8 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NBBThemable.h"
 
-@interface NBBTextField : NSTextField <NBBThemable>
+@protocol NBBThemable <NSObject>
 
 @end
