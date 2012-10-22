@@ -10,5 +10,7 @@
 #import "NBBThemable.h"
 
 @interface NBBTableView : NSTableView <NBBThemable>
-
+# pragma mark - NBBThemable
+- (id) initWithTheme:(NBBTheme*) theme;
+- (BOOL)applyTheme:(NBBTheme*) theme;
 @end

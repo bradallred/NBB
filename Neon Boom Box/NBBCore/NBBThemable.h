@@ -7,7 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "NBBTheme.h"
 
 @protocol NBBThemable <NSObject>
-
+- (id) initWithTheme:(NBBTheme*) theme;
+- (BOOL) applyTheme:(NBBTheme*) theme;
 @end
