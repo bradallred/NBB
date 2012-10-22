@@ -37,4 +37,6 @@
 	NSMutableArray* _themedObjects;
 }
 @property(nonatomic, retain) IBOutlet NBBWindow *window;
+
++ (NBBThemeEngine*)sharedThemeEngine;
 @end
