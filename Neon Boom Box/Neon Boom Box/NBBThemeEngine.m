@@ -105,4 +105,14 @@ static NBBThemeEngine* _sharedThemeEngine = nil;
 	}
 }
 
+- (void)applyTheme:(NBBTheme*) theme
+{
+	NSLog(@"Applying theme:%@", theme);
+	[_theme release];
+	_theme = [theme retain];
+	for (id <NBBThemable> obj in _themedObjects) {
+		[obj applyTheme:_theme];
+	}
+}
+
 @end

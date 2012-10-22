@@ -43,4 +43,8 @@
 - (Class <NBBThemable>)classReplacementForThemableClass:(Class <NBBThemable>) cls;
 - (void)themeObject:(id <NBBThemable>) obj;
 
+/*
+ This method will iterate the _themedObjects array and send an applyTheme message to each
+*/
+- (void)applyTheme:(NBBTheme*) theme;
 @end
