@@ -39,4 +39,6 @@
 @property(nonatomic, retain) IBOutlet NBBWindow *window;
 
 + (NBBThemeEngine*)sharedThemeEngine;
+
+- (Class <NBBThemable>)classReplacementForThemableClass:(Class <NBBThemable>) cls;
 @end

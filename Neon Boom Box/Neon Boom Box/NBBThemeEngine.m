@@ -86,4 +86,14 @@ static NBBThemeEngine* _sharedThemeEngine = nil;
     [super dealloc];
 }
 
+- (Class <NBBThemable>)classReplacementForThemableClass:(Class <NBBThemable>) cls
+{
+	Class replacement = cls;
+	if ([(Class)cls conformsToProtocol:@protocol(NBBThemable)]) {
+		NSLog(@"replacing %@ with %@", cls, replacement);
+		// TODO: actually implement this
+	}
+	return replacement;
+}
+
 @end
