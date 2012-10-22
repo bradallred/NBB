@@ -96,4 +96,13 @@ static NBBThemeEngine* _sharedThemeEngine = nil;
 	return replacement;
 }
 
+- (void)themeObject:(id <NBBThemable>) obj
+{
+	if ([obj conformsToProtocol:@protocol(NBBThemable)]) {
+		if ([obj applyTheme:_theme]) {
+			[_themedObjects addObject:obj];
+		}
+	}
+}
+
 @end

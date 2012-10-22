@@ -41,4 +41,6 @@
 + (NBBThemeEngine*)sharedThemeEngine;
 
 - (Class <NBBThemable>)classReplacementForThemableClass:(Class <NBBThemable>) cls;
+- (void)themeObject:(id <NBBThemable>) obj;
+
 @end
