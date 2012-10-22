@@ -7,8 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NBBThemable.h"
+
+/*
+This category exists to intercept alloc calls for controls adopting the NBBThemable protocol.
+The goal is to allocate and return overriding theme specific subclasses instead
+*/
 
 @interface NSControl (NBBControlProxy)
-
++ (id)allocWithZone:(NSZone *)zone;
+- (id)initWithCoder:(NSCoder *)coder;
 @end
