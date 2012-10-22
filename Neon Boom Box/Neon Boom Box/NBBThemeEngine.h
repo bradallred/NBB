@@ -30,6 +30,11 @@
 */
 
 @interface NBBThemeEngine : NSObject
-{}
+{
+@private
+	NBBTheme* _theme;
+
+	NSMutableArray* _themedObjects;
+}
 @property(nonatomic, retain) IBOutlet NBBWindow *window;
 @end
