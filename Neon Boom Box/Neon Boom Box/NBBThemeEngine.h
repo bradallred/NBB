@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NBBWindow.h"
-#import "NBBTheme.h"
-
+#import <NBBCore/NBBWindow.h>
+#import <NBBCore/NBBTheme.h>
+#import "NBBThemable.h"
 /*
  The current plan for the theming engine:
  * themes will be loadable bundles (NSBundle) containing a subclass of NBBTheme ("abstract" base class)
