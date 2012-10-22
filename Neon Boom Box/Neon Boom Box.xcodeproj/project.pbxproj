@@ -169,8 +169,8 @@
 		A268A0051630F69800E1AFFB /* NBBTheme.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = NBBTheme.py; sourceTree = "<group>"; };
 		A2DBB0551631A73900C32443 /* NBBTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBTheme.h; sourceTree = "<group>"; };
 		A2DBB0561631A73900C32443 /* NBBTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBTheme.m; sourceTree = "<group>"; };
-		A2DBB0651631A90000C32443 /* NBBThemeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBBThemeEngine.h; path = "../Neon Boom Box/NBBThemeEngine.h"; sourceTree = "<group>"; };
-		A2DBB0661631A90000C32443 /* NBBThemeEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBBThemeEngine.m; path = "../Neon Boom Box/NBBThemeEngine.m"; sourceTree = "<group>"; };
+		A2DBB0651631A90000C32443 /* NBBThemeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBThemeEngine.h; sourceTree = "<group>"; };
+		A2DBB0661631A90000C32443 /* NBBThemeEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBThemeEngine.m; sourceTree = "<group>"; };
 		A2DBB0681631A93E00C32443 /* NBBModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBModule.h; sourceTree = "<group>"; };
 		A2DBB0691631A93E00C32443 /* NBBModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBModule.m; sourceTree = "<group>"; };
 		A2DBB06C1631A95600C32443 /* NBBTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NBBTheme.h; path = ../NBBCore/NBBTheme.h; sourceTree = "<group>"; };
