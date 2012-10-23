@@ -11,6 +11,8 @@
 		A23A3CDC1634B5F800A622FF /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A23A3CDF1634BC6100A622FF /* NSControl+NBBControlProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */; };
 		A23A3CE01634CB8B00A622FF /* NBBThemeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0661631A90000C32443 /* NBBThemeEngine.m */; };
+		A23A3CF21636253300A622FF /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CED16360F2500A622FF /* Python.framework */; };
+		A23A3CF316362F2200A622FF /* NBBThemeEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0651631A90000C32443 /* NBBThemeEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2689F7316308CE500E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
 		A2689F7D16308CE500E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689F7B16308CE500E1AFFB /* InfoPlist.strings */; };
 		A2689F7F16308CE500E1AFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689F7E16308CE500E1AFFB /* main.m */; };
@@ -125,6 +127,7 @@
 /* Begin PBXFileReference section */
 		A23A3CD61634A9A800A622FF /* NSControl+NBBControlProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSControl+NBBControlProxy.h"; sourceTree = "<group>"; };
 		A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSControl+NBBControlProxy.m"; sourceTree = "<group>"; };
+		A23A3CED16360F2500A622FF /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		A2689F6E16308CE500E1AFFB /* Neon Boom Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Neon Boom Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2689F7216308CE500E1AFFB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A2689F7516308CE500E1AFFB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -195,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23A3CF21636253300A622FF /* Python.framework in Frameworks */,
 				A2689F7316308CE500E1AFFB /* Cocoa.framework in Frameworks */,
 				A23A3CDC1634B5F800A622FF /* NBBCore.framework in Frameworks */,
 			);
@@ -266,6 +270,7 @@
 		A2689F7116308CE500E1AFFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A23A3CED16360F2500A622FF /* Python.framework */,
 				A2689F7216308CE500E1AFFB /* Cocoa.framework */,
 				A2689F9016308CE500E1AFFB /* SenTestingKit.framework */,
 				A2689F7416308CE500E1AFFB /* Other Frameworks */,
@@ -457,6 +462,7 @@
 				A2DBB0821631B1BE00C32443 /* NBBSlider.h in Headers */,
 				A2DBB0851631DAAD00C32443 /* NBBThemable.h in Headers */,
 				A23A3CD81634A9A800A622FF /* NSControl+NBBControlProxy.h in Headers */,
+				A23A3CF316362F2200A622FF /* NBBThemeEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
