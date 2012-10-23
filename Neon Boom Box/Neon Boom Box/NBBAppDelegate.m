@@ -17,6 +17,7 @@
     if (self) {
         NSLog(@"Neon Boom Box started...");
 		Py_Initialize(); // we must call Py_Initialize before attempting to load themes!
+		_themeEngine = [NBBThemeEngine sharedThemeEngine];
     }
     return self;
 }

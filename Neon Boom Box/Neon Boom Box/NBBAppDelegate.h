@@ -7,9 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <NBBCore/NBBThemeEngine.h>
 
 @interface NBBAppDelegate : NSObject <NSApplicationDelegate>
-
-@property (assign) IBOutlet NSWindow *window;
-
+@property(readonly, assign) NBBThemeEngine* themeEngine;
 @end
