@@ -58,22 +58,9 @@
 {
     self = [super init];
     if (self) {
+		NSLog(@"initializing NBB theme engine.");
 		_themedObjects = [[NSMutableArray alloc] init];
-        // get the current theme from user defaults
-		// if the theme is not set or no longer exists
-		// we will apply the first theme found
-		NSString* themeName = [[NSUserDefaults standardUserDefaults] stringForKey:@"NBBActiveTheme"];
-		NSString* themePath = [[NSBundle mainBundle] pathForResource:themeName ofType:@"nbbtheme" inDirectory:@"Themes"];
-		if (!themePath) {
-			// just grab the first nbbtheme bundle
-			NSString* themeDir = [NSString stringWithFormat:@"%@/Themes", [[NSBundle mainBundle] bundlePath]];
-			NSArray* themes = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:themeDir error:nil];
-			themes = [themes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.nbbtheme'"]];
-			themePath = [themes objectAtIndex:0];
-		}
-		NSBundle* themeBundle = [NSBundle bundleWithPath:themePath];
-		NBBTheme* theme = [[NBBTheme alloc] initWithBundle:themeBundle];
-		[self applyTheme:theme];
+		_theme = nil;
     }
     return self;
 }
