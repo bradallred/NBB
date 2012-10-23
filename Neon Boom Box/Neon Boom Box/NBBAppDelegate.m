@@ -7,8 +7,19 @@
 //
 
 #import "NBBAppDelegate.h"
+#import <Python/Python.h>
 
 @implementation NBBAppDelegate
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        NSLog(@"Neon Boom Box started...");
+		Py_Initialize(); // we must call Py_Initialize before attempting to load themes!
+    }
+    return self;
+}
 
 - (void)dealloc
 {
