@@ -4,9 +4,10 @@
 
 from Foundation import *
 from AppKit import *
+from objc import lookUpClass
 
 NBBThemeBase = lookUpClass('NBBTheme')
-NBBThemeEngine = lookupClass('NBBThemeEngine')
+NBBThemeEngine = lookUpClass('NBBThemeEngine')
 
 # TODO: add our custom control subclasses
 
