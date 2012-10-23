@@ -13,14 +13,13 @@
 // singleton pattern
 #pragma mark - Singleton
 
-static NBBThemeEngine* _sharedThemeEngine = nil;
-
 + (NBBThemeEngine*)sharedThemeEngine
 {
-    if (_sharedThemeEngine == nil) {
-        _sharedThemeEngine = [[super allocWithZone:NULL] init];
+	static NBBThemeEngine* sharedThemeEngine = nil;
+    if (sharedThemeEngine == nil) {
+        sharedThemeEngine = [[super allocWithZone:NULL] init];
     }
-    return _sharedThemeEngine;
+    return sharedThemeEngine;
 }
 
 + (id)allocWithZone:(NSZone *)zone
