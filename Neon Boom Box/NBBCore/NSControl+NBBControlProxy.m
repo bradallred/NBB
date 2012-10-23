@@ -15,17 +15,16 @@
 {
 	NBBThemeEngine* themeEngine = [NBBThemeEngine sharedThemeEngine];
 	self = [themeEngine classReplacementForThemableClass:self];
-
 	return [super allocWithZone:zone];
 }
 
-- (id)initWithCoder:(NSCoder *)coder
+- (void)viewWillMoveToWindow:(NSWindow *)newWindow
 {
-    self = [super initWithCoder:coder];
-    if (self) {
-        NBBThemeEngine* themeEngine = [NBBThemeEngine sharedThemeEngine];
+	if ([self conformsToProtocol:@protocol(NBBThemable)]) {
+		NBBThemeEngine* themeEngine = [NBBThemeEngine sharedThemeEngine];
 		[themeEngine themeObject:(id <NBBThemable>)self];
-    }
-    return self;
+	}
+	[super viewWillMoveToWindow:newWindow]; // shouldnt do anything (default implementation is noop)
 }
+
 @end
