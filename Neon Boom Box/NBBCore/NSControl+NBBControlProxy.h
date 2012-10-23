@@ -15,5 +15,5 @@ The goal is to allocate and return overriding theme specific subclasses instead
 
 @interface NSControl (NBBControlProxy)
 + (id)allocWithZone:(NSZone *)zone;
-- (id)initWithCoder:(NSCoder *)coder;
+- (void)viewWillMoveToWindow:(NSWindow *)newWindow;
 @end
