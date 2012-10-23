@@ -4,3 +4,5 @@ from NBBTheme import *
 
 class NBB(NBBThemeBase):
 	pass
+
+NSLog("Neon Boom Box theme is loaded")
