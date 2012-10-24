@@ -8,7 +8,20 @@
 
 #import "NBBButton.h"
 
+@interface NBBButtonCell : NSButtonCell
+
+@end
+
+@implementation NBBButtonCell
+
+@end
+
 @implementation NBBButton
+
++ (void)initialize
+{
+	[self setCellClass:[NBBButtonCell class]];
+}
 
 # pragma mark - NBBThemable
 - (id)initWithTheme:(NBBTheme*) theme
