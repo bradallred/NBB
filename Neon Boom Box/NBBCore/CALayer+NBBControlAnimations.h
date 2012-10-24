@@ -9,5 +9,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface CALayer (NBBControlAnimations)
-
+- (void)startWiggling;
+- (void)stopWiggling;
 @end
