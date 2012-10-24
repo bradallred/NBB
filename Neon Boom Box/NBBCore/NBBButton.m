@@ -24,7 +24,7 @@
 	[self setCellClass:[NBBButtonCell class]];
 }
 
-# pragma mark - NBBThemable
+# pragma mark - Initializers
 - (id)initWithTheme:(NBBTheme*) theme
 {
 	CGRect frame = {}; // TODO: implement a way to get frame from theme
@@ -34,6 +34,16 @@
 		// could just call applyTheme
 	}
 	return self;
+}
+
+- (id)initWithFrame:(NSRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code here.
+    }
+    
+    return self;
 }
 
 - (id)initWithCoder:(NSCoder *)coder
@@ -54,16 +64,6 @@
 - (BOOL)applyTheme:(NBBTheme*) theme
 {
 	return YES;
-}
-
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
 }
 
 - (void)drawRect:(NSRect)dirtyRect
