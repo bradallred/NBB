@@ -34,9 +34,9 @@
 @private
 	NBBTheme* _theme;
 
-	NSMutableArray* _themedObjects;
+	NSMutableSet* _themedObjects;
 }
-@property(nonatomic, retain) IBOutlet NBBWindow *window;
+@property(assign) IBOutlet NBBWindow* window;
 
 + (NBBThemeEngine*)sharedThemeEngine;
 
@@ -44,7 +44,7 @@
 - (void)themeObject:(id <NBBThemable>) obj;
 
 /*
- This method will iterate the _themedObjects array and send an applyTheme message to each
+ This method will iterate the _themedObjects set and send an applyTheme message to each
 */
 - (void)applyTheme:(NBBTheme*) theme;
 @end

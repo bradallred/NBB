@@ -59,7 +59,7 @@
     self = [super init];
     if (self) {
 		NSLog(@"initializing NBB theme engine.");
-		_themedObjects = [[NSMutableArray alloc] init];
+		_themedObjects = [[NSMutableSet alloc] init];
 		_theme = nil;
     }
     return self;
