@@ -20,6 +20,7 @@
 
 + (void)initialize
 {
+	// force custom button cell class
 	[self setCellClass:[NBBButtonCell class]];
 }
 
@@ -33,6 +34,21 @@
 		// could just call applyTheme
 	}
 	return self;
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        if (![[self cell] isKindOfClass:[NBBButtonCell class]])
+		{
+			// force custom button cell class for NIB archived buttons
+			NSImage* image = [self image];
+			[self setCell:[[[NBBButtonCell alloc] initImageCell:image] autorelease]];
+			[[self cell] setControlSize:NSRegularControlSize];
+		}
+    }
+    return self;
 }
 
 - (BOOL)applyTheme:(NBBTheme*) theme
