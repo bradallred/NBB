@@ -9,5 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface NBBTheme : NSObject
-
+- (NSFont*)smallFont;
+- (NSFont*)normalFont;
+- (NSFont*)largeFont;
 @end

@@ -10,4 +10,19 @@
 
 @implementation NBBTheme
 
+- (NSFont*)smallFont
+{
+	return [NSFont controlContentFontOfSize:14.0];
+}
+
+- (NSFont*)normalFont
+{
+	return [NSFont controlContentFontOfSize:24.0];
+}
+
+- (NSFont*)largeFont
+{
+	return [NSFont controlContentFontOfSize:32.0];
+}
+
 @end
