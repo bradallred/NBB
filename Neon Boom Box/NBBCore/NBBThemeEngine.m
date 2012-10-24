@@ -82,13 +82,15 @@
 	return replacement;
 }
 
-- (void)themeObject:(id <NBBThemable>) obj
+- (BOOL)themeObject:(id <NBBThemable>) obj
 {
-	if ([obj conformsToProtocol:@protocol(NBBThemable)]) {
+	if (_theme && [obj conformsToProtocol:@protocol(NBBThemable)]) {
 		if ([obj applyTheme:_theme]) {
 			[_themedObjects addObject:obj];
+			return YES;
 		}
 	}
+	return NO;
 }
 
 - (void)applyTheme:(NBBTheme*) theme

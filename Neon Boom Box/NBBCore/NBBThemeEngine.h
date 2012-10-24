@@ -41,7 +41,7 @@
 + (NBBThemeEngine*)sharedThemeEngine;
 
 - (Class <NBBThemable>)classReplacementForThemableClass:(Class <NBBThemable>) cls;
-- (void)themeObject:(id <NBBThemable>) obj;
+- (BOOL)themeObject:(id <NBBThemable>) obj;
 
 /*
  This method will iterate the _themedObjects set and send an applyTheme message to each
