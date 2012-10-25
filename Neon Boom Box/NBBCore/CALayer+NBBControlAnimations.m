@@ -15,12 +15,10 @@ Thank you, Brian.
 #import "CALayer+NBBControlAnimations.h"
 
 @implementation CALayer (NBBControlAnimations)
-static NSString * const kBTSWiggleTransformAnimation = @"BTSWiggleTransformAnimation";
-static NSString * const kBTSWiggleTransformTranslationXAnimation = @"BTSWiggleTransformTranslationXAnimation";
 
-- (void)startWiggling
+- (void)startJiggling
 {
-    // For asthetics... don't reset the animations if we are already "wiggling"... otherwise the layer jerks
+    // For asthetics... don't reset the animations if we are already "Jiggling"... otherwise the layer jerks
     if ([self animationForKey:kBTSWiggleTransformAnimation] != nil && [self animationForKey:kBTSWiggleTransformTranslationXAnimation] != nil) {
         return;
     }
@@ -48,12 +46,12 @@ static NSString * const kBTSWiggleTransformTranslationXAnimation = @"BTSWiggleTr
     [translationXAnimation setFromValue:[NSNumber numberWithFloat:[self bounds].origin.x + 2.0]];
     [translationXAnimation setToValue:[NSNumber numberWithFloat:[self bounds].origin.x - 2.0]];
 	
-    // add the animations using app-specific keys... we use these keys to "stop wiggling".
+    // add the animations using app-specific keys... we use these keys to "stop Jiggling".
     [self addAnimation:rotationAnimation forKey:kBTSWiggleTransformAnimation];
     [self addAnimation:translationXAnimation forKey:kBTSWiggleTransformTranslationXAnimation];
 }
 
-- (void)stopWiggling
+- (void)stopJiggling
 {
     [self removeAnimationForKey:kBTSWiggleTransformAnimation];
     [self removeAnimationForKey:kBTSWiggleTransformTranslationXAnimation];
