@@ -8,7 +8,10 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+static NSString * const kBTSWiggleTransformAnimation = @"BTSWiggleTransformAnimation";
+static NSString * const kBTSWiggleTransformTranslationXAnimation = @"BTSWiggleTransformTranslationXAnimation";
+
 @interface CALayer (NBBControlAnimations)
-- (void)startWiggling;
-- (void)stopWiggling;
+- (void)startJiggling;
+- (void)stopJiggling;
 @end
