@@ -16,6 +16,8 @@
 		A23A3D00163777CE00A622FF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CFF163777CE00A622FF /* QuartzCore.framework */; };
 		A23A3D0316377FAE00A622FF /* CALayer+NBBControlAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3D0116377FAE00A622FF /* CALayer+NBBControlAnimations.h */; };
 		A23A3D0416377FAE00A622FF /* CALayer+NBBControlAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D0216377FAE00A622FF /* CALayer+NBBControlAnimations.m */; };
+		A23A3D181639EF1600A622FF /* NSActionCell+NBBSwappable.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3D161639EF1600A622FF /* NSActionCell+NBBSwappable.h */; };
+		A23A3D191639EF1600A622FF /* NSActionCell+NBBSwappable.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */; };
 		A2689F7316308CE500E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
 		A2689F7D16308CE500E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689F7B16308CE500E1AFFB /* InfoPlist.strings */; };
 		A2689F7F16308CE500E1AFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689F7E16308CE500E1AFFB /* main.m */; };
@@ -135,6 +137,8 @@
 		A23A3CFF163777CE00A622FF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A23A3D0116377FAE00A622FF /* CALayer+NBBControlAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+NBBControlAnimations.h"; sourceTree = "<group>"; };
 		A23A3D0216377FAE00A622FF /* CALayer+NBBControlAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+NBBControlAnimations.m"; sourceTree = "<group>"; };
+		A23A3D161639EF1600A622FF /* NSActionCell+NBBSwappable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSActionCell+NBBSwappable.h"; sourceTree = "<group>"; };
+		A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSActionCell+NBBSwappable.m"; sourceTree = "<group>"; };
 		A2689F6E16308CE500E1AFFB /* Neon Boom Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Neon Boom Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2689F7216308CE500E1AFFB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A2689F7516308CE500E1AFFB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -364,6 +368,8 @@
 				A2DBB0661631A90000C32443 /* NBBThemeEngine.m */,
 				A2DBB0741631B0A000C32443 /* NBBWindow.h */,
 				A2DBB0751631B0A000C32443 /* NBBWindow.m */,
+				A23A3D161639EF1600A622FF /* NSActionCell+NBBSwappable.h */,
+				A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */,
 				A23A3CD61634A9A800A622FF /* NSControl+NBBControlProxy.h */,
 				A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */,
 				A2689FAE16308DCB00E1AFFB /* Supporting Files */,
@@ -476,6 +482,7 @@
 				A23A3CD81634A9A800A622FF /* NSControl+NBBControlProxy.h in Headers */,
 				A23A3CF316362F2200A622FF /* NBBThemeEngine.h in Headers */,
 				A23A3D0316377FAE00A622FF /* CALayer+NBBControlAnimations.h in Headers */,
+				A23A3D181639EF1600A622FF /* NSActionCell+NBBSwappable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
