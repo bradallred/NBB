@@ -131,6 +131,7 @@
 		A23A3CD61634A9A800A622FF /* NSControl+NBBControlProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSControl+NBBControlProxy.h"; sourceTree = "<group>"; };
 		A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSControl+NBBControlProxy.m"; sourceTree = "<group>"; };
 		A23A3CED16360F2500A622FF /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
+		A23A3CF416372E4500A622FF /* NBBSwappableControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBBSwappableControl.h; sourceTree = "<group>"; };
 		A23A3CFF163777CE00A622FF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A23A3D0116377FAE00A622FF /* CALayer+NBBControlAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+NBBControlAnimations.h"; sourceTree = "<group>"; };
 		A23A3D0216377FAE00A622FF /* CALayer+NBBControlAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+NBBControlAnimations.m"; sourceTree = "<group>"; };
@@ -351,6 +352,7 @@
 				A2DBB0691631A93E00C32443 /* NBBModule.m */,
 				A2DBB0801631B1BE00C32443 /* NBBSlider.h */,
 				A2DBB0811631B1BE00C32443 /* NBBSlider.m */,
+				A23A3CF416372E4500A622FF /* NBBSwappableControl.h */,
 				A2DBB0781631B12E00C32443 /* NBBTableView.h */,
 				A2DBB0791631B12E00C32443 /* NBBTableView.m */,
 				A2DBB07C1631B18700C32443 /* NBBTextField.h */,
