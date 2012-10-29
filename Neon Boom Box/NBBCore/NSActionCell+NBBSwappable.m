@@ -174,6 +174,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 					[image unlockFocus];
 					di = [[[NSDraggingItem alloc] initWithPasteboardWriter:image] autorelease];
 					[di setDraggingFrame:self.controlView.bounds contents:image];
+					[image release];
 				}
 
 				NSArray* items = [NSArray arrayWithObject:di];
