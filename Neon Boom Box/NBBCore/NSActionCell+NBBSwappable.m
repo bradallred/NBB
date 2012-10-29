@@ -160,9 +160,58 @@ static char const * const delegateTagKey = "_swapDelegate";
 		} else {
 			done = YES;
 			result = YES;
-			[self setSwappingEnabled:![self swappingEnabled]];
+			BOOL swap = ![self swappingEnabled];
+			[self setSwappingEnabled:swap];
+			if (swap) {
+				NSDraggingItem* di = nil;
+				if (self.image) {
+					di = [[[NSDraggingItem alloc] initWithPasteboardWriter:self.image] autorelease];
+					[di setDraggingFrame:self.controlView.bounds contents:self.image];
+				} else {
+					NSImage* image = [[NSImage alloc] initWithSize:self.controlView.bounds.size];
+					[image lockFocus];
+					[self.title drawAtPoint:NSZeroPoint withAttributes:nil];
+					[image unlockFocus];
+					di = [[[NSDraggingItem alloc] initWithPasteboardWriter:image] autorelease];
+					[di setDraggingFrame:self.controlView.bounds contents:image];
+				}
+
+				NSArray* items = [NSArray arrayWithObject:di];
+				[self.controlView beginDraggingSessionWithItems:items event:theEvent source:self];
+			}
 		}
 	}
 	return result;
 }
+
+#pragma mark - NSDraggingSource Methods
+- (NSDragOperation)draggingSession:(NSDraggingSession *)session sourceOperationMaskForDraggingContext:(NSDraggingContext)context
+{
+	switch(context) {
+        case NSDraggingContextOutsideApplication:
+            return NSDragOperationNone;
+            break;
+
+        case NSDraggingContextWithinApplication:
+        default:
+            return NSDragOperationPrivate;
+            break;
+    }
+}
+
+- (void)draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint
+{
+	NSLog(@"drag began");
+}
+
+- (void)draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation
+{
+	NSLog(@"drag ended");
+}
+
+- (BOOL)ignoreModifierKeysForDraggingSession:(NSDraggingSession *)session
+{
+	return YES;
+}
+
 @end

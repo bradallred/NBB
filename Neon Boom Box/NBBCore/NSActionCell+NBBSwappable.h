@@ -18,7 +18,7 @@
  While jiggling you may drag a control onto another jiggling control to initiate a swap
  */
 
-@interface NSActionCell (NBBSwappable) <NBBSwappableControl>
+@interface NSActionCell (NBBSwappable) <NBBSwappableControl, NSDraggingSource, NSDraggingDestination>
 @property (nonatomic, retain) id <NBBSwappableControlDelegate> swapDelegate;
 
 - (void)setSwappingEnabled:(BOOL) enable;
