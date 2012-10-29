@@ -75,14 +75,13 @@ static char const * const delegateTagKey = "_swapDelegate";
 		if (delegate == nil || [delegate controlAllowedToSwap:self.controlView]) {
 			// post a notification to enable swapping. either no delegate or its ok.
 			[nc postNotificationName:@"NBBControlSwappingStateChanged"
-							  object:self.controlView
-							userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:@"enabled"]];
+							  object:self.controlView userInfo:@{ @"enabled" : @(YES) }];
+			
 		}
 	} else {
 		// post a notification to disable swapping. no need to ask delegate this is always allowed
 		[nc postNotificationName:@"NBBControlSwappingStateChanged"
-						  object:self.controlView
-						userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"enabled"]];
+						  object:self.controlView userInfo:@{ @"enabled" : @(NO) }];
 	}
 }
 
