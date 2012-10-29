@@ -34,8 +34,8 @@ Thank you, Brian.
     [rotationAnimation setDuration:0.1];
     [rotationAnimation setAutoreverses:YES];
 	
-    [rotationAnimation setFromValue:[NSNumber numberWithFloat:(float) (M_PI/100.0)]];
-    [rotationAnimation setToValue:[NSNumber numberWithFloat:(float) (-M_PI/100.0)]];
+    [rotationAnimation setFromValue:@(M_PI/100.0)];
+    [rotationAnimation setToValue:@(-M_PI/100.0)];
     
     // Create the translation animation along the X axis. This gives is a slight sliding effect, which looks nice.
     CABasicAnimation *translationXAnimation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
@@ -43,9 +43,9 @@ Thank you, Brian.
     [translationXAnimation setDuration:0.2];
 	
     [translationXAnimation setAutoreverses:YES];
-    [translationXAnimation setFromValue:[NSNumber numberWithFloat:[self bounds].origin.x + 2.0]];
-    [translationXAnimation setToValue:[NSNumber numberWithFloat:[self bounds].origin.x - 2.0]];
-	
+    [translationXAnimation setFromValue:@(self.bounds.origin.x + 2.0)];
+    [translationXAnimation setToValue:@(self.bounds.origin.x - 2.0)];
+
     // add the animations using app-specific keys... we use these keys to "stop Jiggling".
     [self addAnimation:rotationAnimation forKey:kBTSWiggleTransformAnimation];
     [self addAnimation:translationXAnimation forKey:kBTSWiggleTransformTranslationXAnimation];
