@@ -122,8 +122,9 @@ static char const * const delegateTagKey = "_swapDelegate";
 								   untilDate:endDate
 									  inMode:NSEventTrackingRunLoopMode
 									 dequeue:YES];
-		
-		if (event)	// Mouse event
+
+		BOOL swap = [self swappingEnabled];
+		if (event && !swap)
 		{
 			currentPoint = event.locationInWindow;
 			
@@ -160,8 +161,12 @@ static char const * const delegateTagKey = "_swapDelegate";
 		} else {
 			done = YES;
 			result = YES;
-			BOOL swap = ![self swappingEnabled];
-			[self setSwappingEnabled:swap];
+
+			if (!event) {
+				swap = !swap;
+				[self setSwappingEnabled:swap];
+			}
+
 			if (swap) {
 				NSView* cv = self.controlView;
 				NSBitmapImageRep* rep = [cv bitmapImageRepForCachingDisplayInRect:cv.bounds];
