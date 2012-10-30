@@ -175,6 +175,8 @@ static char const * const delegateTagKey = "_swapDelegate";
 				[image release];
 				NSArray* items = [NSArray arrayWithObject:di];
 				[cv beginDraggingSessionWithItems:items event:theEvent source:self];
+
+				[cv setHidden:YES];
 			}
 		}
 	}
@@ -203,6 +205,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (void)draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation
 {
+	[self.controlView setHidden:NO];
 	NSLog(@"drag ended");
 }
 
