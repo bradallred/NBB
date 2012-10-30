@@ -163,18 +163,18 @@ static char const * const delegateTagKey = "_swapDelegate";
 			BOOL swap = ![self swappingEnabled];
 			[self setSwappingEnabled:swap];
 			if (swap) {
-				NSDraggingItem* di = nil;
-				NSBitmapImageRep* rep = [self.controlView bitmapImageRepForCachingDisplayInRect:self.controlView.bounds];
+				NSView* cv = self.controlView;
+				NSBitmapImageRep* rep = [self.controlView bitmapImageRepForCachingDisplayInRect:cv.bounds];
 				NSImage* image = [[NSImage alloc] initWithSize:rep.size];
 
-				[self.controlView cacheDisplayInRect:self.controlView.bounds toBitmapImageRep:rep];
+				[cv cacheDisplayInRect:cv.bounds toBitmapImageRep:rep];
 				[image addRepresentation:rep];
 
-				di = [[[NSDraggingItem alloc] initWithPasteboardWriter:image] autorelease];
-				[di setDraggingFrame:self.controlView.bounds contents:image];
+				NSDraggingItem* di = [[[NSDraggingItem alloc] initWithPasteboardWriter:image] autorelease];
+				[di setDraggingFrame:cv.bounds contents:image];
 				[image release];
 				NSArray* items = [NSArray arrayWithObject:di];
-				[self.controlView beginDraggingSessionWithItems:items event:theEvent source:self];
+				[cv beginDraggingSessionWithItems:items event:theEvent source:self];
 			}
 		}
 	}
