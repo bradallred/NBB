@@ -164,7 +164,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 			[self setSwappingEnabled:swap];
 			if (swap) {
 				NSView* cv = self.controlView;
-				NSBitmapImageRep* rep = [self.controlView bitmapImageRepForCachingDisplayInRect:cv.bounds];
+				NSBitmapImageRep* rep = [cv bitmapImageRepForCachingDisplayInRect:cv.bounds];
 				NSImage* image = [[NSImage alloc] initWithSize:rep.size];
 
 				[cv cacheDisplayInRect:cv.bounds toBitmapImageRep:rep];
