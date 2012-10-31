@@ -250,4 +250,13 @@ static char const * const delegateTagKey = "_swapDelegate";
 	return YES;
 }
 
+#pragma mark Animation Delegation
+
+- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
+{
+	// drag fail/canceled animation
+	[self.controlView setHidden:NO];
+	[[NBBDragAnimationWindow sharedAnimationWindow] orderOut:self];
+}
+
 @end
