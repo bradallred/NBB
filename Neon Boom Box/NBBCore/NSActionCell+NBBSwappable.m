@@ -111,7 +111,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 	NSPoint currentPoint = theEvent.locationInWindow;
 	BOOL done = NO;
 	BOOL trackContinously = [self startTrackingAt:currentPoint inView:controlView];
-	
+
 	// Catch next mouse-dragged or mouse-up event until timeout
 	BOOL mouseIsUp = NO;
 	NSEvent *event;
@@ -128,7 +128,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 		if (event && !swap)
 		{
 			currentPoint = event.locationInWindow;
-			
+
 			// Send continueTracking.../stopTracking...
 			if (trackContinously)
 			{
@@ -142,10 +142,10 @@ static char const * const delegateTagKey = "_swapDelegate";
 					[NSApp sendAction:self.action to:self.target from:controlView];
 				}
 			}
-			
+
 			mouseIsUp = (event.type == NSLeftMouseUp);
 			done = done || mouseIsUp;
-			
+
 			if (untilMouseUp)
 			{
 				result = mouseIsUp;
@@ -155,7 +155,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 				if (!result)
 					done = YES;
 			}
-			
+
 			if (done && result && ![self isContinuous])
 				[NSApp sendAction:self.action to:self.target from:controlView];
 			
@@ -235,13 +235,11 @@ static char const * const delegateTagKey = "_swapDelegate";
 {
 	NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
 	NSRect frame = dw.frame;
-	NSPoint destPt = frame.origin;
 
 	[dw setFrameTopLeftPoint:screenPoint];
 	[dw orderFront:self];
 	[[NSAnimationContext currentContext] setDuration:0.5];
 
-	frame.origin = destPt;
 	[[dw animator] setFrame:frame display:YES];
 }
 
