@@ -209,8 +209,10 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (void)draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint
 {
+	// TODO: move as much of the animation setup to the NBBDragAnimationWindow as possible
 	NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
 	CABasicAnimation *positionAnim = [dw animationForKey:@"frame"];
+	positionAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 	NSImage* image = [[NSImage alloc] initWithPasteboard:session.draggingPasteboard];
 	NSPoint vp = [self.controlView.window convertScreenToBase:screenPoint];
 	vp = [self.controlView convertPoint:vp fromView:nil];
