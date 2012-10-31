@@ -235,14 +235,15 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (void)draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation
 {
-	NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
-	NSRect frame = dw.frame;
+	if (operation == NSDragOperationNone) {
+		NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
+		NSRect frame = dw.frame;
 
-	[dw setFrameTopLeftPoint:screenPoint];
-	[dw orderFront:self];
-	[[NSAnimationContext currentContext] setDuration:0.5];
-
-	[[dw animator] setFrame:frame display:YES];
+		[dw setFrameTopLeftPoint:screenPoint];
+		[dw orderFront:self];
+		[[NSAnimationContext currentContext] setDuration:0.5];
+		[[dw animator] setFrame:frame display:YES];
+	}
 }
 
 - (BOOL)ignoreModifierKeysForDraggingSession:(NSDraggingSession *)session
