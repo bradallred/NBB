@@ -251,6 +251,59 @@ static char const * const delegateTagKey = "_swapDelegate";
 	return YES;
 }
 
+#pragma mark - NSDraggingDestination Methods
+- (BOOL)wantsPeriodicDraggingUpdates
+{
+	return NO;
+}
+
+- (NSDragOperation)draggingEntered:(id < NSDraggingInfo >)sender
+{
+	if ([self swappingEnabled]) {
+		[self setHighlighted:YES];
+		return NSDragOperationPrivate;
+	}
+	return NSDragOperationNone;
+}
+
+- (void)draggingExited:(id < NSDraggingInfo >)sender
+{
+	[self setHighlighted:NO];
+}
+
+- (BOOL)prepareForDragOperation:(id < NSDraggingInfo >)sender
+{
+	return YES;
+}
+
+- (BOOL)performDragOperation:(id < NSDraggingInfo >)sender
+{
+	return YES;
+}
+
+- (void)concludeDragOperation:(id < NSDraggingInfo >)sender
+{
+	NSView* cv = self.controlView;
+	NSView* source = [(NSActionCell*)[sender draggingSource] controlView];
+	NSRect srcFrame = source.frame;
+	NSRect dstFrame = cv.frame;
+
+	NSLog(@"swapping %@ with %@", cv, source);
+
+	[self setHighlighted:NO];
+	// we need to obtain the animation window frame in the views window coordinates
+	//NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
+	NSPoint startPt = [sender draggedImageLocation];
+	NSRect startFrame = source.frame;
+	startFrame.origin = startPt;
+	// = [cv convertRectFromBase:[NBBDragAnimationWindow sharedAnimationWindow].frame];
+	[source setFrame:startFrame];
+	[source setHidden:NO];
+
+	[[cv animator] setFrame:srcFrame];
+	[[source animator] setFrame:dstFrame];
+}
+
 #pragma mark Animation Delegation
 
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
