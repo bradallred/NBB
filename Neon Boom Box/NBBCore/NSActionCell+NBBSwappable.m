@@ -12,6 +12,8 @@
 #import "CALayer+NBBControlAnimations.h"
 #import "NSActionCell+NBBSwappable.h"
 
+#import "NBBDragAnimationWindow.h"
+
 static char const * const delegateTagKey = "_swapDelegate";
 
 @implementation NSActionCell (NBBSwappable)
@@ -104,7 +106,6 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)untilMouseUp
 {
-	
 	BOOL result = NO;
 	NSDate *endDate = [NSDate dateWithTimeIntervalSinceNow:1.0];
 	NSPoint currentPoint = theEvent.locationInWindow;
@@ -179,9 +180,12 @@ static char const * const delegateTagKey = "_swapDelegate";
 				[di setDraggingFrame:cv.bounds contents:image];
 				[image release];
 				NSArray* items = [NSArray arrayWithObject:di];
-				[cv beginDraggingSessionWithItems:items event:theEvent source:self];
 
-				[cv setHidden:YES];
+				NSDraggingSession* session = [cv beginDraggingSessionWithItems:items event:theEvent source:self];
+				// we must NOT let the session handle the cancel/fail animation
+				// if we did we would have an ugly fade out and sudden appearance of the control
+				// we will fake this animation ourselves. see +initialize and NSDraggingSource methods
+				session.animatesToStartingPositionsOnCancelOrFail = NO;
 			}
 		}
 	}
@@ -205,13 +209,40 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (void)draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint
 {
-	NSLog(@"drag began");
+	NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
+	CABasicAnimation *positionAnim = [dw animationForKey:@"frame"];
+	NSImage* image = [[NSImage alloc] initWithPasteboard:session.draggingPasteboard];
+	NSPoint vp = [self.controlView.window convertScreenToBase:screenPoint];
+	vp = [self.controlView convertPoint:vp fromView:nil];
+
+    positionAnim.delegate = self;
+	[dw setAnimations:@{@"frame" : positionAnim}];
+
+	[self.controlView setHidden:YES];
+
+	[(NSView*)dw.contentView layer].contents = image;
+
+	NSRect frame;
+	frame.size = image.size;
+	frame.origin.y = screenPoint.y - vp.y;
+	frame.origin.x = screenPoint.x - vp.x;
+
+	[image release];
+	[dw setFrame:frame display:NO];
 }
 
 - (void)draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation
 {
-	[self.controlView setHidden:NO];
-	NSLog(@"drag ended");
+	NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
+	NSRect frame = dw.frame;
+	NSPoint destPt = frame.origin;
+
+	[dw setFrameTopLeftPoint:screenPoint];
+	[dw orderFront:self];
+	[[NSAnimationContext currentContext] setDuration:0.5];
+
+	frame.origin = destPt;
+	[[dw animator] setFrame:frame display:YES];
 }
 
 - (BOOL)ignoreModifierKeysForDraggingSession:(NSDraggingSession *)session
