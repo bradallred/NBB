@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A223F2A91640BBC500F87174 /* NBBDragAnimationWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A223F2A71640BBC500F87174 /* NBBDragAnimationWindow.h */; };
+		A223F2AA1640BBC500F87174 /* NBBDragAnimationWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A223F2A81640BBC500F87174 /* NBBDragAnimationWindow.m */; };
 		A23A3CD81634A9A800A622FF /* NSControl+NBBControlProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3CD61634A9A800A622FF /* NSControl+NBBControlProxy.h */; };
 		A23A3CDC1634B5F800A622FF /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A23A3CDF1634BC6100A622FF /* NSControl+NBBControlProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */; };
@@ -130,6 +132,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A223F2A71640BBC500F87174 /* NBBDragAnimationWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBDragAnimationWindow.h; sourceTree = "<group>"; };
+		A223F2A81640BBC500F87174 /* NBBDragAnimationWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBDragAnimationWindow.m; sourceTree = "<group>"; };
 		A23A3CD61634A9A800A622FF /* NSControl+NBBControlProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSControl+NBBControlProxy.h"; sourceTree = "<group>"; };
 		A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSControl+NBBControlProxy.m"; sourceTree = "<group>"; };
 		A23A3CED16360F2500A622FF /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
@@ -352,6 +356,8 @@
 				A2DBB0711631B05C00C32443 /* NBBButton.m */,
 				A2689FB416308DCB00E1AFFB /* NBBCore.h */,
 				A2689FB516308DCB00E1AFFB /* NBBCore.m */,
+				A223F2A71640BBC500F87174 /* NBBDragAnimationWindow.h */,
+				A223F2A81640BBC500F87174 /* NBBDragAnimationWindow.m */,
 				A2DBB0681631A93E00C32443 /* NBBModule.h */,
 				A2DBB0691631A93E00C32443 /* NBBModule.m */,
 				A2DBB0801631B1BE00C32443 /* NBBSlider.h */,
@@ -483,6 +489,7 @@
 				A23A3CF316362F2200A622FF /* NBBThemeEngine.h in Headers */,
 				A23A3D0316377FAE00A622FF /* CALayer+NBBControlAnimations.h in Headers */,
 				A23A3D181639EF1600A622FF /* NSActionCell+NBBSwappable.h in Headers */,
+				A223F2A91640BBC500F87174 /* NBBDragAnimationWindow.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +731,7 @@
 				A23A3CDF1634BC6100A622FF /* NSControl+NBBControlProxy.m in Sources */,
 				A23A3CE01634CB8B00A622FF /* NBBThemeEngine.m in Sources */,
 				A23A3D0416377FAE00A622FF /* CALayer+NBBControlAnimations.m in Sources */,
+				A223F2AA1640BBC500F87174 /* NBBDragAnimationWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
