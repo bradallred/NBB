@@ -78,7 +78,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 			// post a notification to enable swapping. either no delegate or its ok.
 			[nc postNotificationName:@"NBBControlSwappingStateChanged"
 							  object:self.controlView userInfo:@{ @"enabled" : @(YES) }];
-			
+
 		}
 	} else {
 		// post a notification to disable swapping. no need to ask delegate this is always allowed
@@ -112,7 +112,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 	BOOL done = NO;
 	BOOL trackContinously = [self startTrackingAt:currentPoint inView:controlView];
 
-	// Catch next mouse-dragged or mouse-up event until timeout
+	// Catch next mouse-dragged or mouse-up event until timeout (or drag while control is dragable)
 	BOOL mouseIsUp = NO;
 	NSEvent *event;
 	while (!done)
