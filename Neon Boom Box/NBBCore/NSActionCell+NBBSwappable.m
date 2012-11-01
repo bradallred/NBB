@@ -314,15 +314,15 @@ static char const * const delegateTagKey = "_swapDelegate";
 	NSLog(@"swapping %@ with %@", cv, source);
 
 	[self setHighlighted:NO];
-	// we need to obtain the animation window frame in the views window coordinates
-	//NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
+
+	// we need to obtain the coordinates for the drag image representing the source control
 	NSPoint startPt = [sender draggedImageLocation];
 	NSRect startFrame = source.frame;
 	startFrame.origin = startPt;
-	// = [cv convertRectFromBase:[NBBDragAnimationWindow sharedAnimationWindow].frame];
-	[source setFrame:startFrame];
+	[source setFrame:startFrame]; // move the control before making it visible (no animation)
 	[source setHidden:NO];
 
+	// animate both controls to the others original frame
 	[[cv animator] setFrame:srcFrame];
 	[[source animator] setFrame:dstFrame];
 }
