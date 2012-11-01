@@ -17,14 +17,14 @@
 		NSLog(@"Starting NBB");
 		// the delegate needs to be created BEFORE the nib is loaded.
 		// this is due to our need for themeing the contents of the nib
-        self.delegate = [[[NBBAppDelegate alloc] init] autorelease];
+        self.delegate = [[NBBAppDelegate alloc] init];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    self.delegate = nil;
+    [self.delegate release];
     [super dealloc];
 }
 
