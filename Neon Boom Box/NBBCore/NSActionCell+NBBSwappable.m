@@ -249,13 +249,8 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 	[(NSView*)dw.contentView layer].contents = image;
 
-	NSRect frame;
-	frame.size = image.size;
-	frame.origin.y = screenPoint.y - vp.y;
-	frame.origin.x = screenPoint.x - vp.x;
-
 	[image release];
-	[dw setFrame:frame display:NO];
+	[dw setFrame:[cv.window convertRectToScreen:cv.frame] display:NO];
 }
 
 - (void)draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation
