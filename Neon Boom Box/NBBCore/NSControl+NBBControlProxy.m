@@ -37,4 +37,33 @@
 	[super viewWillMoveToWindow:newWindow]; // shouldnt do anything (default implementation is noop)
 }
 
+#pragma mark NSDraggingDestination
+// message forwarding doesnt work for NSDraggingDestination methods
+// because NSView implements empty methods for the protocol
+
+- (NSDragOperation)draggingEntered:(id < NSDraggingInfo >)sender
+{
+	return [self.cell draggingEntered:sender];
+}
+
+- (void)draggingExited:(id < NSDraggingInfo >)sender
+{
+	[self.cell draggingExited:sender];
+}
+
+- (BOOL)prepareForDragOperation:(id < NSDraggingInfo >)sender
+{
+	return [self.cell prepareForDragOperation:sender];
+}
+
+- (BOOL)performDragOperation:(id < NSDraggingInfo >)sender
+{
+	return [self.cell performDragOperation:sender];
+}
+
+- (void)concludeDragOperation:(id < NSDraggingInfo >)sender
+{
+	return [self.cell concludeDragOperation:sender];
+}
+
 @end
