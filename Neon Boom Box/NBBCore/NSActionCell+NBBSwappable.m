@@ -39,13 +39,27 @@ static char const * const delegateTagKey = "_swapDelegate";
 	return objc_getAssociatedObject(self, delegateTagKey);
 }
 
+- (void)finalizeInit
+{
+	// subscribe to swap notifications
+	NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+	[nc addObserver:self selector:@selector(swapStateChanged:) name:@"NBBControlSwappingStateChanged" object:nil];
+
+	// this is a bit of a hac, but the easiest way to make the control dragging work.
+	// force the control to accept image drags.
+	// the control will forward us the drag destination events via our NBBControlProxy category
+	[self.controlView registerForDraggedTypes:[NSImage imagePasteboardTypes]];
+}
+
+// NSCell docs say we have 3 designated initializers.
+// be sure we add finalizeInit to all of them
+#pragma mark - Inits
+
 - (id)initImageCell:(NSImage *)anImage
 {
 	self = [super initImageCell:anImage];
     if (self) {
-        // subscribe to swap notifications
-		NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-		[nc addObserver:self selector:@selector(swapStateChanged:) name:@"NBBControlSwappingStateChanged" object:nil];
+		[self finalizeInit];
     }
     return self;
 }
@@ -54,9 +68,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 {
 	self = [super initTextCell:aString];
     if (self) {
-        // subscribe to swap notifications
-		NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-		[nc addObserver:self selector:@selector(swapStateChanged:) name:@"NBBControlSwappingStateChanged" object:nil];
+        [self finalizeInit];
     }
     return self;
 }
@@ -65,9 +77,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 {
     self = [super initWithCoder:coder];
     if (self) {
-        // subscribe to swap notifications
-		NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-		[nc addObserver:self selector:@selector(swapStateChanged:) name:@"NBBControlSwappingStateChanged" object:nil];
+        [self finalizeInit];
     }
     return self;
 }
