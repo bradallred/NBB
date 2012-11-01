@@ -18,6 +18,9 @@
 
 #import "NBBDragAnimationWindow.h"
 
+// TODO: animation window ought to have a view property designating the view it is representing
+// then we can move most of the drag animation code here where it belongs
+
 @implementation NBBDragAnimationWindow
 
 // singleton pattern

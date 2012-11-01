@@ -174,11 +174,14 @@ static char const * const delegateTagKey = "_swapDelegate";
 			result = YES;
 
 			if (!event) {
+				// if there is no event then the timer expired and we should toggle swapping
 				swap = !swap;
 				[self setSwappingEnabled:swap];
 			}
 
 			if (swap) {
+				// this bit-o-magic executes on either a drag event or immidiately following timer expiration
+				// this initiates the control drag event using NSDragging protocols
 				NSView* cv = self.controlView;
 				NSBitmapImageRep* rep = [cv bitmapImageRepForCachingDisplayInRect:cv.bounds];
 				NSImage* image = [[NSImage alloc] initWithSize:rep.size];
@@ -219,7 +222,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (void)draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint
 {
-	// TODO: move as much of the animation setup to the NBBDragAnimationWindow as possible
+	// TODO: move as much of the animation setup/control to the NBBDragAnimationWindow as possible
 	NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
 	CABasicAnimation *positionAnim = [dw animationForKey:@"frame"];
 	positionAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
@@ -315,7 +318,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 }
 
 #pragma mark Animation Delegation
-
+// TODO: animation window ought to be the delegate
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
 {
 	// drag fail/canceled animation
