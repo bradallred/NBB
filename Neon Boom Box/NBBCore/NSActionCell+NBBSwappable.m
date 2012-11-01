@@ -115,11 +115,12 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (void)swapStateChanged:(NSNotification*) notification
 {
-	if ([[notification object] isKindOfClass:[self.controlView class]]) {
+	NSView* cv = self.controlView;
+	if ([[notification object] isKindOfClass:[cv class]]) {
 		if ([[[notification userInfo] objectForKey:@"enabled"] boolValue]) {
-			[self.controlView.layer startJiggling];
+			[cv.layer startJiggling];
 		} else {
-			[self.controlView.layer stopJiggling];
+			[cv.layer stopJiggling];
 		}
 	}
 }
@@ -234,16 +235,17 @@ static char const * const delegateTagKey = "_swapDelegate";
 {
 	// TODO: move as much of the animation setup/control to the NBBDragAnimationWindow as possible
 	NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
+	NSView* cv = self.controlView;
 	CABasicAnimation *positionAnim = [dw animationForKey:@"frame"];
 	positionAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 	NSImage* image = [[NSImage alloc] initWithPasteboard:session.draggingPasteboard];
-	NSPoint vp = [self.controlView.window convertScreenToBase:screenPoint];
-	vp = [self.controlView convertPoint:vp fromView:nil];
+	NSPoint vp = [cv.window convertScreenToBase:screenPoint];
+	vp = [cv convertPoint:vp fromView:nil];
 
     positionAnim.delegate = self;
 	[dw setAnimations:@{@"frame" : positionAnim}];
 
-	[self.controlView setHidden:YES];
+	[cv setHidden:YES];
 
 	[(NSView*)dw.contentView layer].contents = image;
 
