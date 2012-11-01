@@ -20,6 +20,7 @@
 		A23A3D0416377FAE00A622FF /* CALayer+NBBControlAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D0216377FAE00A622FF /* CALayer+NBBControlAnimations.m */; };
 		A23A3D181639EF1600A622FF /* NSActionCell+NBBSwappable.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3D161639EF1600A622FF /* NSActionCell+NBBSwappable.h */; };
 		A23A3D191639EF1600A622FF /* NSActionCell+NBBSwappable.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */; };
+		A24298CB164307C7007437CD /* NBBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = A24298CA164307C7007437CD /* NBBApplication.m */; };
 		A2689F7316308CE500E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
 		A2689F7D16308CE500E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689F7B16308CE500E1AFFB /* InfoPlist.strings */; };
 		A2689F7F16308CE500E1AFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689F7E16308CE500E1AFFB /* main.m */; };
@@ -143,6 +144,8 @@
 		A23A3D0216377FAE00A622FF /* CALayer+NBBControlAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+NBBControlAnimations.m"; sourceTree = "<group>"; };
 		A23A3D161639EF1600A622FF /* NSActionCell+NBBSwappable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSActionCell+NBBSwappable.h"; sourceTree = "<group>"; };
 		A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSActionCell+NBBSwappable.m"; sourceTree = "<group>"; };
+		A24298C9164307C7007437CD /* NBBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBApplication.h; sourceTree = "<group>"; };
+		A24298CA164307C7007437CD /* NBBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBApplication.m; sourceTree = "<group>"; };
 		A2689F6E16308CE500E1AFFB /* Neon Boom Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Neon Boom Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2689F7216308CE500E1AFFB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A2689F7516308CE500E1AFFB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -311,6 +314,8 @@
 				A2689F8716308CE500E1AFFB /* MainMenu.xib */,
 				A2689F8416308CE500E1AFFB /* NBBAppDelegate.h */,
 				A2689F8516308CE500E1AFFB /* NBBAppDelegate.m */,
+				A24298C9164307C7007437CD /* NBBApplication.h */,
+				A24298CA164307C7007437CD /* NBBApplication.m */,
 				A2689F7916308CE500E1AFFB /* Supporting Files */,
 			);
 			path = "Neon Boom Box";
@@ -705,6 +710,7 @@
 			files = (
 				A2689F7F16308CE500E1AFFB /* main.m in Sources */,
 				A2689F8616308CE500E1AFFB /* NBBAppDelegate.m in Sources */,
+				A24298CB164307C7007437CD /* NBBApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
