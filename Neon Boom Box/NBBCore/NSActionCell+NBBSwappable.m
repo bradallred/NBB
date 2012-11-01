@@ -313,7 +313,9 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 	assert(cv && source && cv != source);
 
-	NSLog(@"swapping %@ with %@", cv, source);
+	NSLog(@"swapping %@:{%f,%f} with %@:{%f,%f}",
+		  cv, dstFrame.origin.x, dstFrame.origin.y,
+		  source, srcFrame.origin.x, srcFrame.origin.y);
 
 	[self setHighlighted:NO];
 
