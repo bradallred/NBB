@@ -19,5 +19,10 @@
 #import <Cocoa/Cocoa.h>
 
 @interface NBBDragAnimationWindow : NSWindow
+@property(readonly, nonatomic) NSView* representedView;
+
 + (NBBDragAnimationWindow*)sharedAnimationWindow;
+
+- (void)setupDragAnimationWith:(NSView*)view usingDragImage:(NSImage*)image;
+- (void)animateToFrame:(NSRect)frame;
 @end

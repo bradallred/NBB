@@ -233,22 +233,14 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (void)draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint
 {
-	// TODO: move as much of the animation setup/control to the NBBDragAnimationWindow as possible
 	NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
 	NSView* cv = self.controlView;
-	CABasicAnimation *positionAnim = [dw animationForKey:@"frame"];
-	positionAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+
 	NSImage* image = [[NSImage alloc] initWithPasteboard:session.draggingPasteboard];
-
-    positionAnim.delegate = self;
-	[dw setAnimations:@{@"frame" : positionAnim}];
-
-	[cv setHidden:YES];
-
-	[(NSView*)dw.contentView layer].contents = image;
-
+	[dw setupDragAnimationWith:cv usingDragImage:image];
 	[image release];
 	[dw setFrame:[cv.window convertRectToScreen:cv.frame] display:NO];
+
 }
 
 - (void)draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation
@@ -258,9 +250,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 		NSRect frame = dw.frame;
 
 		[dw setFrameTopLeftPoint:screenPoint];
-		[dw orderFront:self];
-		[[NSAnimationContext currentContext] setDuration:0.5];
-		[[dw animator] setFrame:frame display:YES];
+		[dw animateToFrame:frame];
 	}
 }
 
@@ -330,15 +320,6 @@ static char const * const delegateTagKey = "_swapDelegate";
 	// animate both controls to the others original frame
 	[[cv animator] setFrame:srcFrame];
 	[[source animator] setFrame:dstFrame];
-}
-
-#pragma mark Animation Delegation
-// TODO: animation window ought to be the delegate
-- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
-{
-	// drag fail/canceled animation
-	[self.controlView setHidden:NO];
-	[[NBBDragAnimationWindow sharedAnimationWindow] orderOut:self];
 }
 
 @end
