@@ -239,8 +239,6 @@ static char const * const delegateTagKey = "_swapDelegate";
 	CABasicAnimation *positionAnim = [dw animationForKey:@"frame"];
 	positionAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 	NSImage* image = [[NSImage alloc] initWithPasteboard:session.draggingPasteboard];
-	NSPoint vp = [cv.window convertScreenToBase:screenPoint];
-	vp = [cv convertPoint:vp fromView:nil];
 
     positionAnim.delegate = self;
 	[dw setAnimations:@{@"frame" : positionAnim}];
