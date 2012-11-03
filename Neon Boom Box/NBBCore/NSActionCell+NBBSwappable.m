@@ -16,7 +16,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
-#import <CoreGraphics/CoreGraphics.h>
 #import <objc/runtime.h>
 
 #import "CALayer+NBBControlAnimations.h"
