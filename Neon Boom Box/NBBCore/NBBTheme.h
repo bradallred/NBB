@@ -18,8 +18,28 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "NBBThemable.h"
+
 @interface NBBTheme : NSObject
+// generic theme methods
 - (NSFont*)smallFont;
 - (NSFont*)normalFont;
 - (NSFont*)largeFont;
+
+- (NSColor*)cellForegroundColor;
+- (NSColor*)labelForegroundColor;
+
+- (NSColor*)cellBackgroundColor;
+- (NSColor*)labelBackgroundColor;
+
+- (NSColor*)highlightColor;
+
+// combination for font, color and alignment
+- (NSDictionary*)cellTextAttributes;
+- (NSDictionary*)labelTextAttributes;
+
+// default theme preferences should supply the frames for controls
+// if the theme wishes controls to have a layout diffrent from NIB
+// you can also override any application default preference
+- (NSDictionary*)defaultThemePrefrences;
 @end

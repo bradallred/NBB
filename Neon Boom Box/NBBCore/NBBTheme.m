@@ -35,4 +35,47 @@
 	return [NSFont controlContentFontOfSize:32.0];
 }
 
+- (NSColor*)cellForegroundColor
+{
+	return [NSColor controlTextColor];
+}
+
+- (NSColor*)labelForegroundColor
+{
+	return [NSColor controlTextColor];
+}
+
+- (NSColor*)cellBackgroundColor
+{
+	return [NSColor controlBackgroundColor];
+}
+- (NSColor*)labelBackgroundColor
+{
+	return [NSColor clearColor];
+}
+
+- (NSColor*)highlightColor
+{
+	return [NSColor highlightColor];
+}
+
+// combination for font, color and alignment
+- (NSDictionary*)cellTextAttributes
+{
+	return @{ NSForegroundColorAttributeName : [self cellForegroundColor], NSFontAttributeName: [self normalFont]};
+}
+
+- (NSDictionary*)labelTextAttributes
+{
+	return @{ NSForegroundColorAttributeName : [self labelForegroundColor], NSFontAttributeName: [self normalFont]};
+}
+
+// default theme preferences should supply the frames for controls
+// if the theme wishes controls to have a layout diffrent from NIB
+// you can also override any application default preference
+- (NSDictionary*)defaultThemePrefrences
+{
+	return @{};
+}
+
 @end
