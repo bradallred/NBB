@@ -62,12 +62,20 @@
 // combination for font, color and alignment
 - (NSDictionary*)cellTextAttributes
 {
-	return @{ NSForegroundColorAttributeName : [self cellForegroundColor], NSFontAttributeName: [self normalFont]};
+	NSMutableParagraphStyle* ps = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
+	ps.alignment = NSCenterTextAlignment;
+	return @{ NSForegroundColorAttributeName : [self cellForegroundColor],
+			  NSFontAttributeName : [self normalFont],
+			  NSParagraphStyleAttributeName : ps};
 }
 
 - (NSDictionary*)labelTextAttributes
 {
-	return @{ NSForegroundColorAttributeName : [self labelForegroundColor], NSFontAttributeName: [self normalFont]};
+	NSMutableParagraphStyle* ps = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
+	ps.alignment = NSCenterTextAlignment;
+	return @{ NSForegroundColorAttributeName : [self labelForegroundColor],
+			  NSFontAttributeName : [self normalFont],
+			  NSParagraphStyleAttributeName : ps};
 }
 
 // default theme preferences should supply the frames for controls
