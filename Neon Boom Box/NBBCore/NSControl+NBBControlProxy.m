@@ -28,9 +28,11 @@
 	return [super allocWithZone:zone];
 }
 
+// use this method over awakeFromNib because we need to catch controls that are created dynamically too
 - (void)viewWillMoveToWindow:(NSWindow *)newWindow
 {
 	if ([self conformsToProtocol:@protocol(NBBThemable)]) {
+		[self setWantsLayer:YES]; // nbb uses CA for many control animations
 		NBBThemeEngine* themeEngine = [NBBThemeEngine sharedThemeEngine];
 		[themeEngine themeObject:(id <NBBThemable>)self];
 	}
