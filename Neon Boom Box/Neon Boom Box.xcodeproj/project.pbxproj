@@ -13,7 +13,6 @@
 		A23A3CDC1634B5F800A622FF /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A23A3CDF1634BC6100A622FF /* NSControl+NBBControlProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */; };
 		A23A3CE01634CB8B00A622FF /* NBBThemeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0661631A90000C32443 /* NBBThemeEngine.m */; };
-		A23A3CF21636253300A622FF /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CED16360F2500A622FF /* Python.framework */; };
 		A23A3CF316362F2200A622FF /* NBBThemeEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0651631A90000C32443 /* NBBThemeEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A23A3D00163777CE00A622FF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CFF163777CE00A622FF /* QuartzCore.framework */; };
 		A23A3D0316377FAE00A622FF /* CALayer+NBBControlAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3D0116377FAE00A622FF /* CALayer+NBBControlAnimations.h */; };
@@ -46,6 +45,7 @@
 		A2689FFA1630C12C00E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A2689FFB1630C13100E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A268A0041630F64A00E1AFFB /* nbb_theme.py in Resources */ = {isa = PBXBuildFile; fileRef = A268A0031630F64A00E1AFFB /* nbb_theme.py */; };
+		A295D3411646DB9C00F90780 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CED16360F2500A622FF /* Python.framework */; };
 		A2DBB0591631A73900C32443 /* NBBTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0551631A73900C32443 /* NBBTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2DBB05A1631A73900C32443 /* NBBTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0561631A73900C32443 /* NBBTheme.m */; };
 		A2DBB06A1631A93E00C32443 /* NBBModule.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0681631A93E00C32443 /* NBBModule.h */; };
@@ -216,7 +216,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A23A3CF21636253300A622FF /* Python.framework in Frameworks */,
 				A2689F7316308CE500E1AFFB /* Cocoa.framework in Frameworks */,
 				A23A3CDC1634B5F800A622FF /* NBBCore.framework in Frameworks */,
 			);
@@ -235,6 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A295D3411646DB9C00F90780 /* Python.framework in Frameworks */,
 				A23A3D00163777CE00A622FF /* QuartzCore.framework in Frameworks */,
 				A2689FAC16308DCB00E1AFFB /* Cocoa.framework in Frameworks */,
 			);

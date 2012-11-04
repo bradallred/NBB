@@ -17,7 +17,6 @@
  */
 
 #import "NBBAppDelegate.h"
-#import <Python/Python.h>
 
 @implementation NBBAppDelegate
 @dynamic dateTime;
@@ -77,7 +76,7 @@
 		[_userPrefrences registerDefaults:@{}]; // will create NSRegistrationDomain for us and add it to path
 
 		// === initialize themeing engine ===
-		Py_Initialize(); // we must call Py_Initialize before attempting to load themes!
+		// this must be done BEFORE attempting to initialize ANY theme
 		_themeEngine = [NBBThemeEngine sharedThemeEngine];
 
 		// === initialize the selected theme ===

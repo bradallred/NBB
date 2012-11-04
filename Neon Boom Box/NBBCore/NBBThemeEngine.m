@@ -16,6 +16,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
+#import <Python/Python.h>
+
 #import "NBBThemeEngine.h"
 
 @implementation NBBThemeEngine
@@ -69,6 +71,8 @@
     self = [super init];
     if (self) {
 		NSLog(@"initializing NBB theme engine.");
+		// initialize Python
+		Py_Initialize(); // we must call Py_Initialize before attempting to load themes!
 		_themedObjects = [[NSMutableSet alloc] init];
 		_theme = nil;
     }
@@ -79,6 +83,9 @@
 {
     [_theme release];
 	[_themedObjects release];
+	// shutdown Python
+	Py_Finalize();
+
     [super dealloc];
 }
 
