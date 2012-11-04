@@ -21,5 +21,7 @@
 
 @interface NBBAppDelegate : NSObject <NSApplicationDelegate>
 @property(readonly, assign) NBBThemeEngine* themeEngine;
+@property(readonly, nonatomic) NSDate* dateTime;
 @property(readonly, nonatomic) NSUserDefaults* userPrefrences;
+
 @end

@@ -20,6 +20,7 @@
 #import <Python/Python.h>
 
 @implementation NBBAppDelegate
+@dynamic dateTime;
 
 - (id)init
 {
@@ -83,6 +84,16 @@
 		NBBTheme* theme = [[themeClass alloc] init];
 		[_themeEngine applyTheme:theme];
 		[theme release];
+
+		// === start a time clock ===
+		NSTimer* timer = [NSTimer timerWithTimeInterval:1.0
+												 target:self
+											   selector:@selector(updateDateTime:)
+											   userInfo:nil
+												repeats:YES];
+
+		// we need to add the timer for all common modes so the clock will update during event tracking
+		[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     }
     return self;
 }
@@ -96,6 +107,18 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Insert code here to initialize your application
+}
+
+- (NSDate*)dateTime
+{
+	return [NSDate date];
+}
+
+- (void)updateDateTime:(NSTimer*)timer
+{
+	// manual KVO notifications
+	[self willChangeValueForKey:@"dateTime"];
+	[self didChangeValueForKey:@"dateTime"];
 }
 
 @end
