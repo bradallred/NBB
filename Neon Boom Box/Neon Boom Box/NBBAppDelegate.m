@@ -26,13 +26,18 @@
     self = [super init];
     if (self) {
         NSLog(@"Neon Boom Box started...");
-		Py_Initialize(); // we must call Py_Initialize before attempting to load themes!
-		_themeEngine = [NBBThemeEngine sharedThemeEngine];
-		
+		// === load user prefrences ===
+		// NOTE: we cannot add a search path before the application path if we use standardUserDefaults
+		_userPrefrences = [[NSUserDefaults alloc] init];
+		NSString* bundleId = [NSBundle mainBundle].bundleIdentifier;
+		[_userPrefrences addSuiteNamed:bundleId];
+
+		// === find the theme to use ===
+
 		// get the current theme from user defaults
 		// if the theme is not set or no longer exists
 		// we will apply the first theme found
-		NSString* themeName = [[NSUserDefaults standardUserDefaults] stringForKey:@"NBBActiveTheme"];
+		NSString* themeName = [_userPrefrences stringForKey:@"NBBActiveTheme"];
 		NSString* themePath = [[NSBundle mainBundle] pathForResource:themeName ofType:@"nbbtheme" inDirectory:@"Themes"];
 		if (!themePath) {
 			NSLog(@"theme not found. loading first theme I find.");
@@ -50,14 +55,31 @@
 										   reason:@"No loadable themes found"
 										 userInfo:nil]);
 		}
-		
+
 		Class themeClass = [themeBundle principalClass];
 		if (!themeClass || ![themeClass isSubclassOfClass:[NBBTheme class]]) {
 			@throw([NSException exceptionWithName:@"NoThemeLoadedException"
 										   reason:[NSString stringWithFormat:@"Bundle principle class '%@' is not a subclass of NBBTheme.", themeClass]
 										 userInfo:nil]);
 		}
-		
+
+		// === add theme preferences to search path ===
+		// this is the first search path for prefrences so remove the app domain for now
+		[_userPrefrences removeSuiteNamed:bundleId];
+		[_userPrefrences addSuiteNamed:themeBundle.bundleIdentifier];
+		// !!!: before we initialize anything we need to re-add application domain to the preference search path
+		[_userPrefrences addSuiteNamed:bundleId];
+		// now theme prefs should override application prefs!
+		// === register defaults ===
+		// this MUST come last in search path
+		// TODO: setup a default plist and load it here
+		[_userPrefrences registerDefaults:@{}]; // will create NSRegistrationDomain for us and add it to path
+
+		// === initialize themeing engine ===
+		Py_Initialize(); // we must call Py_Initialize before attempting to load themes!
+		_themeEngine = [NBBThemeEngine sharedThemeEngine];
+
+		// === initialize the selected theme ===
 		NBBTheme* theme = [[themeClass alloc] init];
 		[_themeEngine applyTheme:theme];
 		[theme release];
@@ -67,6 +89,7 @@
 
 - (void)dealloc
 {
+	[_userPrefrences release];
     [super dealloc];
 }
 
