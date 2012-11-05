@@ -47,8 +47,8 @@
 		A295D3411646DB9C00F90780 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CED16360F2500A622FF /* Python.framework */; };
 		A295D3511646F78D00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D34F1646F78D00F90780 /* InfoPlist.strings */; };
 		A295D3611646F7BC00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D35F1646F7BC00F90780 /* InfoPlist.strings */; };
-		A295D3701646FAEC00F90780 /* poly.py in Resources */ = {isa = PBXBuildFile; fileRef = A295D36E1646FAEC00F90780 /* poly.py */; };
-		A295D3751646FB0000F90780 /* whiteleather.py in Resources */ = {isa = PBXBuildFile; fileRef = A295D3731646FB0000F90780 /* whiteleather.py */; };
+		A295D3701646FAEC00F90780 /* Poly.py in Resources */ = {isa = PBXBuildFile; fileRef = A295D36E1646FAEC00F90780 /* Poly.py */; };
+		A295D3751646FB0000F90780 /* White Leather.py in Resources */ = {isa = PBXBuildFile; fileRef = A295D3731646FB0000F90780 /* White Leather.py */; };
 		A2DBB0591631A73900C32443 /* NBBTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0551631A73900C32443 /* NBBTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2DBB05A1631A73900C32443 /* NBBTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0561631A73900C32443 /* NBBTheme.m */; };
 		A2DBB06A1631A93E00C32443 /* NBBModule.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0681631A93E00C32443 /* NBBModule.h */; };
@@ -188,10 +188,10 @@
 		A295D35A1646F7BC00F90780 /* White Leather.nbbtheme */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "White Leather.nbbtheme"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A295D35E1646F7BC00F90780 /* White Leather-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "White Leather-Info.plist"; path = "themes/White Leather/White Leather-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A295D3601646F7BC00F90780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A295D36E1646FAEC00F90780 /* poly.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = poly.py; path = themes/Poly/poly.py; sourceTree = SOURCE_ROOT; };
+		A295D36E1646FAEC00F90780 /* Poly.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = Poly.py; path = themes/Poly/Poly.py; sourceTree = SOURCE_ROOT; };
 		A295D36F1646FAEC00F90780 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = themes/Poly/setup.py; sourceTree = SOURCE_ROOT; };
 		A295D3721646FB0000F90780 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = "themes/White Leather/setup.py"; sourceTree = SOURCE_ROOT; };
-		A295D3731646FB0000F90780 /* whiteleather.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = whiteleather.py; path = "themes/White Leather/whiteleather.py"; sourceTree = SOURCE_ROOT; };
+		A295D3731646FB0000F90780 /* White Leather.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = "White Leather.py"; path = "themes/White Leather/White Leather.py"; sourceTree = SOURCE_ROOT; };
 		A2DBB0551631A73900C32443 /* NBBTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBTheme.h; sourceTree = "<group>"; };
 		A2DBB0561631A73900C32443 /* NBBTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBTheme.m; sourceTree = "<group>"; };
 		A2DBB0651631A90000C32443 /* NBBThemeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBThemeEngine.h; sourceTree = "<group>"; };
@@ -476,7 +476,7 @@
 		A295D34C1646F78D00F90780 /* Poly */ = {
 			isa = PBXGroup;
 			children = (
-				A295D36E1646FAEC00F90780 /* poly.py */,
+				A295D36E1646FAEC00F90780 /* Poly.py */,
 				A295D36F1646FAEC00F90780 /* setup.py */,
 				A295D34D1646F78D00F90780 /* Supporting Files */,
 			);
@@ -496,7 +496,7 @@
 		A295D35C1646F7BC00F90780 /* White Leather */ = {
 			isa = PBXGroup;
 			children = (
-				A295D3731646FB0000F90780 /* whiteleather.py */,
+				A295D3731646FB0000F90780 /* White Leather.py */,
 				A295D3721646FB0000F90780 /* setup.py */,
 				A295D35D1646F7BC00F90780 /* Supporting Files */,
 			);
@@ -747,7 +747,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A295D3511646F78D00F90780 /* InfoPlist.strings in Resources */,
-				A295D3701646FAEC00F90780 /* poly.py in Resources */,
+				A295D3701646FAEC00F90780 /* Poly.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,7 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A295D3611646F7BC00F90780 /* InfoPlist.strings in Resources */,
-				A295D3751646FB0000F90780 /* whiteleather.py in Resources */,
+				A295D3751646FB0000F90780 /* White Leather.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,7 +787,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# i don't know why but xcode fails to build when we add the themes to the build phase directly\n\nIFS=$'\\n' # allow spaces in directory names\nfor THEME in $(find ./themes -type d -maxdepth 1 -mindepth 1)\ndo\n    #compile themes and install into bundle\n    echo \"packaging theme:$THEME to $BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\n    python \"$THEME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\ndone\n";
+			shellScript = "# i don't know why but xcode fails to build when we add the themes to the build phase directly\n\n#make the bundle theme dir\nif [ -d \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\" ]; then\n    rm -rf \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\nfi\nmkdir \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\n\nIFS=$'\\n' # allow spaces in directory names\nfor THEME in $(find ./themes -type d -maxdepth 1 -mindepth 1)\ndo\n    #compile themes and install into bundle\n    echo \"packaging theme:$THEME\"\n    python \"$THEME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$PROJECT_TEMP_DIR/py2app/dist\" --bdist-base \"$PROJECT_TEMP_DIR/py2app/build\"\n    THEME=`echo $THEME | cut -c10-`\n    mv  \"$PROJECT_TEMP_DIR/py2app/dist/$THEME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes/$THEME.nbbtheme\"\ndone\n";
 		};
 		A295D37D1646FFE300F90780 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -801,7 +801,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# \"compile\" the theme\npython themes/Poly/setup.py py2app --dist-dir \"$BUILT_PRODUCTS_DIR\"\n";
+			shellScript = "# \"compile\" the theme\npython \"themes/Poly/setup.py\" py2app\n# move it to the build directory\nmv \"dist/$PRODUCT_NAME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\n";
 		};
 		A295D37E1647002100F90780 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -815,7 +815,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# \"compile\" the theme\npython \"themes/White Leather/setup.py\" py2app --dist-dir \"$BUILT_PRODUCTS_DIR\"\n";
+			shellScript = "# \"compile\" the theme\npython \"themes/White Leather/setup.py\" py2app\n# move it to the build directory\nmv \"dist/$PRODUCT_NAME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

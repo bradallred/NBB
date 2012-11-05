@@ -19,7 +19,7 @@ from distutils.core import setup
 import py2app
 
 setup(
-	  plugin = ['themes/White Leather/whiteleather.py'],
+	  plugin = ['themes/White Leather/White Leather.py'],
 	  data_files = ['themes/NBBTheme.py'],
 	  options = dict(py2app = dict(
 								   semi_standalone = True,

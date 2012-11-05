@@ -19,7 +19,7 @@ from distutils.core import setup
 import py2app
 
 setup(
-	  plugin = ['themes/Poly/poly.py'],
+	  plugin = ['themes/Poly/Poly.py'],
 	  data_files = ['themes/NBBTheme.py'],
 	  options = dict(py2app = dict(
 								   semi_standalone = True,
