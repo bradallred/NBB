@@ -18,7 +18,6 @@
 		A23A3D0316377FAE00A622FF /* CALayer+NBBControlAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3D0116377FAE00A622FF /* CALayer+NBBControlAnimations.h */; };
 		A23A3D0416377FAE00A622FF /* CALayer+NBBControlAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D0216377FAE00A622FF /* CALayer+NBBControlAnimations.m */; };
 		A23A3D181639EF1600A622FF /* NSActionCell+NBBSwappable.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3D161639EF1600A622FF /* NSActionCell+NBBSwappable.h */; };
-		A23A3D191639EF1600A622FF /* NSActionCell+NBBSwappable.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */; };
 		A24298CB164307C7007437CD /* NBBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = A24298CA164307C7007437CD /* NBBApplication.m */; };
 		A2689F7316308CE500E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
 		A2689F7D16308CE500E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689F7B16308CE500E1AFFB /* InfoPlist.strings */; };
@@ -44,6 +43,7 @@
 		A2689FF91630BFF300E1AFFB /* NBBVideoModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689FF71630BFED00E1AFFB /* NBBVideoModule.m */; };
 		A2689FFA1630C12C00E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A2689FFB1630C13100E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
+		A28A93D9164769FB001E71AE /* NSActionCell+NBBSwappable.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */; };
 		A295D3411646DB9C00F90780 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CED16360F2500A622FF /* Python.framework */; };
 		A295D3511646F78D00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D34F1646F78D00F90780 /* InfoPlist.strings */; };
 		A295D3611646F7BC00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D35F1646F7BC00F90780 /* InfoPlist.strings */; };
@@ -73,13 +73,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = A2689F6D16308CE500E1AFFB;
 			remoteInfo = "Neon Boom Box";
-		};
-		A2689FDA16308EEA00E1AFFB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A2689F6516308CE500E1AFFB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A2689FAA16308DCB00E1AFFB;
-			remoteInfo = NBBCore;
 		};
 		A2689FDC16308EED00E1AFFB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -861,6 +854,7 @@
 				A23A3CE01634CB8B00A622FF /* NBBThemeEngine.m in Sources */,
 				A23A3D0416377FAE00A622FF /* CALayer+NBBControlAnimations.m in Sources */,
 				A223F2AA1640BBC500F87174 /* NBBDragAnimationWindow.m in Sources */,
+				A28A93D9164769FB001E71AE /* NSActionCell+NBBSwappable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
