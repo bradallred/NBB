@@ -49,8 +49,6 @@
 		A295D3411646DB9C00F90780 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CED16360F2500A622FF /* Python.framework */; };
 		A295D3511646F78D00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D34F1646F78D00F90780 /* InfoPlist.strings */; };
 		A295D3611646F7BC00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D35F1646F7BC00F90780 /* InfoPlist.strings */; };
-		A295D3701646FAEC00F90780 /* Poly.py in Resources */ = {isa = PBXBuildFile; fileRef = A295D36E1646FAEC00F90780 /* Poly.py */; };
-		A295D3751646FB0000F90780 /* White Leather.py in Resources */ = {isa = PBXBuildFile; fileRef = A295D3731646FB0000F90780 /* White Leather.py */; };
 		A2DBB0591631A73900C32443 /* NBBTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0551631A73900C32443 /* NBBTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2DBB05A1631A73900C32443 /* NBBTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0561631A73900C32443 /* NBBTheme.m */; };
 		A2DBB06A1631A93E00C32443 /* NBBModule.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0681631A93E00C32443 /* NBBModule.h */; };
@@ -777,7 +775,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A295D3511646F78D00F90780 /* InfoPlist.strings in Resources */,
-				A295D3701646FAEC00F90780 /* Poly.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,7 +783,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A295D3611646F7BC00F90780 /* InfoPlist.strings in Resources */,
-				A295D3751646FB0000F90780 /* White Leather.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
