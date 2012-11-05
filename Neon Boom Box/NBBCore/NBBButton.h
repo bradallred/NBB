@@ -17,7 +17,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import "NBBThemable.h"
+#import "NBBTheme.h"
 
 @interface NBBButton : NSButton <NBBThemable>
 # pragma mark - NBBThemable
