@@ -20,4 +20,20 @@
 
 @implementation NBBWindow
 
+- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)windowStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation screen:(NSScreen *)screen
+{
+	self = [super initWithContentRect:contentRect
+							styleMask:NSBorderlessWindowMask
+							  backing:NSBackingStoreBuffered
+								defer:deferCreation
+							   screen:screen];
+
+    if (self) {
+		[self setReleasedWhenClosed:NO];
+		[self setMovableByWindowBackground:NO];
+		[self setHasShadow:NO];
+    }
+    return self;
+}
+
 @end

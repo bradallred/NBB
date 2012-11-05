@@ -75,12 +75,9 @@
     if (self) {
 		NSLog(@"initializing NBB drag animation window.");
 
-		[self setReleasedWhenClosed:NO];
-		[self setMovableByWindowBackground:NO];
 		[self setBackgroundColor:[NSColor clearColor]];
 		[self setLevel:(NSFloatingWindowLevel + 3000)];
 		[self setOpaque:NO];
-		[self setHasShadow:NO];
 		[[self contentView] setWantsLayer:YES];
 
 		CABasicAnimation *positionAnim = [self animationForKey:@"frame"];
