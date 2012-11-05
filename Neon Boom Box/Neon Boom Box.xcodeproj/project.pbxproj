@@ -831,7 +831,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# clear the previousl build\nif [ -d \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\" ]; then\n    rm -rf \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\nfi\n\n# compile the theme\npython \"themes/$PRODUCT_NAME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$PROJECT_TEMP_DIR/py2app/dist\" --bdist-base \"$PROJECT_TEMP_DIR/py2app/build/$PRODUCT_NAME\"\n# copy to the build dir\nmv  \"$PROJECT_TEMP_DIR/py2app/dist/$PRODUCT_NAME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\n";
+			shellScript = "# clear the previous build\nif [ -d \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\" ]; then\n    rm -rf \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\nfi\n\n# compile the theme\npython \"themes/$PRODUCT_NAME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$PROJECT_TEMP_DIR/py2app/dist\" --bdist-base \"$PROJECT_TEMP_DIR/py2app/build/$PRODUCT_NAME\"\n# copy to the build dir\nmv  \"$PROJECT_TEMP_DIR/py2app/dist/$PRODUCT_NAME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\n";
 		};
 		A295D37E1647002100F90780 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -845,7 +845,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# clear the previousl build\nif [ -d \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\" ]; then\n    rm -rf \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\nfi\n\n# compile the theme\npython \"themes/$PRODUCT_NAME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$PROJECT_TEMP_DIR/py2app/dist\" --bdist-base \"$PROJECT_TEMP_DIR/py2app/build/$PRODUCT_NAME\"\n# copy to the build dir\nmv  \"$PROJECT_TEMP_DIR/py2app/dist/$PRODUCT_NAME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\n";
+			shellScript = "# clear the previous build\nif [ -d \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\" ]; then\n    rm -rf \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\nfi\n\n# compile the theme\npython \"themes/$PRODUCT_NAME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$PROJECT_TEMP_DIR/py2app/dist\" --bdist-base \"$PROJECT_TEMP_DIR/py2app/build/$PRODUCT_NAME\"\n# copy to the build dir\nmv  \"$PROJECT_TEMP_DIR/py2app/dist/$PRODUCT_NAME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
