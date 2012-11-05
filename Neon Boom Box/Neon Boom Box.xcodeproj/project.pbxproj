@@ -44,6 +44,8 @@
 		A2689FFA1630C12C00E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A2689FFB1630C13100E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A28A93D9164769FB001E71AE /* NSActionCell+NBBSwappable.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */; };
+		A28A93EA1647814A001E71AE /* Poly.nbbtheme in CopyFiles */ = {isa = PBXBuildFile; fileRef = A295D34A1646F78D00F90780 /* Poly.nbbtheme */; };
+		A28A93ED1647818C001E71AE /* White Leather.nbbtheme in CopyFiles */ = {isa = PBXBuildFile; fileRef = A295D35A1646F7BC00F90780 /* White Leather.nbbtheme */; };
 		A295D3411646DB9C00F90780 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CED16360F2500A622FF /* Python.framework */; };
 		A295D3511646F78D00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D34F1646F78D00F90780 /* InfoPlist.strings */; };
 		A295D3611646F7BC00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D35F1646F7BC00F90780 /* InfoPlist.strings */; };
@@ -102,6 +104,20 @@
 			remoteGlobalIDString = A2689FAA16308DCB00E1AFFB;
 			remoteInfo = NBBCore;
 		};
+		A28A93E7164780E0001E71AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2689F6516308CE500E1AFFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A295D3491646F78D00F90780;
+			remoteInfo = Poly;
+		};
+		A28A93EB16478186001E71AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2689F6516308CE500E1AFFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A295D3591646F7BC00F90780;
+			remoteInfo = "White Leather";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -123,6 +139,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A2689FE416308F1D00E1AFFB /* NBBCore.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A28A93E916478143001E71AE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Themes;
+			dstSubfolderSpec = 1;
+			files = (
+				A28A93ED1647818C001E71AE /* White Leather.nbbtheme in CopyFiles */,
+				A28A93EA1647814A001E71AE /* Poly.nbbtheme in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,10 +576,13 @@
 				A2689FE316308F1500E1AFFB /* CopyFiles */,
 				A2689FE016308F0200E1AFFB /* CopyFiles */,
 				A28A939716472E7A001E71AE /* ShellScript */,
+				A28A93E916478143001E71AE /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A28A93EC16478186001E71AE /* PBXTargetDependency */,
+				A28A93E8164780E0001E71AE /* PBXTargetDependency */,
 				A2689FDF16308EF000E1AFFB /* PBXTargetDependency */,
 				A2689FDD16308EED00E1AFFB /* PBXTargetDependency */,
 			);
@@ -787,7 +817,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# i don't know why but xcode fails to build when we add the themes to the build phase directly\n\n#make the bundle theme dir\nif [ -d \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\" ]; then\n    rm -rf \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\nfi\nmkdir \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\n\nIFS=$'\\n' # allow spaces in directory names\nfor THEME in $(find ./themes -type d -maxdepth 1 -mindepth 1)\ndo\n    #compile themes and install into bundle\n    echo \"packaging theme:$THEME\"\n    python \"$THEME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$PROJECT_TEMP_DIR/py2app/dist\" --bdist-base \"$PROJECT_TEMP_DIR/py2app/build\"\n    THEME=`echo $THEME | cut -c10-`\n    mv  \"$PROJECT_TEMP_DIR/py2app/dist/$THEME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes/$THEME.nbbtheme\"\ndone\n";
+			shellScript = "# i don't know why but xcode fails to build when we add the themes to the build phase directly\n\n# putting this in a false switch in hopes i wont need it ever again\nif 0; then\n#make the bundle theme dir\nif [ -d \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\" ]; then\n    rm -rf \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\nfi\nmkdir \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\n\nIFS=$'\\n' # allow spaces in directory names\nfor THEME in $(find ./themes -type d -maxdepth 1 -mindepth 1)\ndo\n    #compile themes and install into bundle\n    echo \"packaging theme:$THEME\"\n    python \"$THEME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$PROJECT_TEMP_DIR/py2app/dist\" --bdist-base \"$PROJECT_TEMP_DIR/py2app/build\"\n    THEME=`echo $THEME | cut -c10-`\n    mv  \"$PROJECT_TEMP_DIR/py2app/dist/$THEME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes/$THEME.nbbtheme\"\ndone\nfi\n";
 		};
 		A295D37D1646FFE300F90780 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -801,7 +831,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# \"compile\" the theme\npython \"themes/Poly/setup.py\" py2app\n# move it to the build directory\nmv \"dist/$PRODUCT_NAME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\n";
+			shellScript = "# clear the previousl build\nif [ -d \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\" ]; then\n    rm -rf \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\nfi\n\n# compile the theme\npython \"themes/$PRODUCT_NAME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$PROJECT_TEMP_DIR/py2app/dist\" --bdist-base \"$PROJECT_TEMP_DIR/py2app/build/$PRODUCT_NAME\"\n# copy to the build dir\nmv  \"$PROJECT_TEMP_DIR/py2app/dist/$PRODUCT_NAME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\n";
 		};
 		A295D37E1647002100F90780 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -815,7 +845,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# \"compile\" the theme\npython \"themes/White Leather/setup.py\" py2app\n# move it to the build directory\nmv \"dist/$PRODUCT_NAME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\n";
+			shellScript = "# clear the previousl build\nif [ -d \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\" ]; then\n    rm -rf \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\nfi\n\n# compile the theme\npython \"themes/$PRODUCT_NAME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$PROJECT_TEMP_DIR/py2app/dist\" --bdist-base \"$PROJECT_TEMP_DIR/py2app/build/$PRODUCT_NAME\"\n# copy to the build dir\nmv  \"$PROJECT_TEMP_DIR/py2app/dist/$PRODUCT_NAME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -901,6 +931,16 @@
 			isa = PBXTargetDependency;
 			target = A2689FAA16308DCB00E1AFFB /* NBBCore */;
 			targetProxy = A2689FE716308F2B00E1AFFB /* PBXContainerItemProxy */;
+		};
+		A28A93E8164780E0001E71AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A295D3491646F78D00F90780 /* Poly */;
+			targetProxy = A28A93E7164780E0001E71AE /* PBXContainerItemProxy */;
+		};
+		A28A93EC16478186001E71AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A295D3591646F7BC00F90780 /* White Leather */;
+			targetProxy = A28A93EB16478186001E71AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
