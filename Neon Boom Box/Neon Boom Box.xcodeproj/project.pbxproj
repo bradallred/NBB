@@ -638,8 +638,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A295D3531646F78D00F90780 /* Build configuration list for PBXNativeTarget "Poly" */;
 			buildPhases = (
-				A295D3481646F78D00F90780 /* Resources */,
 				A295D37D1646FFE300F90780 /* ShellScript */,
+				A295D3481646F78D00F90780 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -654,8 +654,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A295D3631646F7BC00F90780 /* Build configuration list for PBXNativeTarget "White Leather" */;
 			buildPhases = (
-				A295D3581646F7BC00F90780 /* Resources */,
 				A295D37E1647002100F90780 /* ShellScript */,
+				A295D3581646F7BC00F90780 /* Resources */,
 			);
 			buildRules = (
 			);
