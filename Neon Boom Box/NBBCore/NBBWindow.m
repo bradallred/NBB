@@ -20,20 +20,48 @@
 
 @implementation NBBWindow
 
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)windowStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation screen:(NSScreen *)screen
+- (id)init
 {
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (void)finalizeInit
+{
+	[self setReleasedWhenClosed:NO];
+	[self setMovableByWindowBackground:NO];
+	[self setHasShadow:NO];
+}
+
+- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)windowStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation
+{	
 	self = [super initWithContentRect:contentRect
 							styleMask:NSBorderlessWindowMask
 							  backing:NSBackingStoreBuffered
-								defer:deferCreation
-							   screen:screen];
-
+								defer:deferCreation];
+	
     if (self) {
-		[self setReleasedWhenClosed:NO];
-		[self setMovableByWindowBackground:NO];
-		[self setHasShadow:NO];
+		[self finalizeInit];
     }
     return self;
+}
+
+- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)windowStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation screen:(NSScreen *)screen
+{
+	return [self initWithContentRect:contentRect styleMask:windowStyle backing:bufferingType defer:deferCreation];
+}
+
+- (void)awakeFromNib
+{
+	[self finalizeInit];
+}
+
+- (BOOL) canBecomeKeyWindow
+{
+	return YES;
 }
 
 @end
