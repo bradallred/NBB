@@ -44,8 +44,11 @@
 		A2689FF91630BFF300E1AFFB /* NBBVideoModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689FF71630BFED00E1AFFB /* NBBVideoModule.m */; };
 		A2689FFA1630C12C00E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A2689FFB1630C13100E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
-		A268A0041630F64A00E1AFFB /* nbb_theme.py in Resources */ = {isa = PBXBuildFile; fileRef = A268A0031630F64A00E1AFFB /* nbb_theme.py */; };
 		A295D3411646DB9C00F90780 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CED16360F2500A622FF /* Python.framework */; };
+		A295D3511646F78D00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D34F1646F78D00F90780 /* InfoPlist.strings */; };
+		A295D3611646F7BC00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D35F1646F7BC00F90780 /* InfoPlist.strings */; };
+		A295D3701646FAEC00F90780 /* poly.py in Resources */ = {isa = PBXBuildFile; fileRef = A295D36E1646FAEC00F90780 /* poly.py */; };
+		A295D3751646FB0000F90780 /* whiteleather.py in Resources */ = {isa = PBXBuildFile; fileRef = A295D3731646FB0000F90780 /* whiteleather.py */; };
 		A2DBB0591631A73900C32443 /* NBBTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0551631A73900C32443 /* NBBTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2DBB05A1631A73900C32443 /* NBBTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0561631A73900C32443 /* NBBTheme.m */; };
 		A2DBB06A1631A93E00C32443 /* NBBModule.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0681631A93E00C32443 /* NBBModule.h */; };
@@ -179,15 +182,23 @@
 		A2689FD216308E9E00E1AFFB /* VideoModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VideoModule-Info.plist"; sourceTree = "<group>"; };
 		A2689FD416308E9E00E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A2689FD616308E9E00E1AFFB /* VideoModule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoModule-Prefix.pch"; sourceTree = "<group>"; };
-		A2689FEC1630B7A800E1AFFB /* setup.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = setup.py; sourceTree = "<group>"; };
 		A2689FED1630BDA000E1AFFB /* NBBModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBBModule.h; path = ../modules/NBBModule.h; sourceTree = "<group>"; };
 		A2689FEE1630BDA000E1AFFB /* NBBModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBBModule.m; path = ../modules/NBBModule.m; sourceTree = "<group>"; };
 		A2689FF31630BFD300E1AFFB /* NBBMusicModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBMusicModule.h; sourceTree = "<group>"; };
 		A2689FF41630BFD300E1AFFB /* NBBMusicModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBMusicModule.m; sourceTree = "<group>"; };
 		A2689FF61630BFED00E1AFFB /* NBBVideoModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBVideoModule.h; sourceTree = "<group>"; };
 		A2689FF71630BFED00E1AFFB /* NBBVideoModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBVideoModule.m; sourceTree = "<group>"; };
-		A268A0031630F64A00E1AFFB /* nbb_theme.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = nbb_theme.py; sourceTree = "<group>"; };
 		A268A0051630F69800E1AFFB /* NBBTheme.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = NBBTheme.py; sourceTree = "<group>"; };
+		A295D34A1646F78D00F90780 /* Poly.nbbtheme */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Poly.nbbtheme; sourceTree = BUILT_PRODUCTS_DIR; };
+		A295D34E1646F78D00F90780 /* Poly-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Poly-Info.plist"; path = "themes/Poly/Poly-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A295D3501646F78D00F90780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A295D35A1646F7BC00F90780 /* White Leather.nbbtheme */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "White Leather.nbbtheme"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A295D35E1646F7BC00F90780 /* White Leather-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "White Leather-Info.plist"; path = "themes/White Leather/White Leather-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A295D3601646F7BC00F90780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A295D36E1646FAEC00F90780 /* poly.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = poly.py; path = themes/Poly/poly.py; sourceTree = SOURCE_ROOT; };
+		A295D36F1646FAEC00F90780 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = themes/Poly/setup.py; sourceTree = SOURCE_ROOT; };
+		A295D3721646FB0000F90780 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = "themes/White Leather/setup.py"; sourceTree = SOURCE_ROOT; };
+		A295D3731646FB0000F90780 /* whiteleather.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = whiteleather.py; path = "themes/White Leather/whiteleather.py"; sourceTree = SOURCE_ROOT; };
 		A2DBB0551631A73900C32443 /* NBBTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBTheme.h; sourceTree = "<group>"; };
 		A2DBB0561631A73900C32443 /* NBBTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBTheme.m; sourceTree = "<group>"; };
 		A2DBB0651631A90000C32443 /* NBBThemeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBThemeEngine.h; sourceTree = "<group>"; };
@@ -282,6 +293,8 @@
 				A2689FAB16308DCB00E1AFFB /* NBBCore.framework */,
 				A2689FBE16308E6F00E1AFFB /* MusicModule.nbbmodule */,
 				A2689FCE16308E9E00E1AFFB /* VideoModule.nbbmodule */,
+				A295D34A1646F78D00F90780 /* Poly.nbbtheme */,
+				A295D35A1646F7BC00F90780 /* White Leather.nbbtheme */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -443,13 +456,13 @@
 		A2689FEA1630B7A800E1AFFB /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				A295D34C1646F78D00F90780 /* Poly */,
+				A295D35C1646F7BC00F90780 /* White Leather */,
 				A2DBB06C1631A95600C32443 /* NBBTheme.h */,
 				A2DBB06D1631A95600C32443 /* NBBTheme.m */,
 				A2DBB06E1631A95600C32443 /* NBBThemeEngine.h */,
 				A2DBB06F1631A95600C32443 /* NBBThemeEngine.m */,
-				A268A0021630F64A00E1AFFB /* nbb */,
 				A268A0051630F69800E1AFFB /* NBBTheme.py */,
-				A2689FEC1630B7A800E1AFFB /* setup.py */,
 			);
 			name = Themes;
 			path = themes;
@@ -467,12 +480,44 @@
 			path = themes;
 			sourceTree = "<group>";
 		};
-		A268A0021630F64A00E1AFFB /* nbb */ = {
+		A295D34C1646F78D00F90780 /* Poly */ = {
 			isa = PBXGroup;
 			children = (
-				A268A0031630F64A00E1AFFB /* nbb_theme.py */,
+				A295D36E1646FAEC00F90780 /* poly.py */,
+				A295D36F1646FAEC00F90780 /* setup.py */,
+				A295D34D1646F78D00F90780 /* Supporting Files */,
 			);
-			path = nbb;
+			name = Poly;
+			path = ../Poly;
+			sourceTree = "<group>";
+		};
+		A295D34D1646F78D00F90780 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A295D34E1646F78D00F90780 /* Poly-Info.plist */,
+				A295D34F1646F78D00F90780 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A295D35C1646F7BC00F90780 /* White Leather */ = {
+			isa = PBXGroup;
+			children = (
+				A295D3731646FB0000F90780 /* whiteleather.py */,
+				A295D3721646FB0000F90780 /* setup.py */,
+				A295D35D1646F7BC00F90780 /* Supporting Files */,
+			);
+			name = "White Leather";
+			path = "../White Leather";
+			sourceTree = "<group>";
+		};
+		A295D35D1646F7BC00F90780 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A295D35E1646F7BC00F90780 /* White Leather-Info.plist */,
+				A295D35F1646F7BC00F90780 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,12 +555,11 @@
 				A2689F6C16308CE500E1AFFB /* Resources */,
 				A2689FE316308F1500E1AFFB /* CopyFiles */,
 				A2689FE016308F0200E1AFFB /* CopyFiles */,
-				A2689FE91630B49700E1AFFB /* ShellScript */,
+				A28A939716472E7A001E71AE /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A2689FDB16308EEA00E1AFFB /* PBXTargetDependency */,
 				A2689FDF16308EF000E1AFFB /* PBXTargetDependency */,
 				A2689FDD16308EED00E1AFFB /* PBXTargetDependency */,
 			);
@@ -597,6 +641,38 @@
 			productReference = A2689FCE16308E9E00E1AFFB /* VideoModule.nbbmodule */;
 			productType = "com.apple.product-type.bundle";
 		};
+		A295D3491646F78D00F90780 /* Poly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A295D3531646F78D00F90780 /* Build configuration list for PBXNativeTarget "Poly" */;
+			buildPhases = (
+				A295D3481646F78D00F90780 /* Resources */,
+				A295D37D1646FFE300F90780 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Poly;
+			productName = Poly;
+			productReference = A295D34A1646F78D00F90780 /* Poly.nbbtheme */;
+			productType = "com.apple.product-type.bundle";
+		};
+		A295D3591646F7BC00F90780 /* White Leather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A295D3631646F7BC00F90780 /* Build configuration list for PBXNativeTarget "White Leather" */;
+			buildPhases = (
+				A295D3581646F7BC00F90780 /* Resources */,
+				A295D37E1647002100F90780 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "White Leather";
+			productName = "White Leather";
+			productReference = A295D35A1646F7BC00F90780 /* White Leather.nbbtheme */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -624,6 +700,8 @@
 				A2689FAA16308DCB00E1AFFB /* NBBCore */,
 				A2689FBD16308E6F00E1AFFB /* MusicModule */,
 				A2689FCD16308E9E00E1AFFB /* VideoModule */,
+				A295D3491646F78D00F90780 /* Poly */,
+				A295D3591646F7BC00F90780 /* White Leather */,
 			);
 		};
 /* End PBXProject section */
@@ -652,7 +730,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2689FB216308DCB00E1AFFB /* InfoPlist.strings in Resources */,
-				A268A0041630F64A00E1AFFB /* nbb_theme.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +749,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A295D3481646F78D00F90780 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A295D3511646F78D00F90780 /* InfoPlist.strings in Resources */,
+				A295D3701646FAEC00F90780 /* poly.py in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A295D3581646F7BC00F90780 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A295D3611646F7BC00F90780 /* InfoPlist.strings in Resources */,
+				A295D3751646FB0000F90780 /* whiteleather.py in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -688,7 +783,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
-		A2689FE91630B49700E1AFFB /* ShellScript */ = {
+		A28A939716472E7A001E71AE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -699,7 +794,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# compile themes and install to bundle\npython themes/setup.py py2app --extension .nbbtheme --dist-dir \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\n";
+			shellScript = "# i don't know why but xcode fails to build when we add the themes to the build phase directly\n\nIFS=$'\\n' # allow spaces in directory names\nfor THEME in $(find ./themes -type d -maxdepth 1 -mindepth 1)\ndo\n    #compile themes and install into bundle\n    echo \"packaging theme:$THEME to $BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\n    python \"$THEME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$BUILT_PRODUCTS_DIR/$CONTENTS_FOLDER_PATH/Themes\"\ndone\n";
+		};
+		A295D37D1646FFE300F90780 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/themes/Poly/setup.py",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# \"compile\" the theme\npython themes/Poly/setup.py py2app --dist-dir \"$BUILT_PRODUCTS_DIR\"\n";
+		};
+		A295D37E1647002100F90780 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/themes/White Leather/setup.py",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# \"compile\" the theme\npython \"themes/White Leather/setup.py\" py2app --dist-dir \"$BUILT_PRODUCTS_DIR\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -764,11 +887,6 @@
 			isa = PBXTargetDependency;
 			target = A2689F6D16308CE500E1AFFB /* Neon Boom Box */;
 			targetProxy = A2689F9316308CE500E1AFFB /* PBXContainerItemProxy */;
-		};
-		A2689FDB16308EEA00E1AFFB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A2689FAA16308DCB00E1AFFB /* NBBCore */;
-			targetProxy = A2689FDA16308EEA00E1AFFB /* PBXContainerItemProxy */;
 		};
 		A2689FDD16308EED00E1AFFB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -848,6 +966,24 @@
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
+		};
+		A295D34F1646F78D00F90780 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A295D3501646F78D00F90780 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = themes/Poly;
+			sourceTree = SOURCE_ROOT;
+		};
+		A295D35F1646F7BC00F90780 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A295D3601646F7BC00F90780 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = "themes/White Leather";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXVariantGroup section */
 
@@ -1039,6 +1175,46 @@
 			};
 			name = Release;
 		};
+		A295D3541646F78D00F90780 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "themes/Poly/Poly-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = nbbtheme;
+			};
+			name = Debug;
+		};
+		A295D3551646F78D00F90780 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "themes/Poly/Poly-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = nbbtheme;
+			};
+			name = Release;
+		};
+		A295D3641646F7BC00F90780 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "themes/White Leather/White Leather-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = nbbtheme;
+			};
+			name = Debug;
+		};
+		A295D3651646F7BC00F90780 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "themes/White Leather/White Leather-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = nbbtheme;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1092,6 +1268,24 @@
 			buildConfigurations = (
 				A2689FD816308E9E00E1AFFB /* Debug */,
 				A2689FD916308E9E00E1AFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A295D3531646F78D00F90780 /* Build configuration list for PBXNativeTarget "Poly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A295D3541646F78D00F90780 /* Debug */,
+				A295D3551646F78D00F90780 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A295D3631646F7BC00F90780 /* Build configuration list for PBXNativeTarget "White Leather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A295D3641646F7BC00F90780 /* Debug */,
+				A295D3651646F7BC00F90780 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

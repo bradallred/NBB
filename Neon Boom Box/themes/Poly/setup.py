@@ -15,12 +15,16 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
+from distutils.core import setup
+import py2app
 
-# this is the default theme for Neon Boom Box
-
-from NBBTheme import *
-
-class NBB(NBBThemeBase):
-	pass
-
-NSLog("Neon Boom Box theme is loaded")
+setup(
+	  plugin = ['themes/Poly/poly.py'],
+	  data_files = ['themes/NBBTheme.py'],
+	  options = dict(py2app = dict(
+								   semi_standalone = True,
+								   plist = 'themes/Poly/Poly-Info.plist',
+								   )
+					 )
+	  
+	  )

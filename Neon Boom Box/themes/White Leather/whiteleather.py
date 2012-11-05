@@ -15,17 +15,9 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
-from distutils.core import setup
-import py2app
-setup(
-    plugin = ['themes/nbb/nbb_theme.py'],
-	data_files = ['themes/NBBTheme.py'],
-	options=dict(py2app=dict(
-							 extension='.nbbtheme',
-							 semi_standalone = True,
-							 plist=dict(
-										NSPrincipalClass="NBBTheme",
-										)
-						   )
-				 )
-)
+from NBBTheme import *
+
+class NBB(NBBThemeBase):
+	pass
+
+NSLog("White Leather theme is loaded")
