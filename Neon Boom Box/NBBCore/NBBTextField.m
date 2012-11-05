@@ -50,6 +50,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     // Drawing code here.
+	[super drawRect:dirtyRect];
 }
 
 @end
