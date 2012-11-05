@@ -32,6 +32,10 @@
 		NSString* bundleId = [NSBundle mainBundle].bundleIdentifier;
 		[_userPrefrences addSuiteNamed:bundleId];
 
+		// === initialize themeing engine ===
+		// this must be done BEFORE attempting to initialize ANY theme or loading a theme bundle
+		_themeEngine = [NBBThemeEngine sharedThemeEngine];
+
 		// === find the theme to use ===
 
 		// get the current theme from user defaults
@@ -74,10 +78,6 @@
 		// this MUST come last in search path
 		// TODO: setup a default plist and load it here
 		[_userPrefrences registerDefaults:@{}]; // will create NSRegistrationDomain for us and add it to path
-
-		// === initialize themeing engine ===
-		// this must be done BEFORE attempting to initialize ANY theme
-		_themeEngine = [NBBThemeEngine sharedThemeEngine];
 
 		// === initialize the selected theme ===
 		NBBTheme* theme = [[themeClass alloc] init];
