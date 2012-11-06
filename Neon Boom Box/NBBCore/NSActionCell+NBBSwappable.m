@@ -47,7 +47,10 @@ static char const * const delegateTagKey = "_swapDelegate";
 	// this is a bit of a hac, but the easiest way to make the control dragging work.
 	// force the control to accept image drags.
 	// the control will forward us the drag destination events via our NBBControlProxy category
-	[self.controlView registerForDraggedTypes:[NSImage imagePasteboardTypes]];
+	NSView* cv = self.controlView;
+	[cv registerForDraggedTypes:[NSImage imagePasteboardTypes]];
+	// post notifications so we can store the new frame in the theme prefs
+	[cv setPostsFrameChangedNotifications:YES];
 }
 
 // NSCell docs say we have 3 designated initializers.
