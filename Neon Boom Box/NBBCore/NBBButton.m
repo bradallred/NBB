@@ -70,6 +70,12 @@
 
 - (BOOL)applyTheme:(NBBTheme*) theme
 {
+	self.font = [theme normalFont];
+	NSAttributedString* title = [[NSAttributedString alloc] initWithString:self.title
+																attributes:[theme cellTextAttributes]];
+
+	self.attributedTitle = title;
+	[title release];
 	return YES;
 }
 
