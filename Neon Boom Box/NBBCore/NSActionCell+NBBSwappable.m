@@ -310,9 +310,8 @@ static char const * const delegateTagKey = "_swapDelegate";
 	// ignoring for now since normal use cases shouldnt trigger this
 
 	// we need to obtain the coordinates for the drag image representing the source control
-	NSPoint startPt = [sender draggedImageLocation];
 	NSRect startFrame = source.frame;
-	startFrame.origin = startPt;
+	startFrame.origin = [sender draggedImageLocation];
 	[source setFrame:startFrame]; // move the control before making it visible (no animation)
 	[source setHidden:NO];
 
@@ -326,6 +325,8 @@ static char const * const delegateTagKey = "_swapDelegate";
 	// animate both controls to the others original frame
 	[[cv animator] setFrame:srcFrame];
 	[[source animator] setFrame:dstFrame];
+	cv.needsDisplay = YES;
+	source.needsDisplay = YES;
 }
 
 @end
