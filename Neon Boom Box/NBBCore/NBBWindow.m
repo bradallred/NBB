@@ -20,15 +20,6 @@
 
 @implementation NBBWindow
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
-
 - (void)finalizeInit
 {
 	[self setReleasedWhenClosed:NO];
