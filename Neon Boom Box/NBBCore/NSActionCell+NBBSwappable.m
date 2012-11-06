@@ -316,6 +316,13 @@ static char const * const delegateTagKey = "_swapDelegate";
 	[source setFrame:startFrame]; // move the control before making it visible (no animation)
 	[source setHidden:NO];
 
+	// !!!: Unexplicably this frame swap can become undone by evil forces of the superview
+	// example: if the TextField clock is bound to the dateTime of the AppDelegate and has the same
+	// superview as our swap buttons then each timer tick the frames will mysteriously reset to
+	// original values. However, if the clock is moved to a new subview of the superview then
+	// everything works fine.
+	// I have no explaination or theories why this happens. somebody please tell me :p
+
 	// animate both controls to the others original frame
 	[[cv animator] setFrame:srcFrame];
 	[[source animator] setFrame:dstFrame];
