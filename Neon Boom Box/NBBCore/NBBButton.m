@@ -62,10 +62,7 @@
     if (self) {
         if (![[self cell] isKindOfClass:[NBBButtonCell class]])
 		{
-			// force custom button cell class for NIB archived buttons
-			NSImage* image = [self image];
-			[self setCell:[[[NBBButtonCell alloc] initImageCell:image] autorelease]];
-			[[self cell] setControlSize:NSRegularControlSize];
+			// TODO: force custom button cell class for NIB archived buttons
 		}
     }
     return self;
