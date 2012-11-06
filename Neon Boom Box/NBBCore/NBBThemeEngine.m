@@ -75,6 +75,13 @@
 		Py_Initialize(); // we must call Py_Initialize before attempting to load themes!
 		_themedObjects = [[NSMutableSet alloc] init];
 		_theme = nil;
+
+		// register for frame change notifications so we can store new frames in the prefs
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc addObserver: self
+			   selector: @selector( frameChanged: )
+				   name: NSViewFrameDidChangeNotification
+				 object: nil];
     }
     return self;
 }
@@ -117,6 +124,15 @@
 	_theme = [theme retain];
 	for (id <NBBThemable> obj in _themedObjects) {
 		[obj applyTheme:_theme];
+	}
+}
+
+- (void)frameChanged:(NSNotification*) notification
+{
+	id obj = [notification object];
+	if ([obj isKindOfClass:[NSControl class]]) {
+		// TODO: we really dont want notifications for all NSControls. Just NBBSwappable controls.
+		// also I worry about getting notifications for events other than swapping. this may not be the best approach.
 	}
 }
 
