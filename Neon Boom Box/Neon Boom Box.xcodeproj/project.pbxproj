@@ -49,6 +49,8 @@
 		A295D3411646DB9C00F90780 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CED16360F2500A622FF /* Python.framework */; };
 		A295D3511646F78D00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D34F1646F78D00F90780 /* InfoPlist.strings */; };
 		A295D3611646F7BC00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D35F1646F7BC00F90780 /* InfoPlist.strings */; };
+		A2A929BF164C9A6A007BC253 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A929BE164C9A6A007BC253 /* AudioToolbox.framework */; };
+		A2A929CA164CA613007BC253 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A929C9164CA613007BC253 /* AudioUnit.framework */; };
 		A2DBB0591631A73900C32443 /* NBBTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0551631A73900C32443 /* NBBTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2DBB05A1631A73900C32443 /* NBBTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0561631A73900C32443 /* NBBTheme.m */; };
 		A2DBB06A1631A93E00C32443 /* NBBModule.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0681631A93E00C32443 /* NBBModule.h */; };
@@ -217,6 +219,8 @@
 		A295D36F1646FAEC00F90780 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = themes/Poly/setup.py; sourceTree = SOURCE_ROOT; };
 		A295D3721646FB0000F90780 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = "themes/White Leather/setup.py"; sourceTree = SOURCE_ROOT; };
 		A295D3731646FB0000F90780 /* White Leather.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = "White Leather.py"; path = "themes/White Leather/White Leather.py"; sourceTree = SOURCE_ROOT; };
+		A2A929BE164C9A6A007BC253 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A2A929C9164CA613007BC253 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		A2DBB0551631A73900C32443 /* NBBTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBTheme.h; sourceTree = "<group>"; };
 		A2DBB0561631A73900C32443 /* NBBTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBTheme.m; sourceTree = "<group>"; };
 		A2DBB0651631A90000C32443 /* NBBThemeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBThemeEngine.h; sourceTree = "<group>"; };
@@ -273,6 +277,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2A929CA164CA613007BC253 /* AudioUnit.framework in Frameworks */,
+				A2A929BF164C9A6A007BC253 /* AudioToolbox.framework in Frameworks */,
 				A2689FFA1630C12C00E1AFFB /* NBBCore.framework in Frameworks */,
 				A2689FBF16308E6F00E1AFFB /* Cocoa.framework in Frameworks */,
 			);
@@ -293,6 +299,8 @@
 		A2689F6316308CE500E1AFFB = {
 			isa = PBXGroup;
 			children = (
+				A2A929C9164CA613007BC253 /* AudioUnit.framework */,
+				A2A929BE164C9A6A007BC253 /* AudioToolbox.framework */,
 				A2689FF11630BDA800E1AFFB /* Modules */,
 				A2689FEA1630B7A800E1AFFB /* Themes */,
 				A2689F7816308CE500E1AFFB /* Neon Boom Box */,

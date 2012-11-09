@@ -7,6 +7,8 @@
 //
 
 #import "NBBMusicModule.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <AudioUnit/AudioUnit.h>
 
 @implementation NBBMusicModule
 
