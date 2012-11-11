@@ -306,12 +306,6 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 	[self setHighlighted:NO];
 
-	// FIXME: if the user is quick and drags a control while it is still animating into position
-	// the frame wont be updated yet causing the dragged control to end up in the wrong location
-	// possible solution would be to disable the control during swap animation and re-enable after
-	// problem with that solution might be that we want disabled controls to be swappable too
-	// ignoring for now since normal use cases shouldnt trigger this
-
 	// we need to obtain the coordinates for the drag image representing the source control
 	NSRect startFrame = source.frame;
 	startFrame.origin = [sender draggedImageLocation];
