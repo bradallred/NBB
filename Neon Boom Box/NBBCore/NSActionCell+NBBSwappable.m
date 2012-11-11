@@ -293,15 +293,15 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (void)concludeDragOperation:(id < NSDraggingInfo >)sender
 {
-	NSView* cv = self.controlView;
+	NSView* dest = self.controlView;
 	NSView* source = [(NSActionCell*)[sender draggingSource] controlView];
 	NSRect srcFrame = source.frame;
-	NSRect dstFrame = cv.frame;
+	NSRect dstFrame = dest.frame;
 
-	assert(cv && source && cv != source);
+	assert(dest && source && dest != source);
 
 	NSLog(@"swapping %@:{%f,%f} with %@:{%f,%f}",
-		  cv, dstFrame.origin.x, dstFrame.origin.y,
+		  dest, dstFrame.origin.x, dstFrame.origin.y,
 		  source, srcFrame.origin.x, srcFrame.origin.y);
 
 	[self setHighlighted:NO];
@@ -326,7 +326,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 	// I have no explaination or theories why this happens. somebody please tell me :p
 
 	// animate both controls to the others original frame
-	[[cv animator] setFrame:srcFrame];
+	[[dest animator] setFrame:srcFrame];
 	[[source animator] setFrame:dstFrame];
 }
 
