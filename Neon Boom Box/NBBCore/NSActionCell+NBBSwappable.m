@@ -318,16 +318,103 @@ static char const * const delegateTagKey = "_swapDelegate";
 	[source setFrame:startFrame]; // move the control before making it visible (no animation)
 	[source setHidden:NO];
 
-	// !!!: Unexplicably this frame swap can become undone by evil forces of the superview
-	// example: if the TextField clock is bound to the dateTime of the AppDelegate and has the same
-	// superview as our swap buttons then each timer tick the frames will mysteriously reset to
-	// original values. However, if the clock is moved to a new subview of the superview then
-	// everything works fine.
-	// I have no explaination or theories why this happens. somebody please tell me :p
-
 	// animate both controls to the others original frame
 	[[dest animator] setFrame:srcFrame];
 	[[source animator] setFrame:dstFrame];
+
+	// !!!: adjust the "Auto Layout" constraints for the superview.
+	// otherwise changing the frames is impossible. (instant reversion)
+	// we could disable "Auto Layout", but let's try for compatibility
+
+	// TODO: we need to either enforce that the 2 controls have the same superview
+	// before accepting the drag operation
+	// or modify this code to take two diffrent superviews into account
+
+	// we are altering the constraints so iterate a copy!
+	NSArray* constraints = [dest.superview.constraints copy];
+	for (NSLayoutConstraint* constraint in constraints) {
+		id first = constraint.firstItem;
+		id second = constraint.secondItem;
+		id newFirst = first;
+		id newSecond = second;
+
+		BOOL match = NO;
+		if (first == dest) {
+			newFirst = source;
+			match = YES;
+		}
+		if (second == dest) {
+			newSecond = source;
+			match = YES;
+		}
+		if (first == source) {
+			newFirst = dest;
+			match = YES;
+		}
+		if (second == source) {
+			newSecond = dest;
+			match = YES;
+		}
+		if (match) {
+			[dest.superview removeConstraint:constraint];
+			NSLayoutConstraint* newConstraint = nil;
+			newConstraint = [NSLayoutConstraint constraintWithItem:newFirst
+														 attribute:constraint.firstAttribute
+														 relatedBy:constraint.relation
+															toItem:newSecond
+														 attribute:constraint.secondAttribute
+														multiplier:constraint.multiplier
+														  constant:constraint.constant];
+			[dest.superview addConstraint:newConstraint];
+		}
+	}
+	[constraints release];
+
+	NSMutableArray* newSourceConstraints = [NSMutableArray array];
+	NSMutableArray* newDestConstraints = [NSMutableArray array];
+
+	// again we need a copy since we will be altering the original
+	constraints = [source.constraints copy];
+	for (NSLayoutConstraint* constraint in constraints) {
+		// WARNING: do not tamper with intrinsic layout constraints
+		if ([constraint class] == [NSLayoutConstraint class] && constraint.firstItem == source && constraint.secondItem == nil) {
+			// this is a source constraint. we need to copy it to the destination.
+			NSLayoutConstraint* newConstraint = nil;
+			newConstraint = [NSLayoutConstraint constraintWithItem:dest
+														 attribute:constraint.firstAttribute
+														 relatedBy:constraint.relation
+															toItem:nil
+														 attribute:constraint.secondAttribute
+														multiplier:constraint.multiplier
+														  constant:constraint.constant];
+			[newDestConstraints addObject:newConstraint];
+			[source removeConstraint:constraint];
+		}
+	}
+	[constraints release];
+
+	// again we need a copy since we will be altering the original
+	constraints = [dest.constraints copy];
+	for (NSLayoutConstraint* constraint in constraints) {
+		// WARNING: do not tamper with intrinsic layout constraints
+		if ([constraint class] == [NSLayoutConstraint class] && constraint.firstItem == dest && constraint.secondItem == nil) {
+			// this is a destination constraint. we need to copy it to the source.
+			NSLayoutConstraint* newConstraint = nil;
+			newConstraint = [NSLayoutConstraint constraintWithItem:source
+														 attribute:constraint.firstAttribute
+														 relatedBy:constraint.relation
+															toItem:nil
+														 attribute:constraint.secondAttribute
+														multiplier:constraint.multiplier
+														  constant:constraint.constant];
+			[newSourceConstraints addObject:newConstraint];
+			[dest removeConstraint:constraint];
+		}
+	}
+	[constraints release];
+
+	[dest addConstraints:newDestConstraints];
+	[source addConstraints:newSourceConstraints];
 }
 
 @end
