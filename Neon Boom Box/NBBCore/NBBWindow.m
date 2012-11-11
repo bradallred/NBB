@@ -25,6 +25,7 @@
 	[self setReleasedWhenClosed:NO];
 	[self setMovableByWindowBackground:NO];
 	[self setHasShadow:NO];
+	self.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
 }
 
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)windowStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation

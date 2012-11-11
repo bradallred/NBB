@@ -79,6 +79,7 @@
 		[self setLevel:(NSFloatingWindowLevel + 3000)];
 		[self setOpaque:NO];
 		[[self contentView] setWantsLayer:YES];
+		self.collectionBehavior = NSWindowCollectionBehaviorFullScreenAuxiliary;
 
 		CABasicAnimation *positionAnim = [self animationForKey:@"frame"];
 		positionAnim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
