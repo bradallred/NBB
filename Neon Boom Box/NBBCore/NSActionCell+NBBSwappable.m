@@ -328,8 +328,6 @@ static char const * const delegateTagKey = "_swapDelegate";
 	// animate both controls to the others original frame
 	[[cv animator] setFrame:srcFrame];
 	[[source animator] setFrame:dstFrame];
-	cv.needsDisplay = YES;
-	source.needsDisplay = YES;
 }
 
 @end
