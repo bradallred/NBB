@@ -25,6 +25,14 @@
     self = [super init];
     if (self) {
 		NSLog(@"Starting NBB");
+		// ??? FIXME: NSApplicationPresentationFullScreen doesn't have any effect.
+		[self setPresentationOptions:NSApplicationPresentationDisableHideApplication
+									| NSApplicationPresentationDisableSessionTermination
+									| NSApplicationPresentationDisableForceQuit
+									| NSApplicationPresentationDisableProcessSwitching
+									| NSApplicationPresentationDisableAppleMenu
+									| NSApplicationPresentationHideMenuBar
+									| NSApplicationPresentationHideDock];
 		// the delegate needs to be created BEFORE the nib is loaded.
 		// this is due to our need for themeing the contents of the nib
         self.delegate = [[NBBAppDelegate alloc] init];
