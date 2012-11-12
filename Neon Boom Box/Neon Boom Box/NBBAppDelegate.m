@@ -36,6 +36,10 @@
 		// this must be done BEFORE attempting to initialize ANY theme or loading a theme bundle
 		_themeEngine = [NBBThemeEngine sharedThemeEngine];
 
+		// === register for notifications ===
+		NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+		[nc addObserver:self selector:@selector(updateThemePrefs:) name:@"NBBThemeWillChange" object:_themeEngine];
+
 		// === find the theme to use ===
 
 		// get the current theme from user defaults

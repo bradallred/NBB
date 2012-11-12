@@ -119,12 +119,18 @@
 
 - (void)applyTheme:(NBBTheme*) theme
 {
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	if (_theme) {
+		[nc postNotificationName:@"NBBThemeWillChange" object:self userInfo:_theme.prefrences];
+		[_theme release];
+	}
+
 	NSLog(@"Applying theme:%@", theme);
-	[_theme release];
 	_theme = [theme retain];
 	for (id <NBBThemable> obj in _themedObjects) {
 		[obj applyTheme:_theme];
 	}
+	[nc postNotificationName:@"NBBThemeChanged" object:self userInfo:_theme.prefrences];
 }
 
 - (void)frameChanged:(NSNotification*) notification
