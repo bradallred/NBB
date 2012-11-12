@@ -223,6 +223,7 @@
 	}
 }
 
+// FIXME: updateLayout gets called twice before main window is loaded.
 - (void)updateLayout
 {
 	// This is almost certainly true. 3rd party themes might use other objects, however.
@@ -238,11 +239,9 @@
 				NSView* swapView = nil;
 
 				for (NSView* sv in view.superview.subviews) {
-					NSLog(@"checking:%@", sv.identifier);
 					if (NSEqualRects(frame, sv.frame)
 						&& [sv isKindOfClass:[view class]] // only swap objects that are compatible
 						) {
-						NSLog(@"found match:%@", sv.identifier);
 						swapView = sv;
 						break;
 					}
