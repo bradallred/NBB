@@ -21,6 +21,9 @@
 #import "NBBThemable.h"
 
 @interface NBBTheme : NSObject
+@property(nonatomic, copy) NSString* identifier;
+@property(nonatomic, retain) NSMutableDictionary* prefrences;
+
 // generic theme methods
 - (NSFont*)smallFont;
 - (NSFont*)normalFont;

@@ -20,6 +20,13 @@
 
 @implementation NBBTheme
 
+- (void)dealloc
+{
+    self.identifier = nil;
+	self.prefrences = nil;
+    [super dealloc];
+}
+
 - (NSFont*)smallFont
 {
 	return [NSFont controlContentFontOfSize:14.0];
