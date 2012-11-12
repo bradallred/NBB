@@ -51,6 +51,7 @@
 
 - (Class <NBBThemable>)classReplacementForThemableClass:(Class <NBBThemable>) cls;
 - (BOOL)themeObject:(id <NBBThemable>) obj;
+- (void)swapView:(NSView*) source withView:(NSView*) dest persist:(BOOL) persist;
 
 /*
  This method will iterate the _themedObjects set and send an applyTheme message to each

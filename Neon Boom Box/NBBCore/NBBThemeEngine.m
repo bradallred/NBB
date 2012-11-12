@@ -106,6 +106,130 @@
 	return replacement;
 }
 
+- (void)swapView:(NSView*) source withView:(NSView*) dest persist:(BOOL) persist
+{
+	NSLog(@"swapping %@ with %@", source.identifier, dest.identifier);
+	// !!!: adjust the "Auto Layout" constraints for the superview.
+	// otherwise changing the frames is impossible. (instant reversion)
+	// we could disable "Auto Layout", but let's try for compatibility
+
+	// TODO: we need to either enforce that the 2 controls have the same superview
+	// before accepting the drag operation
+	// or modify this code to take two diffrent superviews into account
+
+	// we are altering the constraints so iterate a copy!
+	NSArray* constraints = [dest.superview.constraints copy];
+	for (NSLayoutConstraint* constraint in constraints) {
+		id first = constraint.firstItem;
+		id second = constraint.secondItem;
+		id newFirst = first;
+		id newSecond = second;
+
+		BOOL match = NO;
+		if (first == dest) {
+			newFirst = source;
+			match = YES;
+		}
+		if (second == dest) {
+			newSecond = source;
+			match = YES;
+		}
+		if (first == source) {
+			newFirst = dest;
+			match = YES;
+		}
+		if (second == source) {
+			newSecond = dest;
+			match = YES;
+		}
+		if (match) {
+			[dest.superview removeConstraint:constraint];
+			NSLayoutConstraint* newConstraint = nil;
+			newConstraint = [NSLayoutConstraint constraintWithItem:newFirst
+														 attribute:constraint.firstAttribute
+														 relatedBy:constraint.relation
+															toItem:newSecond
+														 attribute:constraint.secondAttribute
+														multiplier:constraint.multiplier
+														  constant:constraint.constant];
+			newConstraint.shouldBeArchived = YES;
+			[dest.superview addConstraint:newConstraint];
+		}
+	}
+	[constraints release];
+
+	NSMutableArray* newSourceConstraints = [NSMutableArray array];
+	NSMutableArray* newDestConstraints = [NSMutableArray array];
+
+	// again we need a copy since we will be altering the original
+	constraints = [source.constraints copy];
+	for (NSLayoutConstraint* constraint in constraints) {
+		// WARNING: do not tamper with intrinsic layout constraints
+		if ([constraint class] == [NSLayoutConstraint class]
+			&& constraint.firstItem == source && constraint.secondItem == nil) {
+			// this is a source constraint. we need to copy it to the destination.
+			NSLayoutConstraint* newConstraint = nil;
+			newConstraint = [NSLayoutConstraint constraintWithItem:dest
+														 attribute:constraint.firstAttribute
+														 relatedBy:constraint.relation
+															toItem:nil
+														 attribute:constraint.secondAttribute
+														multiplier:constraint.multiplier
+														  constant:constraint.constant];
+			newConstraint.shouldBeArchived = YES;
+			[newDestConstraints addObject:newConstraint];
+			[source removeConstraint:constraint];
+		}
+	}
+	[constraints release];
+
+	// again we need a copy since we will be altering the original
+	constraints = [dest.constraints copy];
+	for (NSLayoutConstraint* constraint in constraints) {
+		// WARNING: do not tamper with intrinsic layout constraints
+		if ([constraint class] == [NSLayoutConstraint class] && constraint.firstItem == dest && constraint.secondItem == nil) {
+			// this is a destination constraint. we need to copy it to the source.
+			NSLayoutConstraint* newConstraint = nil;
+			newConstraint = [NSLayoutConstraint constraintWithItem:source
+														 attribute:constraint.firstAttribute
+														 relatedBy:constraint.relation
+															toItem:nil
+														 attribute:constraint.secondAttribute
+														multiplier:constraint.multiplier
+														  constant:constraint.constant];
+			newConstraint.shouldBeArchived = YES;
+			[newSourceConstraints addObject:newConstraint];
+			[dest removeConstraint:constraint];
+		}
+	}
+	[constraints release];
+
+	[dest addConstraints:newDestConstraints];
+	[source addConstraints:newSourceConstraints];
+	[source updateConstraints];
+	[dest updateConstraints];
+	// auto layout makes setting the frame unnecissary, but
+	// we do it because its possible that a module is not using auto layout
+	NSRect srcRect = source.frame;
+	NSRect dstRect = dest.frame;
+	// round the coordinates!!!
+	// otherwise we will have problems with persistant values
+	srcRect.origin.x = round(srcRect.origin.x);
+	srcRect.origin.y = round(srcRect.origin.y);
+	dstRect.origin.x = round(dstRect.origin.x);
+	dstRect.origin.y = round(dstRect.origin.y);
+
+	source.frame = dstRect;
+	dest.frame = srcRect;
+
+	if (persist) {
+		NSString* rectString = NSStringFromRect(srcRect);
+		[[_theme prefrences] setObject:rectString forKey:dest.identifier];
+		rectString = NSStringFromRect(dstRect);
+		[[_theme prefrences] setObject:rectString forKey:source.identifier];
+	}
+}
+
 - (BOOL)themeObject:(id <NBBThemable>) obj
 {
 	if (_theme && [obj conformsToProtocol:@protocol(NBBThemable)]) {

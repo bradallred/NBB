@@ -22,6 +22,7 @@
 #import "NSActionCell+NBBSwappable.h"
 
 #import "NBBDragAnimationWindow.h"
+#import "NBBThemeEngine.h"
 
 static char const * const delegateTagKey = "_swapDelegate";
 
@@ -300,10 +301,6 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 	assert(dest && source && dest != source);
 
-	NSLog(@"swapping %@:{%f,%f} with %@:{%f,%f}",
-		  dest, dstFrame.origin.x, dstFrame.origin.y,
-		  source, srcFrame.origin.x, srcFrame.origin.y);
-
 	[self setHighlighted:NO];
 
 	// we need to obtain the coordinates for the drag image representing the source control
@@ -316,99 +313,11 @@ static char const * const delegateTagKey = "_swapDelegate";
 	[[dest animator] setFrame:srcFrame];
 	[[source animator] setFrame:dstFrame];
 
-	// !!!: adjust the "Auto Layout" constraints for the superview.
-	// otherwise changing the frames is impossible. (instant reversion)
-	// we could disable "Auto Layout", but let's try for compatibility
-
-	// TODO: we need to either enforce that the 2 controls have the same superview
-	// before accepting the drag operation
-	// or modify this code to take two diffrent superviews into account
-
-	// we are altering the constraints so iterate a copy!
-	NSArray* constraints = [dest.superview.constraints copy];
-	for (NSLayoutConstraint* constraint in constraints) {
-		id first = constraint.firstItem;
-		id second = constraint.secondItem;
-		id newFirst = first;
-		id newSecond = second;
-
-		BOOL match = NO;
-		if (first == dest) {
-			newFirst = source;
-			match = YES;
-		}
-		if (second == dest) {
-			newSecond = source;
-			match = YES;
-		}
-		if (first == source) {
-			newFirst = dest;
-			match = YES;
-		}
-		if (second == source) {
-			newSecond = dest;
-			match = YES;
-		}
-		if (match) {
-			[dest.superview removeConstraint:constraint];
-			NSLayoutConstraint* newConstraint = nil;
-			newConstraint = [NSLayoutConstraint constraintWithItem:newFirst
-														 attribute:constraint.firstAttribute
-														 relatedBy:constraint.relation
-															toItem:newSecond
-														 attribute:constraint.secondAttribute
-														multiplier:constraint.multiplier
-														  constant:constraint.constant];
-			[dest.superview addConstraint:newConstraint];
-		}
-	}
-	[constraints release];
-
-	NSMutableArray* newSourceConstraints = [NSMutableArray array];
-	NSMutableArray* newDestConstraints = [NSMutableArray array];
-
-	// again we need a copy since we will be altering the original
-	constraints = [source.constraints copy];
-	for (NSLayoutConstraint* constraint in constraints) {
-		// WARNING: do not tamper with intrinsic layout constraints
-		if ([constraint class] == [NSLayoutConstraint class] && constraint.firstItem == source && constraint.secondItem == nil) {
-			// this is a source constraint. we need to copy it to the destination.
-			NSLayoutConstraint* newConstraint = nil;
-			newConstraint = [NSLayoutConstraint constraintWithItem:dest
-														 attribute:constraint.firstAttribute
-														 relatedBy:constraint.relation
-															toItem:nil
-														 attribute:constraint.secondAttribute
-														multiplier:constraint.multiplier
-														  constant:constraint.constant];
-			[newDestConstraints addObject:newConstraint];
-			[source removeConstraint:constraint];
-		}
-	}
-	[constraints release];
-
-	// again we need a copy since we will be altering the original
-	constraints = [dest.constraints copy];
-	for (NSLayoutConstraint* constraint in constraints) {
-		// WARNING: do not tamper with intrinsic layout constraints
-		if ([constraint class] == [NSLayoutConstraint class] && constraint.firstItem == dest && constraint.secondItem == nil) {
-			// this is a destination constraint. we need to copy it to the source.
-			NSLayoutConstraint* newConstraint = nil;
-			newConstraint = [NSLayoutConstraint constraintWithItem:source
-														 attribute:constraint.firstAttribute
-														 relatedBy:constraint.relation
-															toItem:nil
-														 attribute:constraint.secondAttribute
-														multiplier:constraint.multiplier
-														  constant:constraint.constant];
-			[newSourceConstraints addObject:newConstraint];
-			[dest removeConstraint:constraint];
-		}
-	}
-	[constraints release];
-
-	[dest addConstraints:newDestConstraints];
-	[source addConstraints:newSourceConstraints];
+	// even though we just set the frames we need to tell the ThemeEngine
+	// otherwise "Auto Layout" will revert our change.
+	// the ThemeEngine will take care of the layout constraints for us
+	// the ThemeEngine will also persist our changes
+	[[NBBThemeEngine sharedThemeEngine] swapView:source withView:dest persist:YES];
 }
 
 @end
