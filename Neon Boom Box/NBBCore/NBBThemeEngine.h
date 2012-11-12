@@ -44,7 +44,6 @@
 @private
 	NSMutableSet* _themedObjects;
 }
-@property(assign) IBOutlet NBBWindow* window;
 @property(nonatomic, readonly) NBBTheme* theme;
 
 + (NBBThemeEngine*)sharedThemeEngine;
