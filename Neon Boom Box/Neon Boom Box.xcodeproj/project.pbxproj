@@ -51,6 +51,8 @@
 		A2A07BF71650AB4B00273E72 /* NBBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = A2689FB416308DCB00E1AFFB /* NBBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2A07BF81650ABAE00273E72 /* NBBSwappableControl.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3CF416372E4500A622FF /* NBBSwappableControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2A07BFF1651607300273E72 /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2A07BFE1651607300273E72 /* defaults.plist */; };
+		A2A07C01165163D100273E72 /* MusicModule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A07C00165163D100273E72 /* MusicModule.xib */; };
+		A2A07C03165163E500273E72 /* VideoModule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A07C02165163E500273E72 /* VideoModule.xib */; };
 		A2A929BF164C9A6A007BC253 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A929BE164C9A6A007BC253 /* AudioToolbox.framework */; };
 		A2A929CA164CA613007BC253 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A929C9164CA613007BC253 /* AudioUnit.framework */; };
 		A2DBB0591631A73900C32443 /* NBBTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0551631A73900C32443 /* NBBTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -221,6 +223,8 @@
 		A295D3721646FB0000F90780 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = "themes/White Leather/setup.py"; sourceTree = SOURCE_ROOT; };
 		A295D3731646FB0000F90780 /* White Leather.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = "White Leather.py"; path = "themes/White Leather/White Leather.py"; sourceTree = SOURCE_ROOT; };
 		A2A07BFE1651607300273E72 /* defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaults.plist; sourceTree = "<group>"; };
+		A2A07C00165163D100273E72 /* MusicModule.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicModule.xib; sourceTree = "<group>"; };
+		A2A07C02165163E500273E72 /* VideoModule.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoModule.xib; sourceTree = "<group>"; };
 		A2A929BE164C9A6A007BC253 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A2A929C9164CA613007BC253 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		A2DBB0551631A73900C32443 /* NBBTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBTheme.h; sourceTree = "<group>"; };
@@ -456,6 +460,7 @@
 				A2689FC216308E6F00E1AFFB /* MusicModule-Info.plist */,
 				A2689FC316308E6F00E1AFFB /* InfoPlist.strings */,
 				A2689FC616308E6F00E1AFFB /* MusicModule-Prefix.pch */,
+				A2A07C00165163D100273E72 /* MusicModule.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				A2689FD216308E9E00E1AFFB /* VideoModule-Info.plist */,
 				A2689FD316308E9E00E1AFFB /* InfoPlist.strings */,
 				A2689FD616308E9E00E1AFFB /* VideoModule-Prefix.pch */,
+				A2A07C02165163E500273E72 /* VideoModule.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -772,6 +778,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2689FC516308E6F00E1AFFB /* InfoPlist.strings in Resources */,
+				A2A07C01165163D100273E72 /* MusicModule.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +787,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2689FD516308E9E00E1AFFB /* InfoPlist.strings in Resources */,
+				A2A07C03165163E500273E72 /* VideoModule.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
