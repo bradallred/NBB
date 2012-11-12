@@ -16,3 +16,16 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
+#import <NBBCore/NBBButton.h>
+#import <NBBCore/NBBSlider.h>
+#import <NBBCore/NBBTableView.h>
+#import <NBBCore/NBBTextField.h>
+#import <NBBCore/NBBWindow.h>
+
+#import <NBBCore/NBBTheme.h>
+#import <NBBCore/NBBThemeEngine.h>
+
+#import <NBBCore/NBBModule.h>
+
+#import <NBBCore/NBBSwappableControl.h>
+#import <NBBCore/NBBThemable.h>
