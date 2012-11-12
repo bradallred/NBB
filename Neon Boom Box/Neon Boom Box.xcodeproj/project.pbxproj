@@ -73,7 +73,7 @@
 		A2DBB07F1631B18800C32443 /* NBBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB07D1631B18800C32443 /* NBBTextField.m */; };
 		A2DBB0821631B1BE00C32443 /* NBBSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0801631B1BE00C32443 /* NBBSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2DBB0831631B1BE00C32443 /* NBBSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0811631B1BE00C32443 /* NBBSlider.m */; };
-		A2DBB0851631DAAD00C32443 /* NBBThemable.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0841631DAAD00C32443 /* NBBThemable.h */; };
+		A2DBB0851631DAAD00C32443 /* NBBThemable.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0841631DAAD00C32443 /* NBBThemable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
