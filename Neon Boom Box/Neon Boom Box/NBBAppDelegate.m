@@ -80,8 +80,10 @@
 		// now theme prefs should override application prefs!
 		// === register defaults ===
 		// this MUST come last in search path
-		// TODO: setup a default plist and load it here
-		[_userPrefrences registerDefaults:@{}]; // will create NSRegistrationDomain for us and add it to path
+		NSDictionary* defaults = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
+															pathForResource:@"defaults"
+																	 ofType:@"plist"]];
+		[_userPrefrences registerDefaults:defaults]; // will create NSRegistrationDomain for us and add it to path
 
 		// === initialize the selected theme ===
 		NBBTheme* theme = [[themeClass alloc] init];
