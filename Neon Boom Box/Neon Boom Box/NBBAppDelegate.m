@@ -111,7 +111,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	// Insert code here to initialize your application
+	[_themeEngine updateLayout];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

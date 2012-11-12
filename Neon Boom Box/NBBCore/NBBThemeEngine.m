@@ -230,11 +230,48 @@
 	}
 }
 
+- (void)updateLayout
+{
+	// This is almost certainly true. 3rd party themes might use other objects, however.
+	for (id <NBBThemable> obj in _themedObjects) {
+		if ([obj isKindOfClass:[NSView class]]) {
+			NSView* view = (NSView*)obj;
+			NSLog(@"positioning %@", view.identifier);
+			NSString* rectString = [_theme.prefrences objectForKey:view.identifier];
+			if (rectString) {
+				// because of "Auto Layout" we need to iterate all the subviews
+				// and find the one matching the frame rect and swap the layout constraints
+				NSRect frame = NSRectFromString(rectString);
+				NSView* swapView = nil;
+
+				for (NSView* sv in view.superview.subviews) {
+					NSLog(@"checking:%@", sv.identifier);
+					if (NSEqualRects(frame, sv.frame)
+						&& [sv isKindOfClass:[view class]] // only swap objects that are compatible
+						) {
+						NSLog(@"found match:%@", sv.identifier);
+						swapView = sv;
+						break;
+					}
+				}
+				if (swapView && swapView != view) {
+					// no need to persist; this is being calld because it is already persistant.
+					[self swapView:view withView:swapView persist:NO];
+				}
+			}
+		}
+	}
+}
+
 - (BOOL)themeObject:(id <NBBThemable>) obj
 {
 	if (_theme && [obj conformsToProtocol:@protocol(NBBThemable)]) {
 		if ([obj applyTheme:_theme]) {
-			[_themedObjects addObject:obj];
+			if (![_themedObjects containsObject:obj]) {
+				[_themedObjects addObject:obj];
+				// new themed object
+				[self updateLayout];
+			}
 			return YES;
 		}
 	}
@@ -252,8 +289,9 @@
 	NSLog(@"Applying theme:%@", theme);
 	_theme = [theme retain];
 	for (id <NBBThemable> obj in _themedObjects) {
-		[obj applyTheme:_theme];
+		[self themeObject:obj];
 	}
+	[self updateLayout];
 	[nc postNotificationName:@"NBBThemeChanged" object:self userInfo:_theme.prefrences];
 }
 
