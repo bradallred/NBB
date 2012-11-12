@@ -49,7 +49,7 @@
 + (NBBThemeEngine*)sharedThemeEngine;
 
 - (Class <NBBThemable>)classReplacementForThemableClass:(Class <NBBThemable>) cls;
-- (BOOL)themeObject:(id <NBBThemable>) obj;
+- (void)themeObject:(id <NBBThemable>) obj;
 - (void)swapView:(NSView*) source withView:(NSView*) dest persist:(BOOL) persist;
 - (void)updateLayout;
 

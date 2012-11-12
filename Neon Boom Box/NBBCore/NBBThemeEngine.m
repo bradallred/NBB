@@ -255,7 +255,7 @@
 	}
 }
 
-- (BOOL)themeObject:(id <NBBThemable>) obj
+- (void) themeObject:(id <NBBThemable>) obj
 {
 	if (_theme && [obj conformsToProtocol:@protocol(NBBThemable)]) {
 		if ([obj applyTheme:_theme]) {
@@ -273,10 +273,12 @@
 				 */
 				[self updateLayout];
 			}
-			return YES;
 		}
+	} else {
+		@throw([NSException exceptionWithName:@"NoThemeLoadedException"
+									   reason:@"ThemeEngine has no theme set"
+									 userInfo:nil]);
 	}
-	return NO;
 }
 
 - (void)applyTheme:(NBBTheme*) theme
