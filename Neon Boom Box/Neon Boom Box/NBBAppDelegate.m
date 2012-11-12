@@ -81,6 +81,8 @@
 
 		// === initialize the selected theme ===
 		NBBTheme* theme = [[themeClass alloc] init];
+		theme.identifier = themeBundle.bundleIdentifier;
+		theme.prefrences = [NSMutableDictionary dictionaryWithDictionary:[_userPrefrences persistentDomainForName:themeBundle.bundleIdentifier]];
 		[_themeEngine applyTheme:theme];
 		[theme release];
 
@@ -108,6 +110,12 @@
 	// Insert code here to initialize your application
 }
 
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+	[self updateThemePrefs:nil];
+	[_userPrefrences synchronize];
+}
+
 - (NSDate*)dateTime
 {
 	return [NSDate date];
@@ -118,6 +126,14 @@
 	// manual KVO notifications
 	[self willChangeValueForKey:@"dateTime"];
 	[self didChangeValueForKey:@"dateTime"];
+}
+
+- (void)updateThemePrefs:(NSNotification*) notification
+{
+	// don't bother using the notification since we call this with nil on dealloc
+	NBBTheme* theTheme = _themeEngine.theme;
+	NSLog(@"saving settings for:%@\n%@", theTheme.identifier, theTheme.prefrences);
+	[_userPrefrences setPersistentDomain:theTheme.prefrences forName:theTheme.identifier];
 }
 
 @end
