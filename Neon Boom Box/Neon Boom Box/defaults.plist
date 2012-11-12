@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>NBBActiveTheme</key>
-	<string>Poly</string>
+	<string>com.NBB.theme.Poly</string>
 </dict>
 </plist>

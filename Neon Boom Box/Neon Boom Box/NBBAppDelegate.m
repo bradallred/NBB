@@ -29,8 +29,7 @@
 		// === load user prefrences ===
 		// NOTE: we cannot add a search path before the application path if we use standardUserDefaults
 		_userPrefrences = [[NSUserDefaults alloc] init];
-		NSString* bundleId = [NSBundle mainBundle].bundleIdentifier;
-		[_userPrefrences addSuiteNamed:bundleId];
+		[_userPrefrences addSuiteNamed:[NSBundle mainBundle].bundleIdentifier];
 
 		// === initialize themeing engine ===
 		// this must be done BEFORE attempting to initialize ANY theme or loading a theme bundle
@@ -39,58 +38,36 @@
 		// === register for notifications ===
 		NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
 		[nc addObserver:self selector:@selector(updateThemePrefs:) name:@"NBBThemeWillChange" object:_themeEngine];
+		[nc addObserver:self selector:@selector(themeChanged:) name:@"NBBThemeDidChange" object:_themeEngine];
+
+		// === find all available themes ===
+		NSString* themeDir = [NSString stringWithFormat:@"%@/Contents/Themes", [[NSBundle mainBundle] bundlePath]];
+		_availableThemes = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:themeDir error:nil];
+		_availableThemes = [_availableThemes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.nbbtheme'"]];
+		[_availableThemes retain];
 
 		// === find the theme to use ===
 
 		// get the current theme from user defaults
 		// if the theme is not set or no longer exists
 		// we will apply the first theme found
-		NSString* themeName = [_userPrefrences stringForKey:@"NBBActiveTheme"];
-		NSString* themePath = [[NSBundle mainBundle] pathForResource:themeName ofType:@"nbbtheme" inDirectory:@"Themes"];
-		if (!themePath) {
-			NSLog(@"theme not found. loading first theme I find.");
+		NSString* themeIdentifier = [_userPrefrences stringForKey:@"NBBActiveTheme"];
+
+		NBBTheme* theme = [self themeWithIdentifier:themeIdentifier];
+		if (!theme && _availableThemes.count) {
+			NSLog(@"assigned theme not found. loading first theme I find.");
 			// just grab the first nbbtheme bundle
-			NSString* themeDir = [NSString stringWithFormat:@"%@/Contents/Themes", [[NSBundle mainBundle] bundlePath]];
-			NSArray* themes = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:themeDir error:nil];
-			NSLog(@"available themes: %@ located in %@", themes, themeDir);
-			themes = [themes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.nbbtheme'"]];
-			themePath = [NSString stringWithFormat:@"%@/%@", themeDir, [themes objectAtIndex:0]];
+			theme = [self themeWithName:[_availableThemes objectAtIndex:0]];
 		}
-		NSLog(@"Loading theme: %@", themePath);
-		NSBundle* themeBundle = [NSBundle bundleWithPath:themePath];
-		if (!themeBundle) {
-			@throw([NSException exceptionWithName:@"NoThemeLoadedException"
-										   reason:@"No loadable themes found"
-										 userInfo:nil]);
-		}
+		// this will throw an exception if theme is nil
+		[_themeEngine applyTheme:theme];
 
-		Class themeClass = [themeBundle principalClass];
-		if (!themeClass || ![themeClass isSubclassOfClass:[NBBTheme class]]) {
-			@throw([NSException exceptionWithName:@"NoThemeLoadedException"
-										   reason:[NSString stringWithFormat:@"Bundle principle class '%@' is not a subclass of NBBTheme.", themeClass]
-										 userInfo:nil]);
-		}
-
-		// === add theme preferences to search path ===
-		// this is the first search path for prefrences so remove the app domain for now
-		[_userPrefrences removeSuiteNamed:bundleId];
-		[_userPrefrences addSuiteNamed:themeBundle.bundleIdentifier];
-		// !!!: before we initialize anything we need to re-add application domain to the preference search path
-		[_userPrefrences addSuiteNamed:bundleId];
-		// now theme prefs should override application prefs!
 		// === register defaults ===
 		// this MUST come last in search path
 		NSDictionary* defaults = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
 															pathForResource:@"defaults"
 																	 ofType:@"plist"]];
 		[_userPrefrences registerDefaults:defaults]; // will create NSRegistrationDomain for us and add it to path
-
-		// === initialize the selected theme ===
-		NBBTheme* theme = [[themeClass alloc] init];
-		theme.identifier = themeBundle.bundleIdentifier;
-		theme.prefrences = [NSMutableDictionary dictionaryWithDictionary:[_userPrefrences persistentDomainForName:themeBundle.bundleIdentifier]];
-		[_themeEngine applyTheme:theme];
-		[theme release];
 
 		// === start a time clock ===
 		NSTimer* timer = [NSTimer timerWithTimeInterval:1.0
@@ -107,6 +84,7 @@
 
 - (void)dealloc
 {
+	[_availableThemes release];
 	[_userPrefrences release];
     [super dealloc];
 }
@@ -140,6 +118,66 @@
 	NBBTheme* theTheme = _themeEngine.theme;
 	NSLog(@"saving settings for:%@\n%@", theTheme.identifier, theTheme.prefrences);
 	[_userPrefrences setPersistentDomain:theTheme.prefrences forName:theTheme.identifier];
+
+	if (notification) {
+		// the theme is changing so remove it from the search path
+		[_userPrefrences removeSuiteNamed:theTheme.identifier];
+	}
+}
+
+- (void)themeChanged:(NSNotification*) notification
+{
+	NBBThemeEngine* engine = notification.object;
+	// === add theme preferences to search path ===
+	// this is the first search path for prefrences so remove the app domain then re-add
+	NSString* identifier = [NSBundle mainBundle].bundleIdentifier;
+	[_userPrefrences removeSuiteNamed:identifier];
+	[_userPrefrences addSuiteNamed:engine.theme.identifier];
+	[_userPrefrences addSuiteNamed:identifier];
+	// now theme prefs should override application prefs!
+
+	// set the new theme to the preference default
+	[_userPrefrences setObject:engine.theme.identifier forKey:@"NBBActiveTheme"];
+}
+
+- (NBBTheme*)themeFromBundle:(NSBundle*) themeBundle
+{
+	if (!themeBundle) {
+		return nil;
+	}
+
+	Class themeClass = [themeBundle principalClass];
+	if (!themeClass || ![themeClass isSubclassOfClass:[NBBTheme class]]) {
+		@throw([NSException exceptionWithName:@"NBBNotValidThemeException"
+									   reason:[NSString stringWithFormat:@"Bundle principle class '%@' is not a subclass of NBBTheme.", themeClass]
+									 userInfo:nil]);
+	}
+
+	NBBTheme* theTheme = [[themeClass alloc] init];
+	// === initialize the theme ===
+	theTheme.identifier = themeBundle.bundleIdentifier;
+	theTheme.prefrences = [NSMutableDictionary dictionaryWithDictionary:[_userPrefrences persistentDomainForName:themeBundle.bundleIdentifier]];
+
+	return [theTheme autorelease];
+}
+
+- (NBBTheme*)themeWithIdentifier:(NSString*) identifier
+{
+	return [self themeWithName:[identifier pathExtension]];
+}
+
+- (NBBTheme*)themeWithName:(NSString*) themeName
+{
+	// we should accept a name with or without the extension
+	NSString* themePath = [[NSBundle mainBundle] pathForResource:themeName ofType:@"nbbtheme" inDirectory:@"../Themes"];
+	if (!themePath) {
+		themePath = [[NSBundle mainBundle] pathForResource:themeName ofType:nil inDirectory:@"../Themes"];
+	}
+	if (!themePath) {
+		return nil;
+	}
+	NSBundle* themeBundle = [NSBundle bundleWithPath:themePath];
+	return [self themeFromBundle:themeBundle];
 }
 
 @end

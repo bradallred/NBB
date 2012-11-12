@@ -20,8 +20,12 @@
 #import <NBBCore/NBBThemeEngine.h>
 
 @interface NBBAppDelegate : NSObject <NSApplicationDelegate>
+
 @property(readonly, nonatomic) NBBThemeEngine* themeEngine;
 @property(readonly, nonatomic) NSDate* dateTime;
 @property(readonly, nonatomic) NSUserDefaults* userPrefrences;
+@property(readonly, nonatomic) NSArray* availableThemes;
 
+- (NBBTheme*)themeWithName:(NSString*) themeName;
+- (NBBTheme*)themeWithIdentifier:(NSString*) identifier;
 @end

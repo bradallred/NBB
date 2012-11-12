@@ -275,7 +275,7 @@
 			}
 		}
 	} else {
-		@throw([NSException exceptionWithName:@"NoThemeLoadedException"
+		@throw([NSException exceptionWithName:@"NBBNoThemeLoadedException"
 									   reason:@"ThemeEngine has no theme set"
 									 userInfo:nil]);
 	}
@@ -283,6 +283,12 @@
 
 - (void)applyTheme:(NBBTheme*) theme
 {
+	if (theme == nil) {
+		@throw([NSException exceptionWithName:@"NBBNotValidThemeException"
+									   reason:[NSString stringWithFormat:@"Nil Theme applied. ThemeEngine requires a valid theme"]
+									 userInfo:nil]);
+	}
+
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	if (_theme) {
 		[nc postNotificationName:@"NBBThemeWillChange" object:self userInfo:_theme.prefrences];
@@ -295,7 +301,7 @@
 		[self themeObject:obj];
 	}
 	[self updateLayout];
-	[nc postNotificationName:@"NBBThemeChanged" object:self userInfo:_theme.prefrences];
+	[nc postNotificationName:@"NBBThemeDidChange" object:self userInfo:_theme.prefrences];
 }
 
 - (void)frameChanged:(NSNotification*) notification
