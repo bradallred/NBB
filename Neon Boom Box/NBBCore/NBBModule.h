@@ -19,5 +19,9 @@
 #import <Cocoa/Cocoa.h>
 
 @interface NBBModule : NSWindowController
+@property(nonatomic, readonly) IBOutlet NSView* preferenceView;
 
+// sleep notifications
+- (void)systemWillSleep:(NSNotification*) notification;
+- (void)systemDidWakeFromSleep:(NSNotification*) notification;
 @end
