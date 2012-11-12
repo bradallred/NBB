@@ -299,8 +299,6 @@
 		A2689F6316308CE500E1AFFB = {
 			isa = PBXGroup;
 			children = (
-				A2A929C9164CA613007BC253 /* AudioUnit.framework */,
-				A2A929BE164C9A6A007BC253 /* AudioToolbox.framework */,
 				A2689FF11630BDA800E1AFFB /* Modules */,
 				A2689FEA1630B7A800E1AFFB /* Themes */,
 				A2689F7816308CE500E1AFFB /* Neon Boom Box */,
@@ -328,11 +326,13 @@
 		A2689F7116308CE500E1AFFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2A929BE164C9A6A007BC253 /* AudioToolbox.framework */,
+				A2A929C9164CA613007BC253 /* AudioUnit.framework */,
 				A2689F7216308CE500E1AFFB /* Cocoa.framework */,
-				A2689F7416308CE500E1AFFB /* Other Frameworks */,
 				A23A3CED16360F2500A622FF /* Python.framework */,
 				A23A3CFF163777CE00A622FF /* QuartzCore.framework */,
 				A2689F9016308CE500E1AFFB /* SenTestingKit.framework */,
+				A2689F7416308CE500E1AFFB /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
