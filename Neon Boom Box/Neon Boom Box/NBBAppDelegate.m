@@ -148,10 +148,10 @@
 	NBBTheme* theTheme = _themeEngine.theme;
 	NSLog(@"saving settings for:%@\n%@", theTheme.identifier, theTheme.prefrences);
 	[_userPrefrences setPersistentDomain:theTheme.prefrences forName:theTheme.identifier];
-	[_userPrefrences synchronize];
 
 	if (notification) {
 		// the theme is changing so remove it from the search path
+		[_userPrefrences synchronize]; // save before removing the suite
 		[_userPrefrences removeSuiteNamed:theTheme.identifier];
 	}
 }
