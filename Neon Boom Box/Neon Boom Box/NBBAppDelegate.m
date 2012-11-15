@@ -78,6 +78,36 @@
 
 		// we need to add the timer for all common modes so the clock will update during event tracking
 		[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+
+		// === the very last thing is to load the modules ===
+		NSString* moduleDir = [NSBundle mainBundle].builtInPlugInsPath;
+		_availableModules = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:moduleDir error:nil];
+		_availableModules = [_availableModules filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.nbbmodule'"]];
+		//[NSThread detachNewThreadSelector:@selector(loadModules) toTarget:self withObject:nil];
+		NSOperationQueue* loaderQueue = [[NSOperationQueue alloc] init];
+		[loaderQueue setMaxConcurrentOperationCount:[_availableModules count]];
+		for (NSString* module in _availableModules) {
+			NSString* path = [NSString stringWithFormat:@"%@/%@", moduleDir, module];
+			NSBundle* moduleBundle = [NSBundle bundleWithPath:path];
+			id moduleClass = moduleBundle.principalClass;
+			if ([moduleClass isSubclassOfClass:[NBBModule class]]) {
+				[loaderQueue addOperationWithBlock:^{
+					// load the module
+					NSString* nibName = [[moduleBundle infoDictionary] objectForKey:@"NSMainNibFile"];
+					if (nibName) {
+						NBBModule* module = [[moduleClass alloc] initWithWindowNibName:nibName];
+					} else {
+						@throw([NSException exceptionWithName:@"NBBNotValidModuleException"
+													   reason:@"Modules must have an NSMainNibFile defined"
+													 userInfo:nil]);
+					}
+				}];
+			} else {
+				@throw([NSException exceptionWithName:@"NBBNotValidModuleException"
+											   reason:[NSString stringWithFormat:@"Bundle principle class '%@' is not a subclass of NBBModule.", moduleClass]
+											 userInfo:nil]);
+			}
+		}
     }
     return self;
 }

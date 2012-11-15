@@ -25,7 +25,9 @@
 @property(readonly, nonatomic) NSDate* dateTime;
 @property(readonly, nonatomic) NSUserDefaults* userPrefrences;
 @property(readonly, nonatomic) NSArray* availableThemes;
+@property(readonly, nonatomic) NSArray* availableModules;
 
 - (NBBTheme*)themeWithName:(NSString*) themeName;
 - (NBBTheme*)themeWithIdentifier:(NSString*) identifier;
+
 @end
