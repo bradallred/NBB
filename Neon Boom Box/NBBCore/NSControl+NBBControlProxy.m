@@ -39,6 +39,14 @@
 	[super viewWillMoveToWindow:newWindow]; // shouldnt do anything (default implementation is noop)
 }
 
+- (NBBTheme*) theme
+{
+	if ([self conformsToProtocol:@protocol(NBBThemable)]) {
+		return [NBBThemeEngine sharedThemeEngine].theme;
+	}
+	return nil;
+}
+
 #pragma mark NSDraggingDestination
 // message forwarding doesnt work for NSDraggingDestination methods
 // because NSView implements empty methods for the protocol

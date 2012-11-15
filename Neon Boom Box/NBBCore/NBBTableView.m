@@ -19,6 +19,7 @@
 #import "NBBTableView.h"
 
 @implementation NBBTableView
+@dynamic theme;
 
 # pragma mark - NBBThemable
 - (id)initWithTheme:(NBBTheme*) theme
