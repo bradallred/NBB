@@ -117,6 +117,8 @@
 
 - (void)dealloc
 {
+	// this isnt needed unless somehow the application gets a new delegate
+	// would have to be due to 3rd party mod
 	[_availableThemes release];
 	[_userPrefrences release];
     [super dealloc];
@@ -135,6 +137,10 @@
 
 	// === destroy modules ===
 	[_loadedModules release];
+
+	// === destroy everything else ===
+	[_availableThemes release];
+	[_userPrefrences release];
 }
 
 - (NSDate*)dateTime
