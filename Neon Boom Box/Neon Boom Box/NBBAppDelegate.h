@@ -20,6 +20,10 @@
 #import <NBBCore/NBBThemeEngine.h>
 
 @interface NBBAppDelegate : NSObject <NSApplicationDelegate>
+{
+	@private
+	NSMutableDictionary* _loadedModules;
+}
 
 @property(readonly, nonatomic) NBBThemeEngine* themeEngine;
 @property(readonly, nonatomic) NSDate* dateTime;

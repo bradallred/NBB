@@ -83,19 +83,22 @@
 		NSString* moduleDir = [NSBundle mainBundle].builtInPlugInsPath;
 		_availableModules = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:moduleDir error:nil];
 		_availableModules = [_availableModules filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.nbbmodule'"]];
-		//[NSThread detachNewThreadSelector:@selector(loadModules) toTarget:self withObject:nil];
+		_loadedModules = [[NSMutableDictionary alloc] initWithCapacity:[_availableModules count]];
 		NSOperationQueue* loaderQueue = [[NSOperationQueue alloc] init];
 		[loaderQueue setMaxConcurrentOperationCount:[_availableModules count]];
-		for (NSString* module in _availableModules) {
-			NSString* path = [NSString stringWithFormat:@"%@/%@", moduleDir, module];
+		for (NSString* moduleName in _availableModules) {
+			NSString* path = [NSString stringWithFormat:@"%@/%@", moduleDir, moduleName];
 			NSBundle* moduleBundle = [NSBundle bundleWithPath:path];
 			id moduleClass = moduleBundle.principalClass;
+
 			if ([moduleClass isSubclassOfClass:[NBBModule class]]) {
 				[loaderQueue addOperationWithBlock:^{
 					// load the module
 					NSString* nibName = [[moduleBundle infoDictionary] objectForKey:@"NSMainNibFile"];
 					if (nibName) {
 						NBBModule* module = [[moduleClass alloc] initWithWindowNibName:nibName];
+						[_loadedModules setValue:module forKey:moduleBundle.bundleIdentifier];
+						[module release]; //retained by the dict
 					} else {
 						@throw([NSException exceptionWithName:@"NBBNotValidModuleException"
 													   reason:@"Modules must have an NSMainNibFile defined"
@@ -126,8 +129,12 @@
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
+	// === sync prefs ===
 	[self updateThemePrefs:nil];
 	[_userPrefrences synchronize];
+
+	// === destroy modules ===
+	[_loadedModules release];
 }
 
 - (NSDate*)dateTime
