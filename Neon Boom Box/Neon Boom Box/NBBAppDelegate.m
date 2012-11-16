@@ -37,8 +37,15 @@
 
 		// === register for notifications ===
 		NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+		_loaderQueue = [[NSOperationQueue alloc] init];
+
 		[nc addObserver:self selector:@selector(updateThemePrefs:) name:@"NBBThemeWillChange" object:_themeEngine];
 		[nc addObserver:self selector:@selector(themeChanged:) name:@"NBBThemeDidChange" object:_themeEngine];
+		[nc addObserverForName:@"NBBModuleLoaded" object:nil
+			queue:_loaderQueue usingBlock:^(NSNotification *note) {
+				NSLog(@"%@ loaded", note.object);
+			}
+		 ];
 
 		// === find all available themes ===
 		NSString* themeDir = [NSString stringWithFormat:@"%@/Contents/Themes", [[NSBundle mainBundle] bundlePath]];
@@ -84,8 +91,8 @@
 		_availableModules = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:moduleDir error:nil];
 		_availableModules = [_availableModules filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.nbbmodule'"]];
 		_loadedModules = [[NSMutableDictionary alloc] initWithCapacity:[_availableModules count]];
-		_loaderQueue = [[NSOperationQueue alloc] init];
 		[_loaderQueue setMaxConcurrentOperationCount:[_availableModules count]];
+
 		for (NSString* moduleName in _availableModules) {
 			NSString* path = [NSString stringWithFormat:@"%@/%@", moduleDir, moduleName];
 			NSBundle* moduleBundle = [NSBundle bundleWithPath:path];
@@ -99,6 +106,7 @@
 						NBBModule* module = [[moduleClass alloc] initWithWindowNibName:nibName];
 						[_loadedModules setValue:module forKey:moduleBundle.bundleIdentifier];
 						[module release]; //retained by the dict
+						[nc postNotificationName:@"NBBModuleLoaded" object:module];
 					} else {
 						@throw([NSException exceptionWithName:@"NBBNotValidModuleException"
 													   reason:@"Modules must have an NSMainNibFile defined"
