@@ -23,6 +23,7 @@
 {
 	@private
 	NSMutableDictionary* _loadedModules;
+	NSOperationQueue* _loaderQueue;
 }
 
 @property(readonly, nonatomic) NBBThemeEngine* themeEngine;

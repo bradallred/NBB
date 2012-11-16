@@ -84,15 +84,15 @@
 		_availableModules = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:moduleDir error:nil];
 		_availableModules = [_availableModules filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.nbbmodule'"]];
 		_loadedModules = [[NSMutableDictionary alloc] initWithCapacity:[_availableModules count]];
-		NSOperationQueue* loaderQueue = [[NSOperationQueue alloc] init];
-		[loaderQueue setMaxConcurrentOperationCount:[_availableModules count]];
+		_loaderQueue = [[NSOperationQueue alloc] init];
+		[_loaderQueue setMaxConcurrentOperationCount:[_availableModules count]];
 		for (NSString* moduleName in _availableModules) {
 			NSString* path = [NSString stringWithFormat:@"%@/%@", moduleDir, moduleName];
 			NSBundle* moduleBundle = [NSBundle bundleWithPath:path];
 			id moduleClass = moduleBundle.principalClass;
 
 			if ([moduleClass isSubclassOfClass:[NBBModule class]]) {
-				[loaderQueue addOperationWithBlock:^{
+				[_loaderQueue addOperationWithBlock:^{
 					// load the module
 					NSString* nibName = [[moduleBundle infoDictionary] objectForKey:@"NSMainNibFile"];
 					if (nibName) {
@@ -119,6 +119,7 @@
 {
 	// this isnt needed unless somehow the application gets a new delegate
 	// would have to be due to 3rd party mod
+	[_loaderQueue release];
 	[_availableThemes release];
 	[_userPrefrences release];
     [super dealloc];
@@ -136,9 +137,11 @@
 	[_userPrefrences synchronize];
 
 	// === destroy modules ===
+	[_loaderQueue cancelAllOperations];
 	[_loadedModules release];
 
 	// === destroy everything else ===
+	[_loaderQueue release];
 	[_availableThemes release];
 	[_userPrefrences release];
 }
