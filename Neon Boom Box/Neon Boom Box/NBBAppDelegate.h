@@ -35,4 +35,7 @@
 - (NBBTheme*)themeWithName:(NSString*) themeName;
 - (NBBTheme*)themeWithIdentifier:(NSString*) identifier;
 
+- (NBBModule*)moduleWithName:(NSString*) moduleName shouldLoad:(BOOL) load;
+- (NBBModule*)moduleWithIdentifier:(NSString*) identifier shouldLoad:(BOOL) load;
+
 @end

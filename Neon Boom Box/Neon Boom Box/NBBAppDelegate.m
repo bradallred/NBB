@@ -242,4 +242,22 @@
 	return [self themeFromBundle:themeBundle];
 }
 
+- (NBBModule*)moduleWithName:(NSString*) moduleName loadIfNot:(BOOL) load
+{
+	// TODO: implement this. we should be able to search _loadedMoudlues first
+	return nil;
+}
+
+- (NBBModule*)moduleWithIdentifier:(NSString*) identifier shouldLoad:(BOOL) load
+{
+	NBBModule* module = nil;
+	@synchronized(_loadedModules) {
+		module = [_loadedModules objectForKey:identifier];
+	}
+	if (!module) {
+		return [self moduleWithName:[identifier pathExtension] shouldLoad:load];
+	}
+	return module;
+}
+
 @end
