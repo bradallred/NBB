@@ -104,7 +104,9 @@
 					NSString* nibName = [[moduleBundle infoDictionary] objectForKey:@"NSMainNibFile"];
 					if (nibName) {
 						NBBModule* module = [[moduleClass alloc] initWithWindowNibName:nibName];
-						[_loadedModules setValue:module forKey:moduleBundle.bundleIdentifier];
+						@synchronized(_loadedModules) {
+							[_loadedModules setValue:module forKey:moduleBundle.bundleIdentifier];
+						}
 						[module release]; //retained by the dict
 						[nc postNotificationName:@"NBBModuleLoaded" object:module];
 					} else {
@@ -130,6 +132,9 @@
 	[_loaderQueue release];
 	[_availableThemes release];
 	[_userPrefrences release];
+	@synchronized(_loadedModules) {
+		[_loadedModules release];
+	}
     [super dealloc];
 }
 
@@ -146,7 +151,9 @@
 
 	// === destroy modules ===
 	[_loaderQueue cancelAllOperations];
-	[_loadedModules release];
+	@synchronized(_loadedModules) {
+		[_loadedModules release];
+	}
 
 	// === destroy everything else ===
 	[_loaderQueue release];
