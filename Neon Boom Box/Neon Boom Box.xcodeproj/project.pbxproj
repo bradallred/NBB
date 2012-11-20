@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A223F2A91640BBC500F87174 /* NBBDragAnimationWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A223F2A71640BBC500F87174 /* NBBDragAnimationWindow.h */; };
 		A223F2AA1640BBC500F87174 /* NBBDragAnimationWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A223F2A81640BBC500F87174 /* NBBDragAnimationWindow.m */; };
+		A2334459165806DA00A6B370 /* NBBLaunchPad.m in Sources */ = {isa = PBXBuildFile; fileRef = A2334458165806DA00A6B370 /* NBBLaunchPad.m */; };
 		A23A3CD81634A9A800A622FF /* NSControl+NBBControlProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3CD61634A9A800A622FF /* NSControl+NBBControlProxy.h */; };
 		A23A3CDC1634B5F800A622FF /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A23A3CDF1634BC6100A622FF /* NSControl+NBBControlProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */; };
@@ -166,6 +167,8 @@
 /* Begin PBXFileReference section */
 		A223F2A71640BBC500F87174 /* NBBDragAnimationWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBDragAnimationWindow.h; sourceTree = "<group>"; };
 		A223F2A81640BBC500F87174 /* NBBDragAnimationWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBDragAnimationWindow.m; sourceTree = "<group>"; };
+		A2334457165806DA00A6B370 /* NBBLaunchPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBLaunchPad.h; sourceTree = "<group>"; };
+		A2334458165806DA00A6B370 /* NBBLaunchPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBLaunchPad.m; sourceTree = "<group>"; };
 		A23A3CD61634A9A800A622FF /* NSControl+NBBControlProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSControl+NBBControlProxy.h"; sourceTree = "<group>"; };
 		A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSControl+NBBControlProxy.m"; sourceTree = "<group>"; };
 		A23A3CED16360F2500A622FF /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
@@ -369,6 +372,8 @@
 				A2689F8516308CE500E1AFFB /* NBBAppDelegate.m */,
 				A24298C9164307C7007437CD /* NBBApplication.h */,
 				A24298CA164307C7007437CD /* NBBApplication.m */,
+				A2334457165806DA00A6B370 /* NBBLaunchPad.h */,
+				A2334458165806DA00A6B370 /* NBBLaunchPad.m */,
 				A2689F7916308CE500E1AFFB /* Supporting Files */,
 			);
 			path = "Neon Boom Box";
@@ -888,6 +893,7 @@
 				A2689F7F16308CE500E1AFFB /* main.m in Sources */,
 				A2689F8616308CE500E1AFFB /* NBBAppDelegate.m in Sources */,
 				A24298CB164307C7007437CD /* NBBApplication.m in Sources */,
+				A2334459165806DA00A6B370 /* NBBLaunchPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
