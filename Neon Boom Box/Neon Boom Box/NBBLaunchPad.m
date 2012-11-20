@@ -18,16 +18,50 @@
 
 #import "NBBLaunchPad.h"
 
+#import <NBBCore/NBBButton.h>
+
 @implementation NBBLaunchPad
+
++ (void)initialize
+{
+	[super initialize];
+	[self setCellClass:[NBBButtonCell class]];
+}
+
+- (void)finalizeInit
+{
+	_moduleCells = [[NSMutableArray alloc] init];
+}
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code here.
+        [self finalizeInit];
     }
-    
+
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self finalizeInit];
+    }
+
+    return self;
+}
+
+- (void)dealloc
+{
+    [_moduleCells release];
+    [super dealloc];
+}
+
+- (void) addModule:(NBBModule*) module
+{
+	// create a cell representing the module
 }
 
 - (void)drawRect:(NSRect)dirtyRect

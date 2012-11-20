@@ -19,5 +19,10 @@
 #import <Cocoa/Cocoa.h>
 
 @interface NBBLaunchPad : NSControl
-
+{
+	@private
+	NSMutableArray* _moduleCells;
+	NSRectArray _cellFrames;
+}
+- (void) addModule:(NBBModule*) module;
 @end
