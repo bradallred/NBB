@@ -24,5 +24,5 @@
 	NSMutableArray* _moduleCells;
 	NSRectArray _cellFrames;
 }
-- (void) addModule:(NBBModule*) module;
+- (NSCell*) addCellForModule:(NBBModule*) module;
 @end

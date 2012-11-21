@@ -59,7 +59,7 @@
     [super dealloc];
 }
 
-- (void) addModule:(NBBModule*) module
+- (NSCell*) addCellForModule:(NBBModule*) module
 {
 	// create a cell representing the module
 }
