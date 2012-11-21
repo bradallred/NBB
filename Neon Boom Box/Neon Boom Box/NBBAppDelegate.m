@@ -114,15 +114,8 @@
 {
 	// === THEME SETUP MUST BE DONE PRIOR === see init
 	// open the home screen
-	NSArray* objects = nil;
-	if ([[NSBundle mainBundle] loadNibNamed:@"Home" owner:self topLevelObjects:&objects]) {
-		for (id obj in objects) {
-			if ([obj isKindOfClass:[NBBWindow class]]) {
-				self.homeWindow = obj;
-				[obj makeKeyAndOrderFront:self];
-				break;
-			}
-		}
+
+	if ([[NSBundle mainBundle] loadNibNamed:@"Home" owner:self topLevelObjects:nil]) {
 		[_themeEngine updateLayout];
 		// load the modules after the interface
 

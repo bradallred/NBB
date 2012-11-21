@@ -28,7 +28,7 @@
 	NSMutableDictionary* _loadedModules;
 	NSOperationQueue* _loaderQueue;
 }
-@property(nonatomic, retain) NBBWindow* homeWindow;
+@property(nonatomic, retain) IBOutlet NBBWindow* homeWindow;
 @property(nonatomic, retain) IBOutlet NBBLaunchPad* launchpad;
 
 @property(readonly, nonatomic) NBBThemeEngine* themeEngine;
