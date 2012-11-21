@@ -43,7 +43,13 @@
 		[nc addObserver:self selector:@selector(themeChanged:) name:@"NBBThemeDidChange" object:_themeEngine];
 		[nc addObserverForName:@"NBBModuleLoaded" object:nil
 			queue:_loaderQueue usingBlock:^(NSNotification *note) {
-				NSLog(@"%@ loaded", note.object);
+				if (self.launchpad) {
+					[self.launchpad addCellForModule:note.object];
+				} else {
+					@throw([NSException exceptionWithName:@"NBBIncompleteInterfaceException"
+												   reason:@"No module launchpad in place."
+												 userInfo:nil]);
+				}
 			}
 		 ];
 
