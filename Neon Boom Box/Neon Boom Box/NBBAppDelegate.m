@@ -85,6 +85,40 @@
 
 		// we need to add the timer for all common modes so the clock will update during event tracking
 		[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    }
+	// === REMAINDER OF SETUP HAPPENS IN applicationDidFinishLaunching ===
+    return self;
+}
+
+- (void)dealloc
+{
+	// this isnt needed unless somehow the application gets a new delegate
+	// would have to be due to 3rd party mod
+	[_loaderQueue release];
+	[_availableThemes release];
+	[_userPrefrences release];
+	@synchronized(_loadedModules) {
+		[_loadedModules release];
+	}
+	self.homeWindow = nil;
+    [super dealloc];
+}
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
+	// === THEME SETUP MUST BE DONE PRIOR === see init
+	// open the home screen
+	NSArray* objects = nil;
+	if ([[NSBundle mainBundle] loadNibNamed:@"Home" owner:self topLevelObjects:&objects]) {
+		for (id obj in objects) {
+			if ([obj isKindOfClass:[NBBWindow class]]) {
+				self.homeWindow = obj;
+				[obj makeKeyAndOrderFront:self];
+				break;
+			}
+		}
+		[_themeEngine updateLayout];
+		// load the modules after the interface
 
 		// === the very last thing is to load the modules ===
 		NSString* moduleDir = [NSBundle mainBundle].builtInPlugInsPath;
@@ -93,6 +127,7 @@
 		_loadedModules = [[NSMutableDictionary alloc] initWithCapacity:[_availableModules count]];
 		[_loaderQueue setMaxConcurrentOperationCount:[_availableModules count]];
 
+		NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
 		for (NSString* moduleName in _availableModules) {
 			NSString* path = [NSString stringWithFormat:@"%@/%@", moduleDir, moduleName];
 			NSBundle* moduleBundle = [NSBundle bundleWithPath:path];
@@ -121,38 +156,10 @@
 											 userInfo:nil]);
 			}
 		}
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-	// this isnt needed unless somehow the application gets a new delegate
-	// would have to be due to 3rd party mod
-	[_loaderQueue release];
-	[_availableThemes release];
-	[_userPrefrences release];
-	@synchronized(_loadedModules) {
-		[_loadedModules release];
-	}
-	self.homeWindow = nil;
-    [super dealloc];
-}
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-	// open the home screen
-	NSArray* objects = nil;
-	if ([[NSBundle mainBundle] loadNibNamed:@"Home" owner:self topLevelObjects:&objects]) {
-		//[objects makeObjectsPerformSelector:@selector(makeKeyAndOrderFront:) withObject:self];
-		for (id obj in objects) {
-			if ([obj isKindOfClass:[NBBWindow class]]) {
-				self.homeWindow = obj;
-				[obj makeKeyAndOrderFront:self];
-				break;
-			}
-		}
-		[_themeEngine updateLayout];
+	} else {
+		@throw([NSException exceptionWithName:@"NBBIncompleteInterfaceException"
+									   reason:@"Unable to load Home nib"
+									 userInfo:nil]);
 	}
 }
 
