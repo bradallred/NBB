@@ -64,7 +64,7 @@
 		if (!theme && _availableThemes.count) {
 			NSLog(@"assigned theme not found. loading first theme I find.");
 			// just grab the first nbbtheme bundle
-			theme = [self themeWithName:[_availableThemes objectAtIndex:0]];
+			theme = [self themeWithName:_availableThemes[0]];
 		}
 		// this will throw an exception if theme is nil
 		[_themeEngine applyTheme:theme];
@@ -101,7 +101,7 @@
 			if ([moduleClass isSubclassOfClass:[NBBModule class]]) {
 				[_loaderQueue addOperationWithBlock:^{
 					// load the module
-					NSString* nibName = [[moduleBundle infoDictionary] objectForKey:@"NSMainNibFile"];
+					NSString* nibName = moduleBundle.infoDictionary[@"NSMainNibFile"];
 					if (nibName) {
 						NBBModule* module = [[moduleClass alloc] initWithWindowNibName:nibName];
 						@synchronized(_loadedModules) {
@@ -252,7 +252,7 @@
 {
 	NBBModule* module = nil;
 	@synchronized(_loadedModules) {
-		module = [_loadedModules objectForKey:identifier];
+		module = _loadedModules[identifier];
 	}
 	if (!module) {
 		return [self moduleWithName:[identifier pathExtension] shouldLoad:load];

@@ -120,7 +120,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 {
 	NSView* cv = self.controlView;
 	if ([[notification object] isKindOfClass:[cv class]]) {
-		if ([[[notification userInfo] objectForKey:@"enabled"] boolValue]) {
+		if ([[notification userInfo][@"enabled"] boolValue]) {
 			[cv.layer startJiggling];
 		} else {
 			[cv.layer stopJiggling];

@@ -18,8 +18,8 @@
     if (self) {
         NSLog(@"initialize music module...");
 
-		NSArray* dbs = [[[NSUserDefaults standardUserDefaults] persistentDomainForName:@"com.apple.iApps"] objectForKey:@"iTunesRecentDatabases"];
-		NSURL* libraryURL = (([dbs count])) ? [NSURL URLWithString:[dbs objectAtIndex:0]] : nil;
+		NSArray* dbs = [[NSUserDefaults standardUserDefaults] persistentDomainForName:@"com.apple.iApps"][@"iTunesRecentDatabases"];
+		NSURL* libraryURL = (([dbs count])) ? [NSURL URLWithString:dbs[0]] : nil;
 		NSLog(@"using iTunes XML location:%@", libraryURL);
 
 		// TODO: only reparse the library if it has changed.
@@ -27,8 +27,8 @@
 
 		NSDictionary* library = [NSDictionary dictionaryWithContentsOfURL:libraryURL];
 		if (library) {
-			NSDictionary* tracks = [library objectForKey:@"Tracks"];
-			NSDictionary* playlists = [library objectForKey:@"Playlists"];
+			NSDictionary* tracks = library[@"Tracks"];
+			NSDictionary* playlists = library[@"Playlists"];
 
 			BOOL isBook = NO;
 			BOOL isVideo = NO;

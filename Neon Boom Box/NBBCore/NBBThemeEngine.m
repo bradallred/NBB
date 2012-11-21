@@ -231,7 +231,7 @@
 		if ([obj isKindOfClass:[NSView class]]) {
 			NSView* view = (NSView*)obj;
 			NSLog(@"positioning %@", view.identifier);
-			NSString* rectString = [_theme.prefrences objectForKey:view.identifier];
+			NSString* rectString = _theme.prefrences[view.identifier];
 			if (rectString) {
 				// because of "Auto Layout" we need to iterate all the subviews
 				// and find the one matching the frame rect and swap the layout constraints
