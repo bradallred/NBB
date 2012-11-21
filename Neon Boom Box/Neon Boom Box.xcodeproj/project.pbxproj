@@ -75,6 +75,7 @@
 		A2DBB0821631B1BE00C32443 /* NBBSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0801631B1BE00C32443 /* NBBSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2DBB0831631B1BE00C32443 /* NBBSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0811631B1BE00C32443 /* NBBSlider.m */; };
 		A2DBB0851631DAAD00C32443 /* NBBThemable.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0841631DAAD00C32443 /* NBBThemable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2E73B45165C8B5E0039D3D3 /* Home.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2E73B44165C8B5E0039D3D3 /* Home.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,6 +260,7 @@
 		A2DBB0801631B1BE00C32443 /* NBBSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBSlider.h; sourceTree = "<group>"; };
 		A2DBB0811631B1BE00C32443 /* NBBSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBSlider.m; sourceTree = "<group>"; };
 		A2DBB0841631DAAD00C32443 /* NBBThemable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBBThemable.h; path = NBBCore/NBBThemable.h; sourceTree = SOURCE_ROOT; };
+		A2E73B44165C8B5E0039D3D3 /* Home.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Home.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +369,7 @@
 		A2689F7816308CE500E1AFFB /* Neon Boom Box */ = {
 			isa = PBXGroup;
 			children = (
+				A2E73B44165C8B5E0039D3D3 /* Home.xib */,
 				A2689F8716308CE500E1AFFB /* MainMenu.xib */,
 				A2689F8416308CE500E1AFFB /* NBBAppDelegate.h */,
 				A2689F8516308CE500E1AFFB /* NBBAppDelegate.m */,
@@ -773,6 +776,7 @@
 				A2689F8316308CE500E1AFFB /* Credits.rtf in Resources */,
 				A2689F8916308CE500E1AFFB /* MainMenu.xib in Resources */,
 				A2A07BFF1651607300273E72 /* defaults.plist in Resources */,
+				A2E73B45165C8B5E0039D3D3 /* Home.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

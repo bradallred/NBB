@@ -135,12 +135,25 @@
 	@synchronized(_loadedModules) {
 		[_loadedModules release];
 	}
+	self.homeWindow = nil;
     [super dealloc];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	[_themeEngine updateLayout];
+	// open the home screen
+	NSArray* objects = nil;
+	if ([[NSBundle mainBundle] loadNibNamed:@"Home" owner:self topLevelObjects:&objects]) {
+		//[objects makeObjectsPerformSelector:@selector(makeKeyAndOrderFront:) withObject:self];
+		for (id obj in objects) {
+			if ([obj isKindOfClass:[NBBWindow class]]) {
+				self.homeWindow = obj;
+				[obj makeKeyAndOrderFront:self];
+				break;
+			}
+		}
+		[_themeEngine updateLayout];
+	}
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

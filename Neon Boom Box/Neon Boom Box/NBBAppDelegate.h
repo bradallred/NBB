@@ -17,7 +17,10 @@
  */
 
 #import <Cocoa/Cocoa.h>
+
 #import <NBBCore/NBBThemeEngine.h>
+
+#import "NBBLaunchPad.h"
 
 @interface NBBAppDelegate : NSObject <NSApplicationDelegate>
 {
@@ -25,6 +28,8 @@
 	NSMutableDictionary* _loadedModules;
 	NSOperationQueue* _loaderQueue;
 }
+@property(nonatomic, retain) NBBWindow* homeWindow;
+@property(nonatomic, retain) IBOutlet NBBLaunchPad* launchpad;
 
 @property(readonly, nonatomic) NBBThemeEngine* themeEngine;
 @property(readonly, nonatomic) NSDate* dateTime;
