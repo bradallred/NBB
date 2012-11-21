@@ -261,7 +261,7 @@
 	return [self themeFromBundle:themeBundle];
 }
 
-- (NBBModule*)moduleWithName:(NSString*) moduleName loadIfNot:(BOOL) load
+- (NBBModule*)moduleWithName:(NSString*) moduleName shouldLoad:(BOOL) load
 {
 	// TODO: implement this. we should be able to search _loadedMoudlues first
 	return nil;
