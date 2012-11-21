@@ -20,6 +20,7 @@
 
 @interface NBBModule : NSWindowController
 @property(nonatomic, readonly) IBOutlet NSView* preferenceView;
+@property(nonatomic, readonly) NSImage* moduleIcon;
 
 // sleep notifications
 - (void)systemWillSleep:(NSNotification*) notification;
