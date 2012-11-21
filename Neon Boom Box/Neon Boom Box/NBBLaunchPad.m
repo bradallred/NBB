@@ -71,6 +71,7 @@
 	// now add a cell frame for the new module
 	_cellFrames = realloc(_cellFrames, sizeof(NSRect) * _moduleCells.count);
 	_cellFrames[_moduleCells.count - 1] = [self rectForCell:[_moduleCells indexOfObject:cell]];
+	[self setNeedsDisplay];
 	return [cell autorelease];
 }
 
