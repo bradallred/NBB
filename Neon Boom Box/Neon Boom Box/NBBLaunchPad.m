@@ -31,6 +31,7 @@
 - (void)finalizeInit
 {
 	_moduleCells = [[NSMutableArray alloc] init];
+	_cellFrames = malloc(sizeof(NSRect));
 }
 
 - (id)initWithFrame:(NSRect)frame
@@ -56,17 +57,42 @@
 - (void)dealloc
 {
     [_moduleCells release];
+	free(_cellFrames);
     [super dealloc];
 }
 
 - (NSCell*) addCellForModule:(NBBModule*) module
 {
 	// create a cell representing the module
+	NSActionCell* cell = [[[[self class] cellClass] alloc] initImageCell:module.moduleIcon];
+	cell.target = module;
+	// TODO: set the cell action to whatever our selector for running the module is when implemented
+	[_moduleCells addObject:cell];
+	// now add a cell frame for the new module
+	_cellFrames = realloc(_cellFrames, sizeof(NSRect) * _moduleCells.count);
+	_cellFrames[_moduleCells.count - 1] = [self rectForCell:[_moduleCells indexOfObject:cell]];
+	return [cell autorelease];
+}
+
+- (NSRect)rectForCell:(NSUInteger) cellIndex
+{
+	// TODO: actually implement an origin
+	NSRect rect = NSZeroRect;
+	rect.size = [_moduleCells[cellIndex] cellSize];
+	return rect;
 }
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    // Drawing code here.
+    for (NSActionCell* cell in _moduleCells) {
+		// draw each cell if it overlaps dirtyRect
+		NSRect cellFrame = _cellFrames[ [_moduleCells indexOfObject:cell] ];
+		NSRect intersection = NSIntersectionRect(dirtyRect, cellFrame);
+		if (!NSIsEmptyRect(intersection)) {
+			// rects intersect so draw this cell.
+			[cell drawWithFrame:cellFrame inView:self];
+		}
+	}
 }
 
 @end
