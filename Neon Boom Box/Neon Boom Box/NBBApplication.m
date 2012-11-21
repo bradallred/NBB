@@ -35,6 +35,8 @@
 									| NSApplicationPresentationHideDock];
 		// the delegate needs to be created BEFORE the nib is loaded.
 		// this is due to our need for themeing the contents of the nib
+
+		// TODO: catch exceptions here and present an alert
         self.delegate = [[NBBAppDelegate alloc] init];
     }
     return self;
