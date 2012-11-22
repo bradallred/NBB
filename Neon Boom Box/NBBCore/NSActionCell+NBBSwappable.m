@@ -20,6 +20,7 @@
 
 #import "CALayer+NBBControlAnimations.h"
 #import "NSActionCell+NBBSwappable.h"
+#import "NSControl+NBBControlProxy.h"
 
 #import "NBBDragAnimationWindow.h"
 #import "NBBThemeEngine.h"
@@ -197,15 +198,11 @@ static char const * const delegateTagKey = "_swapDelegate";
 				// this bit-o-magic executes on either a drag event or immidiately following timer expiration
 				// this initiates the control drag event using NSDragging protocols
 				NSView* cv = self.controlView;
-				NSBitmapImageRep* rep = [cv bitmapImageRepForCachingDisplayInRect:cv.bounds];
-				NSImage* image = [[NSImage alloc] initWithSize:rep.size];
-
-				[cv cacheDisplayInRect:cv.bounds toBitmapImageRep:rep];
-				[image addRepresentation:rep];
+				NSImage* image = [(NSControl*)cv imageForCell:self];
 
 				NSDraggingItem* di = [[[NSDraggingItem alloc] initWithPasteboardWriter:image] autorelease];
 				[di setDraggingFrame:cv.bounds contents:image];
-				[image release];
+
 				NSArray* items = [NSArray arrayWithObject:di];
 
 				NSDraggingSession* session = [cv beginDraggingSessionWithItems:items event:theEvent source:self];

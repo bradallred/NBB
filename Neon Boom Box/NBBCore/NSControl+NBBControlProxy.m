@@ -47,6 +47,24 @@
 	return nil;
 }
 
+- (NSImage*)imageForCell:(NSCell*)cell
+{
+	// override in multicell cubclasses to just get an image of the dragged cell.
+	// for any single cell control we can just make sure that cell is the controls cell
+
+	if (cell && cell == self.cell) {
+		// basically a bitmap of the control
+		// NOTE: the cell is irrelevant when dealing with a single cell control
+		NSBitmapImageRep* rep = [self bitmapImageRepForCachingDisplayInRect:self.bounds];
+		NSImage* image = [[NSImage alloc] initWithSize:rep.size];
+		[self cacheDisplayInRect:self.bounds toBitmapImageRep:rep];
+		[image addRepresentation:rep];
+
+		return [image autorelease];
+	}
+	return nil;
+}
+
 #pragma mark NSDraggingDestination
 // message forwarding doesnt work for NSDraggingDestination methods
 // because NSView implements empty methods for the protocol
