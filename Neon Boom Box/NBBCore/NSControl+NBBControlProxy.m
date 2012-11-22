@@ -52,7 +52,7 @@
 	// override in multicell cubclasses to just get an image of the dragged cell.
 	// for any single cell control we can just make sure that cell is the controls cell
 
-	if (cell && cell == self.cell) {
+	if (cell == self.cell || cell == nil) { // nil signifies entire control
 		// basically a bitmap of the control
 		// NOTE: the cell is irrelevant when dealing with a single cell control
 		NSBitmapImageRep* rep = [self bitmapImageRepForCachingDisplayInRect:self.bounds];
@@ -62,6 +62,7 @@
 
 		return [image autorelease];
 	}
+	// cell doesnt belong to this control!
 	return nil;
 }
 
