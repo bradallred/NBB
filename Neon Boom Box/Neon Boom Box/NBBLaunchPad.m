@@ -96,4 +96,19 @@
 	}
 }
 
+- (void)mouseDown:(NSEvent *)theEvent
+{
+	NSButtonCell* cell = nil;
+	NSPoint mp = [self convertPoint:theEvent.locationInWindow fromView:nil];
+	for (NSUInteger i = 0; i < _moduleCells.count; i++) {
+		if ( [self mouse:mp inRect:_cellFrames[i]] ) {
+			cell = _moduleCells[i];
+		}
+	}
+	if (cell) {
+		self.cell = cell;
+		[super mouseDown:theEvent];
+	}
+}
+
 @end
