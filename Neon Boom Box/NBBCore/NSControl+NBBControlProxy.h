@@ -27,6 +27,7 @@ The goal is to allocate and return overriding theme specific subclasses instead
 + (id)allocWithZone:(NSZone *)zone;
 - (void)viewWillMoveToWindow:(NSWindow *)newWindow;
 
+- (NSDraggingSession*)beginDraggingSessionWithDraggingCell:(NSCell <NSDraggingSource> *)cell event:(NSEvent*) theEvent;
 - (NSImage*)imageForCell:(NSCell*)cell;
 - (NSRect)frameForCell:(NSCell*)cell;
 @end

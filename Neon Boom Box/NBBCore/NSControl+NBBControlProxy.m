@@ -47,6 +47,20 @@
 	return nil;
 }
 
+- (NSDraggingSession*)beginDraggingSessionWithDraggingCell:(NSCell <NSDraggingSource> *)cell event:(NSEvent*) theEvent
+{
+	NSImage* image = [self imageForCell:cell];
+
+	NSDraggingItem* di = [[[NSDraggingItem alloc] initWithPasteboardWriter:image] autorelease];
+	NSRect dragFrame = [self frameForCell:cell];
+	dragFrame.size = image.size;
+	[di setDraggingFrame:dragFrame contents:image];
+
+	NSArray* items = [NSArray arrayWithObject:di];
+
+	return [self beginDraggingSessionWithItems:items event:theEvent source:cell];
+}
+
 - (NSRect)frameForCell:(NSCell*)cell
 {
 	// override in multi-cell cubclasses!

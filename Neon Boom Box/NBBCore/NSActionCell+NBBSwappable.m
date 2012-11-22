@@ -197,15 +197,9 @@ static char const * const delegateTagKey = "_swapDelegate";
 			if (swap) {
 				// this bit-o-magic executes on either a drag event or immidiately following timer expiration
 				// this initiates the control drag event using NSDragging protocols
-				NSView* cv = self.controlView;
-				NSImage* image = [(NSControl*)cv imageForCell:self];
-
-				NSDraggingItem* di = [[[NSDraggingItem alloc] initWithPasteboardWriter:image] autorelease];
-				[di setDraggingFrame:cv.bounds contents:image];
-
-				NSArray* items = [NSArray arrayWithObject:di];
-
-				NSDraggingSession* session = [cv beginDraggingSessionWithItems:items event:theEvent source:self];
+				NSControl* cv = (NSControl*)self.controlView;
+				NSDraggingSession* session = [cv beginDraggingSessionWithDraggingCell:self
+																				event:theEvent];
 				// we must NOT let the session handle the cancel/fail animation
 				// if we did we would have an ugly fade out and sudden appearance of the control
 				// we will fake this animation ourselves. see +initialize and NSDraggingSource methods
