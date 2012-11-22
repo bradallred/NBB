@@ -89,6 +89,20 @@
 	return rect;
 }
 
+- (NSImage*)imageForCell:(NSCell*)cell
+{
+	NSUInteger index = [_moduleCells indexOfObject:cell];
+	if (index != NSNotFound) {
+		NSBitmapImageRep* rep = [self bitmapImageRepForCachingDisplayInRect:_cellFrames[index]];
+		NSImage* image = [[NSImage alloc] initWithSize:rep.size];
+		[self cacheDisplayInRect:_cellFrames[index] toBitmapImageRep:rep];
+		[image addRepresentation:rep];
+
+		return [image autorelease];
+	}
+	return nil;
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
     for (NSActionCell* cell in _moduleCells) {
