@@ -25,4 +25,5 @@
 	NSRectArray _cellFrames;
 }
 - (NSCell*) addCellForModule:(NBBModule*) module;
+- (NSRect)frameForCell:(NSCell*)cell;
 @end

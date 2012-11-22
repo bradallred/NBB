@@ -28,4 +28,5 @@ The goal is to allocate and return overriding theme specific subclasses instead
 - (void)viewWillMoveToWindow:(NSWindow *)newWindow;
 
 - (NSImage*)imageForCell:(NSCell*)cell;
+- (NSRect)frameForCell:(NSCell*)cell;
 @end

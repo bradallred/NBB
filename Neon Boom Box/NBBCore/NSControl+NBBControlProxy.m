@@ -47,6 +47,12 @@
 	return nil;
 }
 
+- (NSRect)frameForCell:(NSCell*)cell
+{
+	// override in multi-cell cubclasses!
+	return self.bounds;
+}
+
 - (NSImage*)imageForCell:(NSCell*)cell
 {
 	// override in multicell cubclasses to just get an image of the dragged cell.

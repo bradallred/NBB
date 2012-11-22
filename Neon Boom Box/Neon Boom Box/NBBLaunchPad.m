@@ -76,6 +76,11 @@
 	return [cell autorelease];
 }
 
+- (NSRect)frameForCell:(NSCell*)cell
+{
+	return [self frameForCellIndex:[_moduleCells indexOfObject:cell]];
+}
+
 - (NSRect)frameForCellIndex:(NSUInteger) cellIndex
 {
 	NSRect rect = NSZeroRect;
