@@ -70,13 +70,13 @@
 	[_moduleCells addObject:cell];
 	// now add a cell frame for the new module
 	_cellFrames = realloc(_cellFrames, sizeof(NSRect) * _moduleCells.count);
-	NSRect cellFrame = [self rectForCell:[_moduleCells indexOfObject:cell]];
+	NSRect cellFrame = [self frameForCellIndex:[_moduleCells indexOfObject:cell]];
 	_cellFrames[_moduleCells.count - 1] = cellFrame;
 	[self setNeedsDisplayInRect:cellFrame];
 	return [cell autorelease];
 }
 
-- (NSRect)rectForCell:(NSUInteger) cellIndex
+- (NSRect)frameForCellIndex:(NSUInteger) cellIndex
 {
 	NSRect rect = NSZeroRect;
 	if (cellIndex) {
