@@ -228,13 +228,14 @@ static char const * const delegateTagKey = "_swapDelegate";
 - (void)draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint
 {
 	NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
-	NSView* cv = self.controlView;
+	NSControl* cv = (NSControl*)self.controlView;
 
 	NSImage* image = [[NSImage alloc] initWithPasteboard:session.draggingPasteboard];
 	[dw setupDragAnimationWith:cv usingDragImage:image];
 	[image release];
-	[dw setFrame:[cv.window convertRectToScreen:cv.frame] display:NO];
-
+	NSRect frame = [cv frameForCell:self];
+	frame = [cv convertRect:frame toView:nil];
+	[dw setFrame:[cv.window convertRectToScreen:frame] display:NO];
 }
 
 - (void)draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation
