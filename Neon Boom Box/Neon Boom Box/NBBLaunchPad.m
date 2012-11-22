@@ -79,7 +79,7 @@
 - (NSRect)frameForCellIndex:(NSUInteger) cellIndex
 {
 	NSRect rect = NSZeroRect;
-	if (cellIndex) {
+	if (cellIndex && cellIndex != NSNotFound) {
 		// TODO: actually implement an origin
 		rect.origin = _cellFrames[cellIndex - 1].origin;
 		rect.origin.x += _cellFrames[cellIndex - 1].size.width;
