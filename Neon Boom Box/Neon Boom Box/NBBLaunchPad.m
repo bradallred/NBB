@@ -70,8 +70,9 @@
 	[_moduleCells addObject:cell];
 	// now add a cell frame for the new module
 	_cellFrames = realloc(_cellFrames, sizeof(NSRect) * _moduleCells.count);
-	_cellFrames[_moduleCells.count - 1] = [self rectForCell:[_moduleCells indexOfObject:cell]];
-	[self setNeedsDisplay];
+	NSRect cellFrame = [self rectForCell:[_moduleCells indexOfObject:cell]];
+	_cellFrames[_moduleCells.count - 1] = cellFrame;
+	[self setNeedsDisplayInRect:cellFrame];
 	return [cell autorelease];
 }
 
@@ -88,8 +89,7 @@
     for (NSActionCell* cell in _moduleCells) {
 		// draw each cell if it overlaps dirtyRect
 		NSRect cellFrame = _cellFrames[ [_moduleCells indexOfObject:cell] ];
-		NSRect intersection = NSIntersectionRect(dirtyRect, cellFrame);
-		if (!NSIsEmptyRect(intersection)) {
+		if ([self needsToDrawRect:cellFrame]) {
 			// rects intersect so draw this cell.
 			[cell drawWithFrame:cellFrame inView:self];
 		}
