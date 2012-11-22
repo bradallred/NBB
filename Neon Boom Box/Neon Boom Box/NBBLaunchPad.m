@@ -78,9 +78,14 @@
 
 - (NSRect)rectForCell:(NSUInteger) cellIndex
 {
-	// TODO: actually implement an origin
 	NSRect rect = NSZeroRect;
+	if (cellIndex) {
+		// TODO: actually implement an origin
+		rect.origin = _cellFrames[cellIndex - 1].origin;
+		rect.origin.x += _cellFrames[cellIndex - 1].size.width;
+	}
 	rect.size = [_moduleCells[cellIndex] cellSize];
+
 	return rect;
 }
 
