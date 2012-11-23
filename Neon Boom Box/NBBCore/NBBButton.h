@@ -18,8 +18,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NBBTheme.h"
+#import "NBBSwappableControl.h"
 
-@interface NBBButton : NSButton <NBBThemable>
+@interface NBBButtonCell : NSButtonCell
+
+@end
+
+@interface NBBButton : NSButton <NBBThemable, NBBSwappableControl>
 # pragma mark - NBBThemable
 - (id) initWithTheme:(NBBTheme*) theme;
 - (BOOL)applyTheme:(NBBTheme*) theme;

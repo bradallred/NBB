@@ -18,10 +18,6 @@
 
 #import "NBBButton.h"
 
-@interface NBBButtonCell : NSButtonCell
-
-@end
-
 @implementation NBBButtonCell
 
 @end
