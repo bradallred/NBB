@@ -309,7 +309,12 @@ static char const * const delegateTagKey = "_swapDelegate";
 	// otherwise "Auto Layout" will revert our change.
 	// the ThemeEngine will take care of the layout constraints for us
 	// the ThemeEngine will also persist our changes
-	[[NBBThemeEngine sharedThemeEngine] swapView:source withView:dest persist:YES];
+	if (source != dest) {
+		// if source and dest are the same then we are dragging a cell for a multicell control
+		// in that case the control will handle its swap internally after the drag completes
+		// and it is inappropriate and harmful to call swapView
+		[[NBBThemeEngine sharedThemeEngine] swapView:source withView:dest persist:YES];
+	}
 }
 
 @end

@@ -69,17 +69,28 @@
 
 - (NSImage*)imageForCell:(NSCell*)cell
 {
+	return [self imageForCell:cell highlighted:[cell isHighlighted]];
+}
+
+- (NSImage*)imageForCell:(NSCell*)cell highlighted:(BOOL) highlight
+{
 	// override in multicell cubclasses to just get an image of the dragged cell.
 	// for any single cell control we can just make sure that cell is the controls cell
-
+	
 	if (cell == self.cell || cell == nil) { // nil signifies entire control
 		// basically a bitmap of the control
 		// NOTE: the cell is irrelevant when dealing with a single cell control
-		NSBitmapImageRep* rep = [self bitmapImageRepForCachingDisplayInRect:self.bounds];
-		NSImage* image = [[NSImage alloc] initWithSize:rep.size];
-		[self cacheDisplayInRect:self.bounds toBitmapImageRep:rep];
-		[image addRepresentation:rep];
+		BOOL isHighlighted = [cell isHighlighted];
+		[cell setHighlighted:highlight];
 
+		NSRect cellFrame = [self frameForCell:cell];
+
+		NSBitmapImageRep* rep = [self bitmapImageRepForCachingDisplayInRect:cellFrame];
+		NSImage* image = [[NSImage alloc] initWithSize:rep.size];
+		[self cacheDisplayInRect:cellFrame toBitmapImageRep:rep];
+		[image addRepresentation:rep];
+		// reset the original cell state
+		[cell setHighlighted:isHighlighted];
 		return [image autorelease];
 	}
 	// cell doesnt belong to this control!

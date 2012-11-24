@@ -94,17 +94,14 @@
 	return rect;
 }
 
-- (NSImage*)imageForCell:(NSCell*)cell
+- (NSImage*)imageForCell:(NSCell*)cell highlighted:(BOOL) highlight
 {
 	NSUInteger index = [_moduleCells indexOfObject:cell];
 	if (index != NSNotFound) {
-		NSBitmapImageRep* rep = [self bitmapImageRepForCachingDisplayInRect:_cellFrames[index]];
-		NSImage* image = [[NSImage alloc] initWithSize:rep.size];
-		[self cacheDisplayInRect:_cellFrames[index] toBitmapImageRep:rep];
-		[image addRepresentation:rep];
-
-		return [image autorelease];
+		self.cell = cell;
+		return [super imageForCell:cell highlighted:highlight];
 	}
+	// cell doesnt belong to this control!
 	return nil;
 }
 

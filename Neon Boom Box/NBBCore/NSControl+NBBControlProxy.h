@@ -29,5 +29,6 @@ The goal is to allocate and return overriding theme specific subclasses instead
 
 - (NSDraggingSession*)beginDraggingSessionWithDraggingCell:(NSCell <NSDraggingSource> *)cell event:(NSEvent*) theEvent;
 - (NSImage*)imageForCell:(NSCell*)cell;
+- (NSImage*)imageForCell:(NSCell*)cell highlighted:(BOOL) highlight;
 - (NSRect)frameForCell:(NSCell*)cell;
 @end
