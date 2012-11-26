@@ -87,6 +87,9 @@
 
 		NSBitmapImageRep* rep = [self bitmapImageRepForCachingDisplayInRect:cellFrame];
 		NSImage* image = [[NSImage alloc] initWithSize:rep.size];
+		if([self needsToDrawRect:cellFrame]) {
+			[self drawRect:cellFrame];
+		}
 		[self cacheDisplayInRect:cellFrame toBitmapImageRep:rep];
 		[image addRepresentation:rep];
 		// reset the original cell state
