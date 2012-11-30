@@ -23,6 +23,7 @@
 @protocol NBBSwappableControl <NSObject, NSDraggingDestination, NSDraggingSource>
 @property (nonatomic, retain) IBOutlet id <NBBSwappableControlDelegate> swapDelegate;
 
+- (BOOL)swappingEnabled;
 - (void)setSwappingEnabled:(BOOL) enable;
 @end
 

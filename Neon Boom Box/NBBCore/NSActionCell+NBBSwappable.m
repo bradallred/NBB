@@ -32,11 +32,20 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (void)setSwapDelegate:(id<NBBSwappableControlDelegate>)swapDelegate
 {
+	if ([self.controlView conformsToProtocol:@protocol(NBBSwappableControl)]) {
+		id <NBBSwappableControl> cv = (id <NBBSwappableControl>)self.controlView;
+		cv.swapDelegate = swapDelegate;
+		return;
+	}
 	objc_setAssociatedObject(self, delegateTagKey, swapDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (id <NBBSwappableControlDelegate>)swapDelegate
 {
+	if ([self.controlView conformsToProtocol:@protocol(NBBSwappableControl)]) {
+		id <NBBSwappableControl> cv = (id <NBBSwappableControl>)self.controlView;
+		return cv.swapDelegate;
+	}
 	return objc_getAssociatedObject(self, delegateTagKey);
 }
 
@@ -113,6 +122,10 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (BOOL)swappingEnabled
 {
+	if ([self.controlView conformsToProtocol:@protocol(NBBSwappableControl)]) {
+		id <NBBSwappableControl> cv = (id <NBBSwappableControl>)self.controlView;
+		return [cv swappingEnabled];
+	}
 	// FIXME: this is very hackish even for me.
 	return (BOOL)[self.controlView.layer animationForKey:kBTSWiggleTransformAnimation];
 }
