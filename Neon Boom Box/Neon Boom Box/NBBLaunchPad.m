@@ -98,8 +98,23 @@
 {
 	NSUInteger index = [_moduleCells indexOfObject:cell];
 	if (index != NSNotFound) {
-		self.cell = cell;
-		return [super imageForCell:cell highlighted:highlight];
+		//self.cell = cell;
+		//return [super imageForCell:cell highlighted:highlight];
+
+		BOOL isHighlighted = [cell isHighlighted];
+		[cell setHighlighted:highlight];
+
+		NSRect cellFrame = [self frameForCell:cell];
+		NSImage* image = [[NSImage alloc] initWithSize:cellFrame.size];
+		[image lockFocus];
+		cellFrame.origin = NSZeroPoint;
+		[cell drawWithFrame:cellFrame inView:self];
+		[image unlockFocus];
+
+		// restore the cell highlight state
+		[cell setHighlighted:isHighlighted];
+
+		return [image autorelease];
 	}
 	// cell doesnt belong to this control!
 	return nil;
