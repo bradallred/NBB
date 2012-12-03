@@ -33,6 +33,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 - (void)setSwapDelegate:(id<NBBSwappableControlDelegate>)swapDelegate
 {
 	if ([self.controlView conformsToProtocol:@protocol(NBBSwappableControl)]) {
+		// forward to control
 		id <NBBSwappableControl> cv = (id <NBBSwappableControl>)self.controlView;
 		cv.swapDelegate = swapDelegate;
 		return;
@@ -43,6 +44,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 - (id <NBBSwappableControlDelegate>)swapDelegate
 {
 	if ([self.controlView conformsToProtocol:@protocol(NBBSwappableControl)]) {
+		// forward to control
 		id <NBBSwappableControl> cv = (id <NBBSwappableControl>)self.controlView;
 		return cv.swapDelegate;
 	}
@@ -104,6 +106,12 @@ static char const * const delegateTagKey = "_swapDelegate";
 
 - (void)setSwappingEnabled:(BOOL) enable
 {
+	if ([self.controlView conformsToProtocol:@protocol(NBBSwappableControl)]) {
+		// forward to control
+		id <NBBSwappableControl> cv = (id <NBBSwappableControl>)self.controlView;
+		[cv setSwappingEnabled:enable];
+		return;
+	}
 	NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
 	if (enable) {
 		id <NBBSwappableControlDelegate> delegate = self.swapDelegate;
@@ -123,6 +131,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 - (BOOL)swappingEnabled
 {
 	if ([self.controlView conformsToProtocol:@protocol(NBBSwappableControl)]) {
+		// forward to control
 		id <NBBSwappableControl> cv = (id <NBBSwappableControl>)self.controlView;
 		return [cv swappingEnabled];
 	}
