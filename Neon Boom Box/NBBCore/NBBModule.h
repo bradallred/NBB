@@ -19,6 +19,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface NBBModule : NSWindowController
+@property(nonatomic, copy) NSString* identifier;
 @property(nonatomic, readonly) IBOutlet NSView* preferenceView;
 @property(nonatomic, readonly) NSImage* moduleIcon;
 

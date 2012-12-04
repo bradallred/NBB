@@ -138,6 +138,7 @@
 					NSString* nibName = moduleBundle.infoDictionary[@"NSMainNibFile"];
 					if (nibName) {
 						NBBModule* module = [[moduleClass alloc] initWithWindowNibName:nibName];
+						module.identifier = moduleBundle.bundleIdentifier;
 						@synchronized(_loadedModules) {
 							[_loadedModules setValue:module forKey:moduleBundle.bundleIdentifier];
 						}
