@@ -17,8 +17,9 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <NBBCore/NBBSwappableControl.h>
 
-@interface NBBLaunchPad : NSControl
+@interface NBBLaunchPad : NSControl <NBBSwappableControl>
 {
 	@private
 	NSMutableArray* _moduleCells;

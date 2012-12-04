@@ -147,4 +147,15 @@
 	}
 }
 
+- (BOOL)swappingEnabled
+{
+	return NO;
+}
+
+- (void)setSwappingEnabled:(BOOL) enable
+{
+	// TODO: take delegate into consideration
+	// should probably return a BOOL since the delegate will be able to block
+}
+
 @end
