@@ -114,6 +114,13 @@
 	[self.cell draggingExited:sender];
 }
 
+- (void)draggingEnded:(id < NSDraggingInfo >)sender
+{
+	// this method is optional in the protocol
+	// but we need all controls to respond to it
+	// even if they do nothing
+}
+
 - (BOOL)prepareForDragOperation:(id < NSDraggingInfo >)sender
 {
 	return [self.cell prepareForDragOperation:sender];
