@@ -64,7 +64,7 @@
 - (NSCell*) addCellForModule:(NBBModule*) module
 {
 	// create a cell representing the module
-	NSActionCell* cell = [[[[self class] cellClass] alloc] initImageCell:module.moduleIcon];
+	NSButtonCell* cell = [[[[self class] cellClass] alloc] initImageCell:module.moduleIcon];
 	cell.target = module;
 	// TODO: set the cell action to whatever our selector for running the module is when implemented
 	[_moduleCells addObject:cell];

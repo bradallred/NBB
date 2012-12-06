@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		A223F2A91640BBC500F87174 /* NBBDragAnimationWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = A223F2A71640BBC500F87174 /* NBBDragAnimationWindow.h */; };
 		A223F2AA1640BBC500F87174 /* NBBDragAnimationWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A223F2A81640BBC500F87174 /* NBBDragAnimationWindow.m */; };
-		A2334459165806DA00A6B370 /* NBBLaunchPad.m in Sources */ = {isa = PBXBuildFile; fileRef = A2334458165806DA00A6B370 /* NBBLaunchPad.m */; };
+		A22CD69F16712EFD00473DEA /* NBBLaunchPad.m in Sources */ = {isa = PBXBuildFile; fileRef = A2334458165806DA00A6B370 /* NBBLaunchPad.m */; };
+		A22CD6A016712EFF00473DEA /* NBBLaunchPad.h in Headers */ = {isa = PBXBuildFile; fileRef = A2334457165806DA00A6B370 /* NBBLaunchPad.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A23A3CD81634A9A800A622FF /* NSControl+NBBControlProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3CD61634A9A800A622FF /* NSControl+NBBControlProxy.h */; };
 		A23A3CDC1634B5F800A622FF /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A23A3CDF1634BC6100A622FF /* NSControl+NBBControlProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */; };
@@ -375,8 +376,6 @@
 				A2689F8516308CE500E1AFFB /* NBBAppDelegate.m */,
 				A24298C9164307C7007437CD /* NBBApplication.h */,
 				A24298CA164307C7007437CD /* NBBApplication.m */,
-				A2334457165806DA00A6B370 /* NBBLaunchPad.h */,
-				A2334458165806DA00A6B370 /* NBBLaunchPad.m */,
 				A2689F7916308CE500E1AFFB /* Supporting Files */,
 			);
 			path = "Neon Boom Box";
@@ -426,6 +425,8 @@
 				A223F2A81640BBC500F87174 /* NBBDragAnimationWindow.m */,
 				A2A07C0B16517A0900273E72 /* NBBKeyboardKeyCell.h */,
 				A2A07C0C16517A0900273E72 /* NBBKeyboardKeyCell.m */,
+				A2334457165806DA00A6B370 /* NBBLaunchPad.h */,
+				A2334458165806DA00A6B370 /* NBBLaunchPad.m */,
 				A2DBB0681631A93E00C32443 /* NBBModule.h */,
 				A2DBB0691631A93E00C32443 /* NBBModule.m */,
 				A2DBB0801631B1BE00C32443 /* NBBSlider.h */,
@@ -598,6 +599,7 @@
 				A2A07BF81650ABAE00273E72 /* NBBSwappableControl.h in Headers */,
 				A2A07C091651799400273E72 /* NBBVirtualKeyboard.h in Headers */,
 				A2A07C0D16517A0900273E72 /* NBBKeyboardKeyCell.h in Headers */,
+				A22CD6A016712EFF00473DEA /* NBBLaunchPad.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -897,7 +899,6 @@
 				A2689F7F16308CE500E1AFFB /* main.m in Sources */,
 				A2689F8616308CE500E1AFFB /* NBBAppDelegate.m in Sources */,
 				A24298CB164307C7007437CD /* NBBApplication.m in Sources */,
-				A2334459165806DA00A6B370 /* NBBLaunchPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,6 +928,7 @@
 				A28A93D9164769FB001E71AE /* NSActionCell+NBBSwappable.m in Sources */,
 				A2A07C0A1651799400273E72 /* NBBVirtualKeyboard.m in Sources */,
 				A2A07C0E16517A0900273E72 /* NBBKeyboardKeyCell.m in Sources */,
+				A22CD69F16712EFD00473DEA /* NBBLaunchPad.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

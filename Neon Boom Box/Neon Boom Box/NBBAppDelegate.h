@@ -18,9 +18,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import <NBBCore/NBBLaunchpad.h>
 #import <NBBCore/NBBThemeEngine.h>
-
-#import "NBBLaunchPad.h"
 
 @interface NBBAppDelegate : NSObject <NSApplicationDelegate>
 {

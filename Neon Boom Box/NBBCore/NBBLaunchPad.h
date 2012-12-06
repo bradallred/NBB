@@ -17,6 +17,8 @@
  */
 
 #import <Cocoa/Cocoa.h>
+
+#import <NBBCore/NBBModule.h>
 #import <NBBCore/NBBSwappableControl.h>
 
 @interface NBBLaunchPad : NSControl <NBBSwappableControl>
