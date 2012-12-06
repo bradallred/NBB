@@ -269,6 +269,9 @@ static char const * const delegateTagKey = "_swapDelegate";
 		[dw setFrameTopLeftPoint:screenPoint];
 		[dw animateToFrame:frame];
 	}
+	// now tell the control view the drag ended so it can do any cleanup it needs
+	// this is somewhat hackish
+	[self.controlView draggingEnded:nil];
 }
 
 - (BOOL)ignoreModifierKeysForDraggingSession:(NSDraggingSession *)session

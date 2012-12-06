@@ -167,16 +167,24 @@
 		}
 	}
 	if (cell) {
-		self.cell = cell;
+		if ([self swappingEnabled]) {
+			// highlight 
+			CALayer* layer = _animationLayers[cell.identifier];
+			layer.contents = [self imageForCell:cell highlighted:YES];
+		}
+		self.cell = cell; //need to set this for [super mouseDown]
 		[super mouseDown:theEvent];
 	}
 }
 
 - (void)draggingEnded:(id < NSDraggingInfo >)sender
 {
-	[self.layer stopJiggling];
-	self.layer.sublayers = nil;
-	[self setNeedsDisplay:YES];
+	assert(_dragCell);
+	CALayer* layer = _animationLayers[_dragCell.identifier];
+	layer.contents = [self imageForCell:_dragCell highlighted:NO];
+
+	// purpousely prevent display!
+	[self setNeedsDisplay:NO];
 }
 
 - (void)concludeDragOperation:(id < NSDraggingInfo >)sender
