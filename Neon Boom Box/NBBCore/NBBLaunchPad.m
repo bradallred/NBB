@@ -20,6 +20,8 @@
 
 #import <NBBCore/NBBButton.h>
 
+#import <NBBCore/CALayer+NBBControlAnimations.h>
+
 @implementation NBBLaunchPad
 
 + (void)initialize
@@ -56,6 +58,7 @@
 
 - (void)dealloc
 {
+	[_animationLayers release];
     [_moduleCells release];
 	free(_cellFrames);
     [super dealloc];
@@ -63,9 +66,14 @@
 
 - (NSCell*) addCellForModule:(NBBModule*) module
 {
+	// TODO: take into account when swapping is enabled!
+
 	// create a cell representing the module
 	NSButtonCell* cell = [[[[self class] cellClass] alloc] initImageCell:module.moduleIcon];
 	cell.target = module;
+	// TODO: consider the possibility of 2 buttons for the same module
+	// what should we do? I'm tempted to convert to a dict to prevent this.
+	cell.identifier = [self.identifier stringByAppendingFormat:@"-%@", module.identifier];
 	// TODO: set the cell action to whatever our selector for running the module is when implemented
 	[_moduleCells addObject:cell];
 	// now add a cell frame for the new module
@@ -92,6 +100,20 @@
 	rect.size = [_moduleCells[cellIndex] cellSize];
 
 	return rect;
+}
+
+- (NSDraggingSession*)beginDraggingSessionWithDraggingCell:(NSCell <NSDraggingSource> *)cell event:(NSEvent*) theEvent
+{
+	_dragCell = cell;
+
+	assert(cell.identifier);
+	CALayer* layer = _animationLayers[cell.identifier];
+
+	if (layer) {
+		layer.hidden = YES;
+	}
+
+	return [super beginDraggingSessionWithDraggingCell:cell event:theEvent];
 }
 
 - (NSImage*)imageForCell:(NSCell*)cell highlighted:(BOOL) highlight
@@ -122,6 +144,9 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
+	// if we are dragging we dont need to draw cells since
+	// animation layers are present
+	if (_dragCell) return;
     for (NSActionCell* cell in _moduleCells) {
 		// draw each cell if it overlaps dirtyRect
 		NSRect cellFrame = _cellFrames[ [_moduleCells indexOfObject:cell] ];
@@ -147,15 +172,75 @@
 	}
 }
 
+- (void)draggingEnded:(id < NSDraggingInfo >)sender
+{
+	[self.layer stopJiggling];
+	self.layer.sublayers = nil;
+	[self setNeedsDisplay:YES];
+}
+
+- (void)concludeDragOperation:(id < NSDraggingInfo >)sender
+{
+
+}
+
+// FIXME: this is a dirty hack!
+// we prevent hiding because the drag animation window will try to hide us,
+// but we really only want one cell hidden.
+// obviously this breaks anything that actually wants to hide us
+- (void)setHidden:(BOOL)flag
+{
+	if (!_dragCell) {
+		[super setHidden:flag];
+	} else if (flag == NO) {
+
+		[_dragCell setHighlighted:NO];
+
+		CALayer* layer = _animationLayers[_dragCell.identifier];
+		layer.hidden = NO;
+
+		_dragCell = nil;
+		[super setHidden:NO];
+		//[self setNeedsDisplay:YES];
+	}
+}
+
 - (BOOL)swappingEnabled
 {
-	return NO;
+	return (BOOL)_animationLayers;
 }
 
 - (void)setSwappingEnabled:(BOOL) enable
 {
 	// TODO: take delegate into consideration
 	// should probably return a BOOL since the delegate will be able to block
+
+	if (enable && !_animationLayers) {
+		self.wantsLayer = YES;
+		self.layer.sublayers = nil;
+		//[self.layer stopJiggling];
+
+		// setup core animation layers for all the cells
+		_animationLayers = [[NSMutableDictionary alloc] initWithCapacity:[_moduleCells count]];
+
+		for (NSCell* cell in _moduleCells) {
+			CALayer* newLayer = [CALayer layer];
+			newLayer.frame = [self frameForCell:cell];
+			newLayer.contents = [self imageForCell:cell highlighted:NO];
+			[newLayer startJiggling];
+			[self.layer addSublayer:newLayer];
+			assert(cell.identifier);
+			_animationLayers[cell.identifier] = newLayer;
+		}
+
+		[self setNeedsDisplay:YES];
+	} else if (enable == NO) {
+		// destroy the layers. easier to setup from scratch each time then try to keep
+		// layers and cells kept in sync dynamically
+		self.layer.sublayers = nil;
+		[_animationLayers release];
+		_animationLayers = nil;
+	}
 }
 
 @end
