@@ -18,10 +18,6 @@
 
 #import "NBBModule.h"
 
-@interface NBBModule ()
-
-@end
-
 @implementation NBBModule
 
 - (id)initWithWindow:(NSWindow *)window
