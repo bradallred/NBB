@@ -41,6 +41,8 @@
 - (NSDictionary*)cellTextAttributes;
 - (NSDictionary*)labelTextAttributes;
 
+- (NSColor*)windowBackgroundColor;
+
 // default theme preferences should supply the frames for controls
 // if the theme wishes controls to have a layout diffrent from NIB
 // you can also override any application default preference

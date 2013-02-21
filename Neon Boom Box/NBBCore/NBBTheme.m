@@ -66,6 +66,11 @@
 	return [NSColor highlightColor];
 }
 
+- (NSColor*)windowBackgroundColor
+{
+	return [NSColor windowBackgroundColor];
+}
+
 // combination for font, color and alignment
 - (NSDictionary*)cellTextAttributes
 {
