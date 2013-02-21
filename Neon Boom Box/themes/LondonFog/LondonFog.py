@@ -17,7 +17,7 @@
 
 from NBBTheme import *
 
-class NBB(NBBThemeBase):
+class LondonFog(NBBThemeBase):
 	pass
 
 NSLog("London Fog theme is loaded")

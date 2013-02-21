@@ -17,7 +17,7 @@
 
 from NBBTheme import *
 
-class NBB(NBBThemeBase):
+class WhiteLeather(NBBThemeBase):
 	pass
 
 NSLog("White Leather theme is loaded")

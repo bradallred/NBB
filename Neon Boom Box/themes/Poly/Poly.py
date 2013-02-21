@@ -17,7 +17,7 @@
 
 from NBBTheme import *
 
-class NBB(NBBThemeBase):
+class Poly(NBBThemeBase):
 	pass
 
 NSLog("Poly theme is loaded")
