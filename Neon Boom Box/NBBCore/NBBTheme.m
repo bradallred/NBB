@@ -42,6 +42,11 @@
 	return [NSFont controlContentFontOfSize:32.0];
 }
 
+- (NSColor*)textColor
+{
+	return [NSColor textColor];
+}
+
 - (NSColor*)cellForegroundColor
 {
 	return [NSColor controlTextColor];
@@ -49,7 +54,7 @@
 
 - (NSColor*)labelForegroundColor
 {
-	return [NSColor controlTextColor];
+	return self.textColor;
 }
 
 - (NSColor*)cellBackgroundColor

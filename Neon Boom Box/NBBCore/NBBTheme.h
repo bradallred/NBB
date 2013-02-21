@@ -29,6 +29,8 @@
 - (NSFont*)normalFont;
 - (NSFont*)largeFont;
 
+- (NSColor*)textColor;
+
 - (NSColor*)cellForegroundColor;
 - (NSColor*)labelForegroundColor;
 
