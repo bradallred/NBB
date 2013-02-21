@@ -45,6 +45,16 @@
 
 - (NSColor*)windowBackgroundColor;
 
+// subclasses can implement special logic for specific UI elements.
+// default implementation simply calls the other color functions based on object class
+- (NSColor*)foregroundColorForObject:(id <NSUserInterfaceItemIdentification, NSObject>) object;
+- (NSColor*)backgroundColorForObject:(id <NSUserInterfaceItemIdentification, NSObject>) object;
+- (NSColor*)borderColorForObject:(id <NSUserInterfaceItemIdentification, NSObject>) object;
+
+- (CGFloat)borderWidthForObject:(id <NSUserInterfaceItemIdentification, NSObject>) object;
+// default implementation returns view's frame 
+- (NSRect)frameForObject:(NSView*) view;
+
 // default theme preferences should supply the frames for controls
 // if the theme wishes controls to have a layout diffrent from NIB
 // you can also override any application default preference

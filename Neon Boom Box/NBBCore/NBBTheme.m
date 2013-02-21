@@ -95,6 +95,46 @@
 			  NSParagraphStyleAttributeName : ps};
 }
 
+- (NSColor*)foregroundColorForObject:(id <NSUserInterfaceItemIdentification, NSObject>) object
+{
+	if ([object isKindOfClass:[NSTextField class]]) {
+		return self.labelForegroundColor;
+	}
+	if ([object isKindOfClass:[NSControl class]]) {
+		return self.cellForegroundColor;
+	}
+	return self.textColor;
+}
+
+- (NSColor*)backgroundColorForObject:(id <NSUserInterfaceItemIdentification, NSObject>) object
+{
+	if ([object isKindOfClass:[NSTextField class]]) {
+		return self.labelBackgroundColor;
+	}
+	if ([object isKindOfClass:[NSControl class]]) {
+		return self.cellBackgroundColor;
+	}
+	return [NSColor clearColor];
+}
+
+- (NSColor*)borderColorForObject:(id <NSUserInterfaceItemIdentification, NSObject>) object
+{
+	if ([object isKindOfClass:[NSWindow class]]) {
+		return [NSColor windowFrameColor];
+	}
+	return [NSColor gridColor];
+}
+
+- (CGFloat)borderWidthForObject:(id <NSUserInterfaceItemIdentification, NSObject>) object
+{
+	return 2.0;
+}
+
+- (NSRect)frameForObject:(NSView*) view
+{
+	return view.frame;
+}
+
 // default theme preferences should supply the frames for controls
 // if the theme wishes controls to have a layout diffrent from NIB
 // you can also override any application default preference
