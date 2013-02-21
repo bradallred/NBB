@@ -17,7 +17,10 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import "NBBTheme.h"
 
-@interface NBBWindow : NSWindow
-
+@interface NBBWindow : NSWindow <NBBThemable>
+# pragma mark - NBBThemable
+- (id) initWithTheme:(NBBTheme*) theme;
+- (BOOL)applyTheme:(NBBTheme*) theme;
 @end

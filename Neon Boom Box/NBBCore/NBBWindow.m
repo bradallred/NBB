@@ -17,6 +17,7 @@
  */
 
 #import "NBBWindow.h"
+#import "NBBThemeEngine.h"
 
 @implementation NBBWindow
 
@@ -26,6 +27,8 @@
 	[self setMovableByWindowBackground:NO];
 	[self setHasShadow:NO];
 	self.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
+
+	[[NBBThemeEngine sharedThemeEngine] themeObject:self];
 }
 
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)windowStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation
@@ -44,6 +47,12 @@
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)windowStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation screen:(NSScreen *)screen
 {
 	return [self initWithContentRect:contentRect styleMask:windowStyle backing:bufferingType defer:deferCreation];
+}
+
+- (BOOL)applyTheme:(NBBTheme*) theme
+{
+	self.backgroundColor = theme.windowBackgroundColor;
+	return YES;
 }
 
 - (void)awakeFromNib
