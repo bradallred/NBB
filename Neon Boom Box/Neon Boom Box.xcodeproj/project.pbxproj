@@ -46,6 +46,8 @@
 		A2689FFB1630C13100E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A26C0D0316D5A49B0007B333 /* NSWindow+NBBWindowProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A26C0D0116D5A49B0007B333 /* NSWindow+NBBWindowProxy.h */; };
 		A26C0D0416D5A49B0007B333 /* NSWindow+NBBWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A26C0D0216D5A49B0007B333 /* NSWindow+NBBWindowProxy.m */; };
+		A26C0D0816D5B0180007B333 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D35F1646F7BC00F90780 /* InfoPlist.strings */; };
+		A26C0D1016D5B1320007B333 /* LondonFog.nbbtheme in CopyFiles */ = {isa = PBXBuildFile; fileRef = A26C0D0C16D5B0180007B333 /* LondonFog.nbbtheme */; };
 		A28A93D9164769FB001E71AE /* NSActionCell+NBBSwappable.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */; };
 		A28A93EA1647814A001E71AE /* Poly.nbbtheme in CopyFiles */ = {isa = PBXBuildFile; fileRef = A295D34A1646F78D00F90780 /* Poly.nbbtheme */; };
 		A28A93ED1647818C001E71AE /* White Leather.nbbtheme in CopyFiles */ = {isa = PBXBuildFile; fileRef = A295D35A1646F7BC00F90780 /* White Leather.nbbtheme */; };
@@ -117,6 +119,13 @@
 			remoteGlobalIDString = A2689FAA16308DCB00E1AFFB;
 			remoteInfo = NBBCore;
 		};
+		A26C0D0E16D5B10E0007B333 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2689F6516308CE500E1AFFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A26C0D0516D5B0180007B333;
+			remoteInfo = "London Fog";
+		};
 		A28A93E7164780E0001E71AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A2689F6516308CE500E1AFFB /* Project object */;
@@ -161,6 +170,7 @@
 			dstPath = Contents/Themes;
 			dstSubfolderSpec = 1;
 			files = (
+				A26C0D1016D5B1320007B333 /* LondonFog.nbbtheme in CopyFiles */,
 				A28A93ED1647818C001E71AE /* White Leather.nbbtheme in CopyFiles */,
 				A28A93EA1647814A001E71AE /* Poly.nbbtheme in CopyFiles */,
 			);
@@ -225,6 +235,12 @@
 		A268A0051630F69800E1AFFB /* NBBTheme.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = NBBTheme.py; sourceTree = "<group>"; };
 		A26C0D0116D5A49B0007B333 /* NSWindow+NBBWindowProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSWindow+NBBWindowProxy.h"; path = "ProxyCategories/NSWindow+NBBWindowProxy.h"; sourceTree = "<group>"; };
 		A26C0D0216D5A49B0007B333 /* NSWindow+NBBWindowProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSWindow+NBBWindowProxy.m"; path = "ProxyCategories/NSWindow+NBBWindowProxy.m"; sourceTree = "<group>"; };
+		A26C0D0C16D5B0180007B333 /* LondonFog.nbbtheme */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LondonFog.nbbtheme; sourceTree = BUILT_PRODUCTS_DIR; };
+		A26C0D1316D5B2E40007B333 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A26C0D1416D5B2E40007B333 /* LondonFog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "LondonFog-Info.plist"; path = "themes/LondonFog/LondonFog-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A26C0D1516D5B2E40007B333 /* LondonFog.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = LondonFog.py; path = themes/LondonFog/LondonFog.py; sourceTree = SOURCE_ROOT; };
+		A26C0D1616D5B2E40007B333 /* NBBTheme.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = NBBTheme.py; path = themes/NBBTheme.py; sourceTree = SOURCE_ROOT; };
+		A26C0D1716D5B2E40007B333 /* setup.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = setup.py; path = themes/LondonFog/setup.py; sourceTree = SOURCE_ROOT; };
 		A295D34A1646F78D00F90780 /* Poly.nbbtheme */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Poly.nbbtheme; sourceTree = BUILT_PRODUCTS_DIR; };
 		A295D34E1646F78D00F90780 /* Poly-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Poly-Info.plist"; path = "themes/Poly/Poly-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A295D3501646F78D00F90780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -343,6 +359,7 @@
 				A2689FCE16308E9E00E1AFFB /* VideoModule.nbbmodule */,
 				A295D34A1646F78D00F90780 /* Poly.nbbtheme */,
 				A295D35A1646F7BC00F90780 /* White Leather.nbbtheme */,
+				A26C0D0C16D5B0180007B333 /* LondonFog.nbbtheme */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -517,13 +534,14 @@
 		A2689FEA1630B7A800E1AFFB /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				A295D34C1646F78D00F90780 /* Poly */,
-				A295D35C1646F7BC00F90780 /* White Leather */,
 				A2DBB06C1631A95600C32443 /* NBBTheme.h */,
 				A2DBB06D1631A95600C32443 /* NBBTheme.m */,
+				A268A0051630F69800E1AFFB /* NBBTheme.py */,
 				A2DBB06E1631A95600C32443 /* NBBThemeEngine.h */,
 				A2DBB06F1631A95600C32443 /* NBBThemeEngine.m */,
-				A268A0051630F69800E1AFFB /* NBBTheme.py */,
+				A26C0D1116D5B2E40007B333 /* LondonFog */,
+				A295D34C1646F78D00F90780 /* Poly */,
+				A295D35C1646F7BC00F90780 /* White Leather */,
 			);
 			name = Themes;
 			path = themes;
@@ -539,6 +557,19 @@
 			);
 			name = Modules;
 			path = themes;
+			sourceTree = "<group>";
+		};
+		A26C0D1116D5B2E40007B333 /* LondonFog */ = {
+			isa = PBXGroup;
+			children = (
+				A26C0D1216D5B2E40007B333 /* InfoPlist.strings */,
+				A26C0D1416D5B2E40007B333 /* LondonFog-Info.plist */,
+				A26C0D1516D5B2E40007B333 /* LondonFog.py */,
+				A26C0D1616D5B2E40007B333 /* NBBTheme.py */,
+				A26C0D1716D5B2E40007B333 /* setup.py */,
+			);
+			name = LondonFog;
+			path = "London Fog";
 			sourceTree = "<group>";
 		};
 		A295D34C1646F78D00F90780 /* Poly */ = {
@@ -628,6 +659,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A26C0D0F16D5B10E0007B333 /* PBXTargetDependency */,
 				A28A93EC16478186001E71AE /* PBXTargetDependency */,
 				A28A93E8164780E0001E71AE /* PBXTargetDependency */,
 				A2689FDF16308EF000E1AFFB /* PBXTargetDependency */,
@@ -711,6 +743,22 @@
 			productReference = A2689FCE16308E9E00E1AFFB /* VideoModule.nbbmodule */;
 			productType = "com.apple.product-type.bundle";
 		};
+		A26C0D0516D5B0180007B333 /* LondonFog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A26C0D0916D5B0180007B333 /* Build configuration list for PBXNativeTarget "LondonFog" */;
+			buildPhases = (
+				A26C0D0616D5B0180007B333 /* ShellScript */,
+				A26C0D0716D5B0180007B333 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LondonFog;
+			productName = "White Leather";
+			productReference = A26C0D0C16D5B0180007B333 /* LondonFog.nbbtheme */;
+			productType = "com.apple.product-type.bundle";
+		};
 		A295D3491646F78D00F90780 /* Poly */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A295D3531646F78D00F90780 /* Build configuration list for PBXNativeTarget "Poly" */;
@@ -772,6 +820,7 @@
 				A2689FCD16308E9E00E1AFFB /* VideoModule */,
 				A295D3491646F78D00F90780 /* Poly */,
 				A295D3591646F7BC00F90780 /* White Leather */,
+				A26C0D0516D5B0180007B333 /* LondonFog */,
 			);
 		};
 /* End PBXProject section */
@@ -823,6 +872,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A26C0D0716D5B0180007B333 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A26C0D0816D5B0180007B333 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A295D3481646F78D00F90780 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -854,6 +911,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		A26C0D0616D5B0180007B333 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/themes/White Leather/setup.py",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# clear the previous build\nif [ -d \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\" ]; then\n    rm -rf \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\nfi\n\n# compile the theme\npython \"themes/$PRODUCT_NAME/setup.py\" py2app --extension .nbbtheme --dist-dir \"$PROJECT_TEMP_DIR/py2app/dist\" --bdist-base \"$PROJECT_TEMP_DIR/py2app/build/$PRODUCT_NAME\"\n# copy to the build dir\nmv  \"$PROJECT_TEMP_DIR/py2app/dist/$PRODUCT_NAME.nbbtheme\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.nbbtheme\"\n";
 		};
 		A28A939716472E7A001E71AE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -984,6 +1055,11 @@
 			target = A2689FAA16308DCB00E1AFFB /* NBBCore */;
 			targetProxy = A2689FE716308F2B00E1AFFB /* PBXContainerItemProxy */;
 		};
+		A26C0D0F16D5B10E0007B333 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A26C0D0516D5B0180007B333 /* LondonFog */;
+			targetProxy = A26C0D0E16D5B10E0007B333 /* PBXContainerItemProxy */;
+		};
 		A28A93E8164780E0001E71AE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A295D3491646F78D00F90780 /* Poly */;
@@ -1052,6 +1128,15 @@
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
+		};
+		A26C0D1216D5B2E40007B333 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A26C0D1316D5B2E40007B333 /* en */,
+			);
+			name = InfoPlist.strings;
+			path = themes/LondonFog;
+			sourceTree = SOURCE_ROOT;
 		};
 		A295D34F1646F78D00F90780 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -1265,6 +1350,26 @@
 			};
 			name = Release;
 		};
+		A26C0D0A16D5B0180007B333 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "themes/LondonFog/LondonFog-Info.plist";
+				PRODUCT_NAME = LondonFog;
+				WRAPPER_EXTENSION = nbbtheme;
+			};
+			name = Debug;
+		};
+		A26C0D0B16D5B0180007B333 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "themes/LondonFog/LondonFog-Info.plist";
+				PRODUCT_NAME = LondonFog;
+				WRAPPER_EXTENSION = nbbtheme;
+			};
+			name = Release;
+		};
 		A295D3541646F78D00F90780 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1358,6 +1463,15 @@
 			buildConfigurations = (
 				A2689FD816308E9E00E1AFFB /* Debug */,
 				A2689FD916308E9E00E1AFFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A26C0D0916D5B0180007B333 /* Build configuration list for PBXNativeTarget "LondonFog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A26C0D0A16D5B0180007B333 /* Debug */,
+				A26C0D0B16D5B0180007B333 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
