@@ -68,7 +68,7 @@
 
 		NBBTheme* theme = [self themeWithIdentifier:themeIdentifier];
 		if (!theme && _availableThemes.count) {
-			NSLog(@"assigned theme not found. loading first theme I find.");
+			NSLog(@"assigned theme '%@' not found. loading first theme I find.", themeIdentifier);
 			// just grab the first nbbtheme bundle
 			theme = [self themeWithName:_availableThemes[0]];
 		}
