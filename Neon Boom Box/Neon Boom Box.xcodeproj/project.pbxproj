@@ -44,6 +44,8 @@
 		A2689FF91630BFF300E1AFFB /* NBBVideoModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689FF71630BFED00E1AFFB /* NBBVideoModule.m */; };
 		A2689FFA1630C12C00E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A2689FFB1630C13100E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
+		A26C0D0316D5A49B0007B333 /* NSWindow+NBBWindowProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A26C0D0116D5A49B0007B333 /* NSWindow+NBBWindowProxy.h */; };
+		A26C0D0416D5A49B0007B333 /* NSWindow+NBBWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A26C0D0216D5A49B0007B333 /* NSWindow+NBBWindowProxy.m */; };
 		A28A93D9164769FB001E71AE /* NSActionCell+NBBSwappable.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */; };
 		A28A93EA1647814A001E71AE /* Poly.nbbtheme in CopyFiles */ = {isa = PBXBuildFile; fileRef = A295D34A1646F78D00F90780 /* Poly.nbbtheme */; };
 		A28A93ED1647818C001E71AE /* White Leather.nbbtheme in CopyFiles */ = {isa = PBXBuildFile; fileRef = A295D35A1646F7BC00F90780 /* White Leather.nbbtheme */; };
@@ -221,6 +223,8 @@
 		A2689FF61630BFED00E1AFFB /* NBBVideoModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBVideoModule.h; sourceTree = "<group>"; };
 		A2689FF71630BFED00E1AFFB /* NBBVideoModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBVideoModule.m; sourceTree = "<group>"; };
 		A268A0051630F69800E1AFFB /* NBBTheme.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = NBBTheme.py; sourceTree = "<group>"; };
+		A26C0D0116D5A49B0007B333 /* NSWindow+NBBWindowProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSWindow+NBBWindowProxy.h"; path = "ProxyCategories/NSWindow+NBBWindowProxy.h"; sourceTree = "<group>"; };
+		A26C0D0216D5A49B0007B333 /* NSWindow+NBBWindowProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSWindow+NBBWindowProxy.m"; path = "ProxyCategories/NSWindow+NBBWindowProxy.m"; sourceTree = "<group>"; };
 		A295D34A1646F78D00F90780 /* Poly.nbbtheme */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Poly.nbbtheme; sourceTree = BUILT_PRODUCTS_DIR; };
 		A295D34E1646F78D00F90780 /* Poly-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Poly-Info.plist"; path = "themes/Poly/Poly-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A295D3501646F78D00F90780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -449,6 +453,8 @@
 				A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */,
 				A23A3CD61634A9A800A622FF /* NSControl+NBBControlProxy.h */,
 				A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */,
+				A26C0D0116D5A49B0007B333 /* NSWindow+NBBWindowProxy.h */,
+				A26C0D0216D5A49B0007B333 /* NSWindow+NBBWindowProxy.m */,
 				A2689FAE16308DCB00E1AFFB /* Supporting Files */,
 			);
 			path = NBBCore;
@@ -600,6 +606,7 @@
 				A2A07C091651799400273E72 /* NBBVirtualKeyboard.h in Headers */,
 				A2A07C0D16517A0900273E72 /* NBBKeyboardKeyCell.h in Headers */,
 				A22CD6A016712EFF00473DEA /* NBBLaunchPad.h in Headers */,
+				A26C0D0316D5A49B0007B333 /* NSWindow+NBBWindowProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -929,6 +936,7 @@
 				A2A07C0A1651799400273E72 /* NBBVirtualKeyboard.m in Sources */,
 				A2A07C0E16517A0900273E72 /* NBBKeyboardKeyCell.m in Sources */,
 				A22CD69F16712EFD00473DEA /* NBBLaunchPad.m in Sources */,
+				A26C0D0416D5A49B0007B333 /* NSWindow+NBBWindowProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
