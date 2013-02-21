@@ -85,6 +85,9 @@
 
 		NSRect cellFrame = [self frameForCell:cell];
 
+		// We COULD just draw the cell, to an NSImage, but button cells draw their content
+		// in a special way that would complicate that implementation (ex text alignment).
+		// subclasses that have multiple cells may wish to override this to only draw the cell
 		NSBitmapImageRep* rep = [self bitmapImageRepForCachingDisplayInRect:cellFrame];
 		NSImage* image = [[NSImage alloc] initWithSize:rep.size];
 		if([self needsToDrawRect:cellFrame]) {
