@@ -1,9 +1,13 @@
 NBB authors listed in Alphabetical Order (Last name)
 
 Brad Allred <bradallred@me.com>
-	(API, Application Programming, Core Programming,
+	(API, Application Programming, Core Programming, ThemeEngine,
+	Hardware Programming <Arduino>
 	Module Programming <MusicModule, VideoModule>,
 	Theme Programming <Poly, White Leather>)
+
 Willard Chivers <twistedlabelink@gmail.com>
-	(Interface Design,
+	(Interface Design <NBB, MusicModule, VideoModule>,
+	Hardware Engineering <Arduino>,
+	SoundFX <NBB, Poly, White Leather>,
 	Theme Design <Poly, White Leather>)
