@@ -18,6 +18,7 @@
 from NBBTheme import *
 
 class LondonFog(NBBThemeBase):
-	pass
+	def windowBackgroundColor(self):
+		return NSColor.colorWithSRGBRed_green_blue_alpha_(88.0, 88.0, 90.0, 1.0)
 
 NSLog("London Fog theme is loaded")
