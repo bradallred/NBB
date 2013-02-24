@@ -64,6 +64,16 @@
     [super dealloc];
 }
 
+- (NSCell*)cellAtPoint:(NSPoint) point
+{
+	for (NSUInteger i = 0; i < _moduleCells.count; i++) {
+		if ( [self mouse:point inRect:_cellFrames[i]] ) {
+			return _moduleCells[i];
+		}
+	}
+	return nil;
+}
+
 - (NSCell*) addCellForModule:(NBBModule*) module
 {
 	// TODO: take into account when swapping is enabled!
@@ -159,13 +169,9 @@
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-	NSButtonCell* cell = nil;
 	NSPoint mp = [self convertPoint:theEvent.locationInWindow fromView:nil];
-	for (NSUInteger i = 0; i < _moduleCells.count; i++) {
-		if ( [self mouse:mp inRect:_cellFrames[i]] ) {
-			cell = _moduleCells[i];
-		}
-	}
+	NSCell* cell = [self cellAtPoint:mp];
+
 	if (cell) {
 		if ([self swappingEnabled]) {
 			// highlight 
