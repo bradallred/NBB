@@ -183,6 +183,20 @@
 	}
 }
 
+- (NSDragOperation)draggingUpdated:(id < NSDraggingInfo >)sender
+{
+	NSPoint mp = [self convertPoint:[sender draggingLocation] fromView:nil];
+	NSCell* cell = [self cellAtPoint:mp];
+
+	if (cell == nil || cell == _dragCell) {
+		return NSDragOperationNone;
+	}
+
+	CALayer* layer = _animationLayers[cell.identifier];
+	layer.contents = [self imageForCell:cell highlighted:YES];
+	return [cell draggingEntered:sender];
+}
+
 - (void)draggingEnded:(id < NSDraggingInfo >)sender
 {
 	assert(_dragCell);
