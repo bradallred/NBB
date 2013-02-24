@@ -51,19 +51,24 @@ static char const * const delegateTagKey = "_swapDelegate";
 	return objc_getAssociatedObject(self, delegateTagKey);
 }
 
+- (void)setControlView:(NSView *)view
+{
+	// this is a bit of a hack, but the easiest way to make the control dragging work.
+	// force the control to accept image drags.
+	// the control will forward us the drag destination events via our NBBControlProxy category
+
+	[view registerForDraggedTypes:[NSImage imagePasteboardTypes]];
+	// post notifications so we can store the new frame in the theme prefs
+	[view setPostsFrameChangedNotifications:YES];
+
+	[super setControlView:view];
+}
+
 - (void)finalizeInit
 {
 	// subscribe to swap notifications
 	NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
 	[nc addObserver:self selector:@selector(swapStateChanged:) name:@"NBBControlSwappingStateChanged" object:nil];
-
-	// this is a bit of a hac, but the easiest way to make the control dragging work.
-	// force the control to accept image drags.
-	// the control will forward us the drag destination events via our NBBControlProxy category
-	NSView* cv = self.controlView;
-	[cv registerForDraggedTypes:[NSImage imagePasteboardTypes]];
-	// post notifications so we can store the new frame in the theme prefs
-	[cv setPostsFrameChangedNotifications:YES];
 }
 
 // NSCell docs say we have 3 designated initializers.
