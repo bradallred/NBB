@@ -256,9 +256,8 @@
 	dstLayer.frame = srcFrame;
 	srcLayer.frame = dstFrame;
 
-	NSRect tmp = _cellFrames[dstIndex];
-	_cellFrames[dstIndex] = _cellFrames[srcIndex];
-	_cellFrames[srcIndex] = tmp;
+	// exchange the items in the array
+	[_moduleCells exchangeObjectAtIndex:srcIndex withObjectAtIndex:dstIndex];
 
 	[sourceCell setHighlighted:NO];
 	[_dragDestCell setHighlighted:NO];
