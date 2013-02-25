@@ -52,6 +52,14 @@
 - (BOOL)applyTheme:(NBBTheme*) theme
 {
 	self.backgroundColor = theme.windowBackgroundColor;
+
+	NSView* cv = self.contentView;
+	NSView* fv = cv.superview;
+	fv.wantsLayer = YES;
+	cv.wantsLayer = NO; // fucks with arrangeable controls
+	fv.layer.borderColor = [[theme borderColorForObject:self] CGColor];
+	fv.layer.borderWidth = [theme borderWidthForObject:self];
+
 	return YES;
 }
 
