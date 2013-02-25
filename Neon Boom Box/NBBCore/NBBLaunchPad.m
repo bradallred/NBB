@@ -91,6 +91,12 @@
 	NSRect cellFrame = [self frameForCellIndex:[_moduleCells indexOfObject:cell]];
 	_cellFrames[_moduleCells.count - 1] = cellFrame;
 	[self setNeedsDisplayInRect:cellFrame];
+
+	if (![NSThread isMainThread]) {
+		// if running on backround thread we need to wait for animations before terminating
+		[CATransaction flush];
+	}
+
 	return [cell autorelease];
 }
 
