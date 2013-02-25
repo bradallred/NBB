@@ -156,7 +156,7 @@
 {
 	// if we are dragging we dont need to draw cells since
 	// animation layers are present
-	if (_dragCell) return;
+	if (_animationLayers) return;
     for (NSActionCell* cell in _moduleCells) {
 		// draw each cell if it overlaps dirtyRect
 		NSRect cellFrame = _cellFrames[ [_moduleCells indexOfObject:cell] ];
