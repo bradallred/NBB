@@ -112,6 +112,11 @@
 	[[self animator] setFrame:frame display:YES];
 }
 
+- (BOOL)applyTheme:(NBBTheme*) theme
+{
+	return NO;
+}
+
 #pragma mark Animation Delegation
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
 {
