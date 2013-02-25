@@ -220,14 +220,50 @@
 	assert(_dragCell);
 	CALayer* layer = _animationLayers[_dragCell.identifier];
 	layer.contents = [self imageForCell:_dragCell highlighted:NO];
-
+	//_dragCell = nil;
 	// purpousely prevent display!
 	[self setNeedsDisplay:NO];
 }
 
 - (void)concludeDragOperation:(id < NSDraggingInfo >)sender
 {
+	NSCell* sourceCell = (NSCell*)[sender draggingSource];
+	assert (sourceCell != _dragDestCell);
 
+	NSUInteger srcIndex = [_moduleCells indexOfObject:sourceCell];
+	NSUInteger dstIndex = [_moduleCells indexOfObject:_dragDestCell];
+	assert(srcIndex != NSNotFound && dstIndex != NSNotFound);
+
+	CGRect srcFrame = NSRectToCGRect([self frameForCellIndex:srcIndex]);
+	CGRect dstFrame = NSRectToCGRect([self frameForCellIndex:dstIndex]);
+
+	CALayer* srcLayer = _animationLayers[sourceCell.identifier];
+	CALayer* dstLayer = _animationLayers[_dragDestCell.identifier];
+
+	// we need to obtain the coordinates for the drag image representing the source control
+	CGRect startFrame = srcFrame;
+	NSPoint startPoint = [self convertPoint:[sender draggedImageLocation] fromView:nil];
+	startFrame.origin = NSPointToCGPoint(startPoint);
+
+	// move the layer before making it visible (no animation)
+	[CATransaction begin];
+	[CATransaction setValue: (id) kCFBooleanTrue forKey: kCATransactionDisableActions];
+	srcLayer.frame = startFrame;
+	srcLayer.hidden = NO;
+	[CATransaction commit];
+
+	// animate both controls to the others original frame
+	dstLayer.frame = srcFrame;
+	srcLayer.frame = dstFrame;
+
+	NSRect tmp = _cellFrames[dstIndex];
+	_cellFrames[dstIndex] = _cellFrames[srcIndex];
+	_cellFrames[srcIndex] = tmp;
+
+	[sourceCell setHighlighted:NO];
+	[_dragDestCell setHighlighted:NO];
+
+	[self draggingExited:sender];
 }
 
 // FIXME: this is a dirty hack!
