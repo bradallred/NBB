@@ -278,11 +278,13 @@
 			[self.layer addSublayer:newLayer];
 			assert(cell.identifier);
 			_animationLayers[cell.identifier] = newLayer;
-			
-			newLayer.actions = @{@"onOrderIn" : [NSNull null],
-								 @"onOrderOut" : [NSNull null],
-								 @"sublayers" : [NSNull null],
-								 @"hidden" : [NSNull null]
+
+			// disable certain implicit animations.
+			// we dont want any fade in/out effects
+			newLayer.actions = @{@"onOrderIn"	: [NSNull null],
+								 @"onOrderOut"	: [NSNull null],
+								 @"sublayers"	: [NSNull null],
+								 @"hidden"		: [NSNull null]
 								};
 		}
 
