@@ -25,6 +25,8 @@
 {
 	@private
 	NSCell* _dragCell;
+	NSCell* _dragDestCell;
+
 	NSMutableArray* _moduleCells;
 	NSMutableDictionary* _animationLayers;
 	NSRectArray _cellFrames;

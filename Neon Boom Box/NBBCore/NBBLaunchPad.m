@@ -189,14 +189,26 @@
 	}
 }
 
+- (void)draggingExited:(id < NSDraggingInfo >)sender
+{
+	CALayer* layer = _animationLayers[_dragDestCell.identifier];
+	layer.contents = [self imageForCell:_dragDestCell highlighted:NO];
+	[_dragDestCell draggingExited:sender];
+	_dragDestCell = nil;
+}
+
 - (NSDragOperation)draggingUpdated:(id < NSDraggingInfo >)sender
 {
 	NSPoint mp = [self convertPoint:[sender draggingLocation] fromView:nil];
 	NSCell* cell = [self cellAtPoint:mp];
 
 	if (cell == nil || cell == _dragCell) {
+		// pretend like the drag exited for the sake of unhighlighting cells
+		[self draggingExited:sender];
 		return NSDragOperationNone;
 	}
+
+	_dragDestCell = cell;
 
 	CALayer* layer = _animationLayers[cell.identifier];
 	layer.contents = [self imageForCell:cell highlighted:YES];
@@ -234,6 +246,7 @@
 		layer.hidden = NO;
 
 		_dragCell = nil;
+		_dragDestCell = nil;
 		[super setHidden:NO];
 		//[self setNeedsDisplay:YES];
 	}
