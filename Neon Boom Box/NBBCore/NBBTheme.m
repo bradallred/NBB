@@ -16,6 +16,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  */
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "NBBTheme.h"
 
 @implementation NBBTheme
@@ -74,6 +76,35 @@
 - (NSColor*)windowBackgroundColor
 {
 	return [NSColor windowBackgroundColor];
+}
+
+- (CAAnimation*)windowInAnimation
+{
+	CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"frameOrigin"];
+	// assumes all windows are the same size.
+	NSWindow* keyWin = [NSApp keyWindow];
+	NSPoint fromPoint = NSMakePoint(0.0, keyWin.frame.size.height);
+	animation.fromValue = [NSValue valueWithPoint:fromPoint];
+	animation.toValue = [NSValue valueWithPoint:NSZeroPoint];
+	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+	animation.duration = 0.5;
+	animation.repeatCount = 1.0;
+
+	return animation;
+}
+
+- (CAAnimation*)windowOutAnimation
+{
+	CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"frameOrigin"];
+	// assumes all windows are the same size.
+	NSWindow* keyWin = [NSApp keyWindow];
+	NSPoint toPoint = NSMakePoint(0.0, keyWin.frame.size.height);
+	animation.toValue = [NSValue valueWithPoint:toPoint];
+	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+	animation.duration = 0.5;
+	animation.repeatCount = 1.0;
+
+	return animation;
 }
 
 // combination for font, color and alignment

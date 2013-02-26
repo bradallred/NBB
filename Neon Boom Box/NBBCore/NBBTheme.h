@@ -45,6 +45,9 @@
 
 - (NSColor*)windowBackgroundColor;
 
+- (CAAnimation*)windowInAnimation;
+- (CAAnimation*)windowOutAnimation;
+
 // subclasses can implement special logic for specific UI elements.
 // default implementation simply calls the other color functions based on object class
 - (NSColor*)foregroundColorForObject:(id <NSUserInterfaceItemIdentification, NSObject>) object;
