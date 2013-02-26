@@ -69,7 +69,6 @@
 #pragma mark Animation Delegation
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
 {
-	NSLog(@"%@", [(CABasicAnimation*)theAnimation keyPath]);
 	if (flag
 		&& [[theAnimation valueForKey:@"animationType"] isEqualToString:NSAnimationTriggerOrderOut]) {
 		[super orderOut:nil];
