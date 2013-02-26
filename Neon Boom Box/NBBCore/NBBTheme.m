@@ -89,6 +89,7 @@
 	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 	animation.duration = 0.5;
 	animation.repeatCount = 1.0;
+	[animation setValue:NSAnimationTriggerOrderIn forKey:@"animationType"];
 
 	return animation;
 }
@@ -103,6 +104,7 @@
 	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
 	animation.duration = 0.5;
 	animation.repeatCount = 1.0;
+	[animation setValue:NSAnimationTriggerOrderOut forKey:@"animationType"];
 
 	return animation;
 }
