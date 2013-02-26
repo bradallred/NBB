@@ -19,6 +19,8 @@
 #import "NBBWindow.h"
 #import "NBBThemeEngine.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @implementation NBBWindow
 
 - (void)finalizeInit
@@ -45,8 +47,13 @@
 {
 	// we set the animations here to keep them updated if they change
 	// also default animations are based on the applications window size
-	[self setAnimations:@{ NSAnimationTriggerOrderIn : [[self theme] windowInAnimation],
-						   NSAnimationTriggerOrderOut : [[self theme] windowInAnimation],
+	CAAnimation* inAnim = [[self theme] windowInAnimation];
+	inAnim.delegate = self;
+	CAAnimation* outAnim = [[self theme] windowOutAnimation];
+	outAnim.delegate = self;
+
+	[self setAnimations:@{ NSAnimationTriggerOrderIn : inAnim,
+						   NSAnimationTriggerOrderOut : outAnim,
 						}];
 
 	[super orderFront:sender];
@@ -54,9 +61,19 @@
 }
 
 - (void)orderOut:(id)sender
-{	
-	[super orderOut:sender];
+{
+	// actual order out takes place on animation completion.
 	[[self animator] setValue:nil forKey:NSAnimationTriggerOrderOut];
+}
+
+#pragma mark Animation Delegation
+- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
+{
+	NSLog(@"%@", [(CABasicAnimation*)theAnimation keyPath]);
+	if (flag
+		&& [[theAnimation valueForKey:@"animationType"] isEqualToString:NSAnimationTriggerOrderOut]) {
+		[super orderOut:nil];
+	}
 }
 
 @end
