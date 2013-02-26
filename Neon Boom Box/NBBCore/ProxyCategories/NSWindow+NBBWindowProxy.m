@@ -27,4 +27,12 @@
 	return [super allocWithZone:zone];
 }
 
+- (NBBTheme*) theme
+{
+	if ([self conformsToProtocol:@protocol(NBBThemable)]) {
+		return [NBBThemeEngine sharedThemeEngine].theme;
+	}
+	return nil;
+}
+
 @end
