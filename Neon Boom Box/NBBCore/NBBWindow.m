@@ -41,4 +41,31 @@
 	return YES;
 }
 
+- (void)orderFront:(id)sender
+{
+	// we set the animations here to keep them updated if they change
+	// also default animations are based on the applications window size
+	[self setAnimations:@{ NSAnimationTriggerOrderIn : [[self theme] windowInAnimation],
+						   NSAnimationTriggerOrderOut : [[self theme] windowInAnimation],
+						}];
+
+	[super orderFront:sender];
+	[[self animator] setValue:nil forKey:NSAnimationTriggerOrderIn];
+}
+
+- (void)orderOut:(id)sender
+{	
+	[super orderOut:sender];
+	[[self animator] setValue:nil forKey:NSAnimationTriggerOrderOut];
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+	if ([key isEqualToString:NSAnimationTriggerOrderIn]
+		|| [key isEqualToString:NSAnimationTriggerOrderOut]) {
+		return;
+	}
+	[super setValue:value forUndefinedKey:key];
+}
+
 @end
