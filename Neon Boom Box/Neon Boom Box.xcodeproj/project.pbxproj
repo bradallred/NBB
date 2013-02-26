@@ -21,6 +21,14 @@
 		A23A3D0416377FAE00A622FF /* CALayer+NBBControlAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D0216377FAE00A622FF /* CALayer+NBBControlAnimations.m */; };
 		A23A3D181639EF1600A622FF /* NSActionCell+NBBSwappable.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3D161639EF1600A622FF /* NSActionCell+NBBSwappable.h */; };
 		A24298CB164307C7007437CD /* NBBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = A24298CA164307C7007437CD /* NBBApplication.m */; };
+		A243D9BA16DD55AE00AEFB64 /* Home.eps in Resources */ = {isa = PBXBuildFile; fileRef = A243D9B116DD55AE00AEFB64 /* Home.eps */; };
+		A243D9BB16DD55AE00AEFB64 /* Settings.eps in Resources */ = {isa = PBXBuildFile; fileRef = A243D9B216DD55AE00AEFB64 /* Settings.eps */; };
+		A243D9BC16DD55AE00AEFB64 /* Next.eps in Resources */ = {isa = PBXBuildFile; fileRef = A243D9B416DD55AE00AEFB64 /* Next.eps */; };
+		A243D9BD16DD55AE00AEFB64 /* Play.eps in Resources */ = {isa = PBXBuildFile; fileRef = A243D9B516DD55AE00AEFB64 /* Play.eps */; };
+		A243D9BE16DD55AE00AEFB64 /* Previous.eps in Resources */ = {isa = PBXBuildFile; fileRef = A243D9B616DD55AE00AEFB64 /* Previous.eps */; };
+		A243D9BF16DD55AE00AEFB64 /* Repeat.eps in Resources */ = {isa = PBXBuildFile; fileRef = A243D9B716DD55AE00AEFB64 /* Repeat.eps */; };
+		A243D9C016DD55AE00AEFB64 /* RepeatOne.eps in Resources */ = {isa = PBXBuildFile; fileRef = A243D9B816DD55AE00AEFB64 /* RepeatOne.eps */; };
+		A243D9C116DD55AE00AEFB64 /* Shuffle.eps in Resources */ = {isa = PBXBuildFile; fileRef = A243D9B916DD55AE00AEFB64 /* Shuffle.eps */; };
 		A2689F7316308CE500E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
 		A2689F7D16308CE500E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689F7B16308CE500E1AFFB /* InfoPlist.strings */; };
 		A2689F7F16308CE500E1AFFB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689F7E16308CE500E1AFFB /* main.m */; };
@@ -196,6 +204,14 @@
 		A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSActionCell+NBBSwappable.m"; sourceTree = "<group>"; };
 		A24298C9164307C7007437CD /* NBBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBApplication.h; sourceTree = "<group>"; };
 		A24298CA164307C7007437CD /* NBBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBApplication.m; sourceTree = "<group>"; };
+		A243D9B116DD55AE00AEFB64 /* Home.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Home.eps; sourceTree = "<group>"; };
+		A243D9B216DD55AE00AEFB64 /* Settings.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Settings.eps; sourceTree = "<group>"; };
+		A243D9B416DD55AE00AEFB64 /* Next.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Next.eps; sourceTree = "<group>"; };
+		A243D9B516DD55AE00AEFB64 /* Play.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Play.eps; sourceTree = "<group>"; };
+		A243D9B616DD55AE00AEFB64 /* Previous.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Previous.eps; sourceTree = "<group>"; };
+		A243D9B716DD55AE00AEFB64 /* Repeat.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Repeat.eps; sourceTree = "<group>"; };
+		A243D9B816DD55AE00AEFB64 /* RepeatOne.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = RepeatOne.eps; sourceTree = "<group>"; };
+		A243D9B916DD55AE00AEFB64 /* Shuffle.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Shuffle.eps; sourceTree = "<group>"; };
 		A2689F6E16308CE500E1AFFB /* Neon Boom Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Neon Boom Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2689F7216308CE500E1AFFB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A2689F7516308CE500E1AFFB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -340,6 +356,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A243D9AF16DD55AE00AEFB64 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A243D9B016DD55AE00AEFB64 /* Interface */,
+				A243D9B316DD55AE00AEFB64 /* Media */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A243D9B016DD55AE00AEFB64 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				A243D9B116DD55AE00AEFB64 /* Home.eps */,
+				A243D9B216DD55AE00AEFB64 /* Settings.eps */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		A243D9B316DD55AE00AEFB64 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				A243D9B416DD55AE00AEFB64 /* Next.eps */,
+				A243D9B516DD55AE00AEFB64 /* Play.eps */,
+				A243D9B616DD55AE00AEFB64 /* Previous.eps */,
+				A243D9B716DD55AE00AEFB64 /* Repeat.eps */,
+				A243D9B816DD55AE00AEFB64 /* RepeatOne.eps */,
+				A243D9B916DD55AE00AEFB64 /* Shuffle.eps */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
 		A2689F6316308CE500E1AFFB = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +456,7 @@
 		A2689F7916308CE500E1AFFB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A243D9AF16DD55AE00AEFB64 /* Resources */,
 				A2689F7A16308CE500E1AFFB /* Neon Boom Box-Info.plist */,
 				A2689F7B16308CE500E1AFFB /* InfoPlist.strings */,
 				A2689F7E16308CE500E1AFFB /* main.m */,
@@ -842,6 +890,14 @@
 				A2689F8916308CE500E1AFFB /* MainMenu.xib in Resources */,
 				A2A07BFF1651607300273E72 /* defaults.plist in Resources */,
 				A2E73B45165C8B5E0039D3D3 /* Home.xib in Resources */,
+				A243D9BA16DD55AE00AEFB64 /* Home.eps in Resources */,
+				A243D9BB16DD55AE00AEFB64 /* Settings.eps in Resources */,
+				A243D9BC16DD55AE00AEFB64 /* Next.eps in Resources */,
+				A243D9BD16DD55AE00AEFB64 /* Play.eps in Resources */,
+				A243D9BE16DD55AE00AEFB64 /* Previous.eps in Resources */,
+				A243D9BF16DD55AE00AEFB64 /* Repeat.eps in Resources */,
+				A243D9C016DD55AE00AEFB64 /* RepeatOne.eps in Resources */,
+				A243D9C116DD55AE00AEFB64 /* Shuffle.eps in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
