@@ -18,9 +18,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBBWindow.h"
+#import "NBBWindowBase.h"
 
-@interface NBBDragAnimationWindow : NBBWindow
+@interface NBBDragAnimationWindow : NBBWindowBase
 @property(readonly, nonatomic) NSView* representedView;
 
 + (NBBDragAnimationWindow*)sharedAnimationWindow;

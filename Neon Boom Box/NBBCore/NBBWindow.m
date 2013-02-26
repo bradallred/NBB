@@ -23,30 +23,8 @@
 
 - (void)finalizeInit
 {
-	[self setReleasedWhenClosed:NO];
-	[self setMovableByWindowBackground:NO];
-	[self setHasShadow:NO];
-	self.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
-
+	[super finalizeInit];
 	[[NBBThemeEngine sharedThemeEngine] themeObject:self];
-}
-
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)windowStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation
-{	
-	self = [super initWithContentRect:contentRect
-							styleMask:NSBorderlessWindowMask
-							  backing:NSBackingStoreBuffered
-								defer:deferCreation];
-	
-    if (self) {
-		[self finalizeInit];
-    }
-    return self;
-}
-
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)windowStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)deferCreation screen:(NSScreen *)screen
-{
-	return [self initWithContentRect:contentRect styleMask:windowStyle backing:bufferingType defer:deferCreation];
 }
 
 - (BOOL)applyTheme:(NBBTheme*) theme
@@ -60,16 +38,6 @@
 	fv.layer.borderColor = [[theme borderColorForObject:self] CGColor];
 	fv.layer.borderWidth = [theme borderWidthForObject:self];
 
-	return YES;
-}
-
-- (void)awakeFromNib
-{
-	[self finalizeInit];
-}
-
-- (BOOL) canBecomeKeyWindow
-{
 	return YES;
 }
 

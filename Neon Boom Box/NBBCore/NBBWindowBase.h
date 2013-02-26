@@ -18,10 +18,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NBBWindowBase.h"
+#import "NBBTheme.h"
 
-@interface NBBWindow : NBBWindowBase <NBBThemable>
-# pragma mark - NBBThemable
-- (id) initWithTheme:(NBBTheme*) theme;
-- (BOOL)applyTheme:(NBBTheme*) theme;
+@interface NBBWindowBase : NSWindow
+
 @end

@@ -54,6 +54,8 @@
 		A295D3411646DB9C00F90780 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CED16360F2500A622FF /* Python.framework */; };
 		A295D3511646F78D00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D34F1646F78D00F90780 /* InfoPlist.strings */; };
 		A295D3611646F7BC00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D35F1646F7BC00F90780 /* InfoPlist.strings */; };
+		A298057416DC8270009F450B /* NBBWindowBase.h in Headers */ = {isa = PBXBuildFile; fileRef = A298057216DC8270009F450B /* NBBWindowBase.h */; };
+		A298057516DC8270009F450B /* NBBWindowBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A298057316DC8270009F450B /* NBBWindowBase.m */; };
 		A2A07BF71650AB4B00273E72 /* NBBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = A2689FB416308DCB00E1AFFB /* NBBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2A07BF81650ABAE00273E72 /* NBBSwappableControl.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3CF416372E4500A622FF /* NBBSwappableControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2A07BFF1651607300273E72 /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2A07BFE1651607300273E72 /* defaults.plist */; };
@@ -251,6 +253,8 @@
 		A295D36F1646FAEC00F90780 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = themes/Poly/setup.py; sourceTree = SOURCE_ROOT; };
 		A295D3721646FB0000F90780 /* setup.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = setup.py; path = "themes/White Leather/setup.py"; sourceTree = SOURCE_ROOT; };
 		A295D3731646FB0000F90780 /* White Leather.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = "White Leather.py"; path = "themes/White Leather/White Leather.py"; sourceTree = SOURCE_ROOT; };
+		A298057216DC8270009F450B /* NBBWindowBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBWindowBase.h; sourceTree = "<group>"; };
+		A298057316DC8270009F450B /* NBBWindowBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBWindowBase.m; sourceTree = "<group>"; };
 		A2A07BFE1651607300273E72 /* defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaults.plist; sourceTree = "<group>"; };
 		A2A07C00165163D100273E72 /* MusicModule.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicModule.xib; sourceTree = "<group>"; };
 		A2A07C02165163E500273E72 /* VideoModule.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoModule.xib; sourceTree = "<group>"; };
@@ -466,6 +470,8 @@
 				A2A07C081651799400273E72 /* NBBVirtualKeyboard.m */,
 				A2DBB0741631B0A000C32443 /* NBBWindow.h */,
 				A2DBB0751631B0A000C32443 /* NBBWindow.m */,
+				A298057216DC8270009F450B /* NBBWindowBase.h */,
+				A298057316DC8270009F450B /* NBBWindowBase.m */,
 				A23A3D161639EF1600A622FF /* NSActionCell+NBBSwappable.h */,
 				A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */,
 				A23A3CD61634A9A800A622FF /* NSControl+NBBControlProxy.h */,
@@ -638,6 +644,7 @@
 				A2A07C0D16517A0900273E72 /* NBBKeyboardKeyCell.h in Headers */,
 				A22CD6A016712EFF00473DEA /* NBBLaunchPad.h in Headers */,
 				A26C0D0316D5A49B0007B333 /* NSWindow+NBBWindowProxy.h in Headers */,
+				A298057416DC8270009F450B /* NBBWindowBase.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,6 +1015,7 @@
 				A2A07C0E16517A0900273E72 /* NBBKeyboardKeyCell.m in Sources */,
 				A22CD69F16712EFD00473DEA /* NBBLaunchPad.m in Sources */,
 				A26C0D0416D5A49B0007B333 /* NSWindow+NBBWindowProxy.m in Sources */,
+				A298057516DC8270009F450B /* NBBWindowBase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
