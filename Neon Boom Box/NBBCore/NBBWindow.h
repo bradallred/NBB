@@ -21,6 +21,11 @@
 #import "NBBWindowBase.h"
 
 @interface NBBWindow : NBBWindowBase <NBBThemable>
+{
+	// dummy values needed for KVC
+	id _NSAnimationTriggerOrderIn;
+	id _NSAnimationTriggerOrderOut;
+}
 # pragma mark - NBBThemable
 - (id) initWithTheme:(NBBTheme*) theme;
 - (BOOL)applyTheme:(NBBTheme*) theme;

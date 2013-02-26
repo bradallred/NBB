@@ -59,13 +59,4 @@
 	[[self animator] setValue:nil forKey:NSAnimationTriggerOrderOut];
 }
 
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key
-{
-	if ([key isEqualToString:NSAnimationTriggerOrderIn]
-		|| [key isEqualToString:NSAnimationTriggerOrderOut]) {
-		return;
-	}
-	[super setValue:value forUndefinedKey:key];
-}
-
 @end
