@@ -13,5 +13,6 @@
 {
 	@private
 	NSDictionary* _musicLibrary;
+	NSArray* _artists;
 }
 @end

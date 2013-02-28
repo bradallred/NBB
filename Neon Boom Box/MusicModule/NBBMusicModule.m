@@ -40,6 +40,8 @@
 				}
 			}
 			_musicLibrary = [[NSDictionary alloc] initWithObjectsAndKeys:musicTracks, @"tracks", nil];
+			_artists = [_musicLibrary valueForKeyPath:@"tracks.@distinctUnionOfObjects.Artist"];
+			_artists = [[_artists sortedArrayUsingSelector:@selector(compare:)] retain];
 		}
 		NSLog(@"music module initialization complete!");
     }
@@ -49,6 +51,7 @@
 
 - (void)dealloc
 {
+	[_artists release];
     [_musicLibrary release];
     [super dealloc];
 }
