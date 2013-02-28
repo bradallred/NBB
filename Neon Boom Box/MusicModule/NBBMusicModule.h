@@ -7,8 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "NBBModule.h"
+#import <NBBCore/NBBModule.h>
 
 @interface NBBMusicModule : NBBModule
-
+{
+	@private
+	NSDictionary* _musicLibrary;
+}
 @end

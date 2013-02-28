@@ -29,17 +29,28 @@
 		if (library) {
 			NSDictionary* tracks = library[@"Tracks"];
 			NSDictionary* playlists = library[@"Playlists"];
-
-			BOOL isBook = NO;
-			BOOL isVideo = NO;
-
+			NSMutableArray* musicTracks = [NSMutableArray arrayWithCapacity:tracks.count];
+			
 			for (NSDictionary* track in tracks.allValues) {
-				// TODO: import apropriate tracks into an internal library
+				// Filter out podcasts/books/videos
+				if (![track[@"Genre"] isEqualToString:@"Audiobook"]
+					&& [track[@"Has Video"] boolValue] == NO
+					&& [track[@"Podcast"] boolValue] == NO) {
+					[musicTracks addObject:track];
+				}
 			}
+			_musicLibrary = [[NSDictionary alloc] initWithObjectsAndKeys:musicTracks, @"tracks", nil];
 		}
+		NSLog(@"music module initialization complete!");
     }
 
     return self;
+}
+
+- (void)dealloc
+{
+    [_musicLibrary release];
+    [super dealloc];
 }
 
 @end
