@@ -127,4 +127,9 @@
     // Drawing code here.
 }
 
+- (BOOL)autoscroll:(NSEvent *)theEvent
+{
+	return NO;
+}
+
 @end
