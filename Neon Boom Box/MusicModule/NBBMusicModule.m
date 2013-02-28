@@ -56,4 +56,24 @@
     [super dealloc];
 }
 
+#pragma mark TableViewDataSource
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
+{
+	return [_artists count];
+}
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row 
+{
+	// Retrieve to get the @"MyView" from the pool
+	// If no version is available in the pool, load the Interface Builder version
+	NSTableCellView *result = [tableView makeViewWithIdentifier:@"musicTableCell" owner:self];
+
+	// or as a new cell, so set the stringValue of the cell to the
+	// nameArray value at row
+	result.textField.stringValue = [_artists objectAtIndex:row];
+
+	// return the result.
+	return result;
+}
+
 @end
