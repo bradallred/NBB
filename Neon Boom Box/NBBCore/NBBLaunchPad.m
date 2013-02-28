@@ -200,30 +200,31 @@
 
 - (NSDragOperation)draggingUpdated:(id < NSDraggingInfo >)sender
 {
-	NSPoint mp = [self convertPoint:[sender draggingLocation] fromView:nil];
-	NSCell* cell = [self cellAtPoint:mp];
+	if (_dragCell) {
+		NSPoint mp = [self convertPoint:[sender draggingLocation] fromView:nil];
+		NSCell* cell = [self cellAtPoint:mp];
 
-	if (cell == nil || cell == _dragCell) {
-		// pretend like the drag exited for the sake of unhighlighting cells
-		[self draggingExited:sender];
-		return NSDragOperationNone;
+		if (cell == nil || cell == _dragCell) {
+			// pretend like the drag exited for the sake of unhighlighting cells
+			[self draggingExited:sender];
+			return NSDragOperationNone;
+		}
+
+		_dragDestCell = cell;
+
+		CALayer* layer = _animationLayers[cell.identifier];
+		layer.contents = [self imageForCell:cell highlighted:YES];
+		return [cell draggingEntered:sender];
 	}
-
-	_dragDestCell = cell;
-
-	CALayer* layer = _animationLayers[cell.identifier];
-	layer.contents = [self imageForCell:cell highlighted:YES];
-	return [cell draggingEntered:sender];
+	return NSDragOperationNone;
 }
 
 - (void)draggingEnded:(id < NSDraggingInfo >)sender
 {
-	assert(_dragCell);
-	CALayer* layer = _animationLayers[_dragCell.identifier];
-	layer.contents = [self imageForCell:_dragCell highlighted:NO];
-	//_dragCell = nil;
-	// purpousely prevent display!
-	[self setNeedsDisplay:NO];
+	if (_dragCell) {
+		CALayer* layer = _animationLayers[_dragCell.identifier];
+		layer.contents = [self imageForCell:_dragCell highlighted:NO];
+	}
 }
 
 - (void)concludeDragOperation:(id < NSDraggingInfo >)sender
