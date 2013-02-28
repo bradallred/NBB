@@ -17,6 +17,8 @@
  */
 
 #import "NBBTableView.h"
+#import "NBBTheme.h"
+
 // WARNING:
 // NBBScrollAnimation must be used with GCD. removing the GCD calls results in wonky behavior
 // when you interrupt the animation (and dispatch_sync() will deadlock).
@@ -93,6 +95,7 @@
 
 - (BOOL)applyTheme:(NBBTheme*) theme
 {
+	self.gridColor = [theme borderColorForObject:self];
 	return YES;
 }
 
