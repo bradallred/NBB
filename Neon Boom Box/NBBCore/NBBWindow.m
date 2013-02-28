@@ -19,9 +19,43 @@
 #import "NBBWindow.h"
 #import "NBBThemeEngine.h"
 
+#import <objc/runtime.h>
 #import <QuartzCore/QuartzCore.h>
 
+// Part of the window theming hack
+@class NSNextStepFrame;
+@interface NBBWindow()
+- (void)drawRect:(NSRect)rect;
+- (NSRect)bounds;
+- (NSWindow*)window;
+@end
+
 @implementation NBBWindow
+
++ (void)load
+{
+	Class frameClass = [NSNextStepFrame class];
+	Method m0 = class_getInstanceMethod(self, @selector(drawFrame:));
+	class_addMethod(frameClass, @selector(drawFrame:), method_getImplementation(m0), method_getTypeEncoding(m0));
+
+	Method m1 = class_getInstanceMethod(frameClass, @selector(drawRect:));
+	Method m2 = class_getInstanceMethod(frameClass, @selector(drawFrame:));
+
+	method_exchangeImplementations(m1, m2);
+}
+
+- (void)drawFrame:(NSRect)rect
+{
+	NBBTheme* theme = [[NBBThemeEngine sharedThemeEngine] theme];
+	[self drawFrame:rect];
+
+	NSRect frameRect = [self bounds];
+
+    NSBezierPath* border = [NSBezierPath bezierPathWithRect:frameRect];
+    [border setLineWidth:[theme borderWidthForObject:self.window] * self.window.screen.backingScaleFactor];
+    [[theme borderColorForObject:self.window] set];
+    [border stroke];
+}
 
 - (void)finalizeInit
 {
@@ -32,13 +66,6 @@
 - (BOOL)applyTheme:(NBBTheme*) theme
 {
 	self.backgroundColor = theme.windowBackgroundColor;
-
-	NSView* cv = self.contentView;
-	NSView* fv = cv.superview;
-	fv.wantsLayer = YES;
-	cv.wantsLayer = NO; // fucks with arrangeable controls
-	fv.layer.borderColor = [[theme borderColorForObject:self] CGColor];
-	fv.layer.borderWidth = [theme borderWidthForObject:self];
 
 	return YES;
 }
@@ -65,7 +92,7 @@
 
 	[self setAnimations:@{ NSAnimationTriggerOrderIn  : inAnim,
 						   NSAnimationTriggerOrderOut : outAnim,
-	 }];
+						}];
 
 	[super orderWindow:orderingMode relativeTo:otherWindowNumber];
 	if (orderingMode == NSWindowAbove) {
