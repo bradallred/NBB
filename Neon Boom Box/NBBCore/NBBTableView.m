@@ -163,7 +163,7 @@
 
 	// because we have to animate asyncronously, we must save the target value to use later
 	// instead of setting it in the animation here
-	_scrollDelta = [theEvent deltaY] * 2;
+	_scrollDelta = [theEvent deltaY] * 3;
 }
 
 - (BOOL)autoscroll:(NSEvent *)theEvent
