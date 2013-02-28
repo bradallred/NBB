@@ -122,9 +122,48 @@
 	_scrollAnimation = [[NBBScrollAnimation scrollAnimationWithClipView:cv] retain];
 }
 
-- (void)drawRect:(NSRect)dirtyRect
+- (void)mouseDown:(NSEvent *)theEvent
 {
-    // Drawing code here.
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+		if (_scrollAnimation && _scrollAnimation.isAnimating) {
+			[_scrollAnimation stopAnimation];
+		}
+		});
+	[super mouseDown:theEvent];
+}
+
+- (void)mouseUp:(NSEvent *)theEvent
+{
+	[super mouseUp:theEvent];
+
+	// reset the scroll animation
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+		NSClipView* cv = (NSClipView*)[self superview];
+		NSPoint newPoint = NSMakePoint(0.0, ([cv documentVisibleRect].origin.y - _scrollDelta));
+		NBBScrollAnimation* anim = (NBBScrollAnimation*)_scrollAnimation;
+		[anim setCurrentProgress:0.0];
+		anim.targetPoint = newPoint;
+
+		[anim startAnimation];
+	});
+}
+
+- (void)mouseDragged:(NSEvent *)theEvent
+{
+	NSClipView* clipView=(NSClipView*)[self superview];
+	NSPoint newPoint = NSMakePoint(0.0, ([clipView documentVisibleRect].origin.y - [theEvent deltaY]));
+	// do NOT constrain the point here. we want to "rubber band"
+	[clipView scrollToPoint:newPoint];
+	[[self enclosingScrollView] reflectScrolledClipView:clipView];
+
+	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+		NBBScrollAnimation* anim = (NBBScrollAnimation*)_scrollAnimation;
+		anim.originPoint = newPoint;
+	});
+
+	// because we have to animate asyncronously, we must save the target value to use later
+	// instead of setting it in the animation here
+	_scrollDelta = [theEvent deltaY] * 2;
 }
 
 - (BOOL)autoscroll:(NSEvent *)theEvent

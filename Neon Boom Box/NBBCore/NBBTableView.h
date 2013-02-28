@@ -23,6 +23,7 @@
 {
 	@private
 	NSAnimation* _scrollAnimation;
+	CGFloat _scrollDelta;
 }
 # pragma mark - NBBThemable
 - (id) initWithTheme:(NBBTheme*) theme;
