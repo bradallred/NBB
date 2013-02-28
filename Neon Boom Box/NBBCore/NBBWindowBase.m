@@ -25,6 +25,7 @@
 	[self setReleasedWhenClosed:NO];
 	[self setMovableByWindowBackground:NO];
 	[self setHasShadow:NO];
+	[self setAnimationBehavior:NSWindowAnimationBehaviorNone]; // we want no interfearance with ours
 	self.collectionBehavior = NSWindowCollectionBehaviorFullScreenPrimary;
 }
 
