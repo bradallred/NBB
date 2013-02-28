@@ -124,12 +124,12 @@
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
+	_scrollDelta = 0.0;
 	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
 		if (_scrollAnimation && _scrollAnimation.isAnimating) {
 			[_scrollAnimation stopAnimation];
 		}
-		});
-	[super mouseDown:theEvent];
+	});
 }
 
 - (void)mouseUp:(NSEvent *)theEvent
