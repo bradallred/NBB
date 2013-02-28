@@ -46,15 +46,17 @@
 
 - (void)drawFrame:(NSRect)rect
 {
-	NBBTheme* theme = [[NBBThemeEngine sharedThemeEngine] theme];
 	[self drawFrame:rect];
 
-	NSRect frameRect = [self bounds];
+	if ([self isKindOfClass:[NBBWindow class]]) {
+		NBBTheme* theme = [[NBBThemeEngine sharedThemeEngine] theme];
+		NSRect frameRect = [self bounds];
 
-    NSBezierPath* border = [NSBezierPath bezierPathWithRect:frameRect];
-    [border setLineWidth:[theme borderWidthForObject:self.window] * self.window.screen.backingScaleFactor];
-    [[theme borderColorForObject:self.window] set];
-    [border stroke];
+		NSBezierPath* border = [NSBezierPath bezierPathWithRect:frameRect];
+		[border setLineWidth:[theme borderWidthForObject:self.window] * self.window.screen.backingScaleFactor];
+		[[theme borderColorForObject:self.window] set];
+		[border stroke];
+	}
 }
 
 - (void)finalizeInit
