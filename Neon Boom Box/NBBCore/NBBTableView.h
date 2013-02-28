@@ -20,6 +20,10 @@
 #import "NBBThemable.h"
 
 @interface NBBTableView : NSTableView <NBBThemable>
+{
+	@private
+	NSAnimation* _scrollAnimation;
+}
 # pragma mark - NBBThemable
 - (id) initWithTheme:(NBBTheme*) theme;
 - (BOOL)applyTheme:(NBBTheme*) theme;

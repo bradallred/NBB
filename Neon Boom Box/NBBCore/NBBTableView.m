@@ -81,6 +81,23 @@
 @implementation NBBTableView
 @dynamic theme;
 
+- (void)dealloc
+{
+    [_scrollAnimation release];
+    [super dealloc];
+}
+
+- (id)initWithFrame:(NSRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+		NSClipView* cv = (NSClipView*)[self superview];
+		_scrollAnimation = [[NBBScrollAnimation scrollAnimationWithClipView:cv] retain];
+	}
+
+    return self;
+}
+
 # pragma mark - NBBThemable
 - (id)initWithTheme:(NBBTheme*) theme
 {
@@ -99,14 +116,10 @@
 	return YES;
 }
 
-- (id)initWithFrame:(NSRect)frame
+- (void)awakeFromNib
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
+	NSClipView* cv = (NSClipView*)[self superview];
+	_scrollAnimation = [[NBBScrollAnimation scrollAnimationWithClipView:cv] retain];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
