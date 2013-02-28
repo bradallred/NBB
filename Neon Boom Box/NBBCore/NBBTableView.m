@@ -17,6 +17,64 @@
  */
 
 #import "NBBTableView.h"
+// WARNING:
+// NBBScrollAnimation must be used with GCD. removing the GCD calls results in wonky behavior
+// when you interrupt the animation (and dispatch_sync() will deadlock).
+// when you interact with the animation wrap your code in a block and pass to dispatch_async()
+
+@interface NBBScrollAnimation : NSAnimation
+
+@property (retain) NSClipView* clipView;
+@property NSPoint originPoint;
+@property NSPoint targetPoint;
+
++ (NBBScrollAnimation*)scrollAnimationWithClipView:(NSClipView *)clipView;
+
+@end
+
+@implementation NBBScrollAnimation
+
+@synthesize clipView;
+@synthesize originPoint;
+@synthesize targetPoint;
+
++ (NBBScrollAnimation*)scrollAnimationWithClipView:(NSClipView *)clipView
+{
+	NBBScrollAnimation *animation = [[NBBScrollAnimation alloc] initWithDuration:0.6 animationCurve:NSAnimationEaseOut];
+	
+	animation.clipView = clipView;
+	animation.originPoint = clipView.documentVisibleRect.origin;
+	animation.targetPoint = animation.originPoint;
+
+	return [animation autorelease];
+}
+
+- (void)setCurrentProgress:(NSAnimationProgress)progress
+{
+	typedef float (^MyAnimationCurveBlock)(float, float, float);
+	MyAnimationCurveBlock cubicEaseOut = ^ float (float t, float start, float end) {
+		t--;
+		return end*(t * t * t + 1) + start;
+	};
+
+	dispatch_sync(dispatch_get_main_queue(), ^{
+		NSPoint progressPoint = self.originPoint;
+		progressPoint.x += cubicEaseOut(progress, 0, self.targetPoint.x - self.originPoint.x);
+		progressPoint.y += cubicEaseOut(progress, 0, self.targetPoint.y - self.originPoint.y);
+
+		NSPoint constraint = [self.clipView constrainScrollPoint:progressPoint];
+		if (!NSEqualPoints(constraint, progressPoint)) {
+			// constraining the point and reassigning to target gives us the "rubber band" effect
+			self.targetPoint = constraint;
+		}
+
+		[self.clipView scrollToPoint:progressPoint];
+		[self.clipView.enclosingScrollView reflectScrolledClipView:self.clipView];
+	});
+}
+
+@end
+
 
 @implementation NBBTableView
 @dynamic theme;
