@@ -80,8 +80,8 @@
 
 	// create a cell representing the module
 	NSButtonCell* cell = [[[[self class] cellClass] alloc] initImageCell:module.moduleIcon];
-	cell.target = module.window;
-	cell.action = @selector(orderFront:);
+	cell.target = module;
+	cell.action = @selector(showWindow:);
 	// TODO: consider the possibility of 2 buttons for the same module
 	// what should we do? I'm tempted to convert to a dict to prevent this.
 	cell.identifier = [self.identifier stringByAppendingFormat:@"-%@", module.identifier];
