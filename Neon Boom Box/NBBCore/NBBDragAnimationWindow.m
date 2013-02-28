@@ -120,4 +120,9 @@
 	[self orderOut:nil];
 }
 
+- (BOOL) canBecomeKeyWindow
+{
+	return NO;
+}
+
 @end
