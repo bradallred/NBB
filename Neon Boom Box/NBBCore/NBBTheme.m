@@ -83,7 +83,7 @@
 	CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"frameOrigin"];
 	// assumes all windows are the same size.
 	NSWindow* keyWin = [NSApp keyWindow];
-	NSPoint fromPoint = NSMakePoint(0.0, keyWin.frame.size.height);
+	NSPoint fromPoint = NSMakePoint(0.0, NSHeight(keyWin.frame));
 	animation.fromValue = [NSValue valueWithPoint:fromPoint];
 	animation.toValue = [NSValue valueWithPoint:NSZeroPoint];
 	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
@@ -99,7 +99,7 @@
 	CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"frameOrigin"];
 	// assumes all windows are the same size.
 	NSWindow* keyWin = [NSApp keyWindow];
-	NSPoint toPoint = NSMakePoint(0.0, keyWin.frame.size.height);
+	NSPoint toPoint = NSMakePoint(0.0, NSHeight(keyWin.frame));
 	animation.toValue = [NSValue valueWithPoint:toPoint];
 	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
 	animation.duration = 0.5;
