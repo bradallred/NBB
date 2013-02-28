@@ -43,7 +43,18 @@
 	return YES;
 }
 
-- (void)orderFront:(id)sender
+- (void)orderBack:(id)sender
+{
+	[self orderOut:sender];
+}
+
+- (void)orderOut:(id)sender
+{
+	// actual order out takes place on animation completion.
+	[[self animator] setValue:nil forKey:NSAnimationTriggerOrderOut];
+}
+
+- (void)orderWindow:(NSWindowOrderingMode)orderingMode relativeTo:(NSInteger)otherWindowNumber
 {
 	// we set the animations here to keep them updated if they change
 	// also default animations are based on the applications window size
@@ -52,18 +63,14 @@
 	CAAnimation* outAnim = [[self theme] windowOutAnimation];
 	outAnim.delegate = self;
 
-	[self setAnimations:@{ NSAnimationTriggerOrderIn : inAnim,
+	[self setAnimations:@{ NSAnimationTriggerOrderIn  : inAnim,
 						   NSAnimationTriggerOrderOut : outAnim,
-						}];
+	 }];
 
-	[super orderFront:sender];
-	[[self animator] setValue:nil forKey:NSAnimationTriggerOrderIn];
-}
-
-- (void)orderOut:(id)sender
-{
-	// actual order out takes place on animation completion.
-	[[self animator] setValue:nil forKey:NSAnimationTriggerOrderOut];
+	[super orderWindow:orderingMode relativeTo:otherWindowNumber];
+	if (orderingMode == NSWindowAbove) {
+		[[self animator] setValue:nil forKey:NSAnimationTriggerOrderIn];
+	}
 }
 
 #pragma mark Animation Delegation
