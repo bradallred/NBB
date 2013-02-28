@@ -48,7 +48,7 @@
 {
 	[self drawFrame:rect];
 
-	if ([self isKindOfClass:[NBBWindow class]]) {
+	if ([self.window conformsToProtocol:@protocol(NBBThemable)]) {
 		NBBTheme* theme = [[NBBThemeEngine sharedThemeEngine] theme];
 		NSRect frameRect = [self bounds];
 
