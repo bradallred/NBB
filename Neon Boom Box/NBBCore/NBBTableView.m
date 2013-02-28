@@ -134,18 +134,21 @@
 
 - (void)mouseUp:(NSEvent *)theEvent
 {
-	[super mouseUp:theEvent];
+	if (_scrollDelta) {
+		[super mouseUp:theEvent];
+		// reset the scroll animation
+		dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+			NSClipView* cv = (NSClipView*)[self superview];
+			NSPoint newPoint = NSMakePoint(0.0, ([cv documentVisibleRect].origin.y - _scrollDelta));
+			NBBScrollAnimation* anim = (NBBScrollAnimation*)_scrollAnimation;
+			[anim setCurrentProgress:0.0];
+			anim.targetPoint = newPoint;
 
-	// reset the scroll animation
-	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-		NSClipView* cv = (NSClipView*)[self superview];
-		NSPoint newPoint = NSMakePoint(0.0, ([cv documentVisibleRect].origin.y - _scrollDelta));
-		NBBScrollAnimation* anim = (NBBScrollAnimation*)_scrollAnimation;
-		[anim setCurrentProgress:0.0];
-		anim.targetPoint = newPoint;
-
-		[anim startAnimation];
-	});
+			[anim startAnimation];
+		});
+	} else {
+		[super mouseDown:theEvent];
+	}
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent
