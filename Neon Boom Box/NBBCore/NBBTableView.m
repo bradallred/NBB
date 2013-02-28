@@ -93,6 +93,7 @@
     if (self) {
 		NSClipView* cv = (NSClipView*)[self superview];
 		_scrollAnimation = [[NBBScrollAnimation scrollAnimationWithClipView:cv] retain];
+		self.enclosingScrollView.wantsLayer = YES;
 	}
 
     return self;
@@ -120,6 +121,7 @@
 {
 	NSClipView* cv = (NSClipView*)[self superview];
 	_scrollAnimation = [[NBBScrollAnimation scrollAnimationWithClipView:cv] retain];
+	self.enclosingScrollView.wantsLayer = YES;
 }
 
 - (void)mouseDown:(NSEvent *)theEvent
