@@ -146,6 +146,7 @@
 														multiplier:constraint.multiplier
 														  constant:constraint.constant];
 			newConstraint.shouldBeArchived = YES;
+			newConstraint.priority = NSLayoutPriorityWindowSizeStayPut;
 			[dest.superview addConstraint:newConstraint];
 		}
 	}
