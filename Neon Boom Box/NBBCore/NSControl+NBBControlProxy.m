@@ -36,7 +36,7 @@
 		NBBThemeEngine* themeEngine = [NBBThemeEngine sharedThemeEngine];
 		[themeEngine themeObject:(id <NBBThemable>)self];
 	}
-	[self setTranslatesAutoresizingMaskIntoConstraints:YES];
+	//[self setTranslatesAutoresizingMaskIntoConstraints:YES];
 	[super viewWillMoveToWindow:newWindow]; // shouldnt do anything (default implementation is noop)
 }
 
