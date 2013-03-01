@@ -26,6 +26,7 @@
 #import "NBBThemeEngine.h"
 
 static char const * const delegateTagKey = "_swapDelegate";
+NSPoint _dragImageOffset;
 
 @implementation NSActionCell (NBBSwappable)
 @dynamic swapDelegate;
@@ -227,6 +228,7 @@ static char const * const delegateTagKey = "_swapDelegate";
 				NSControl* cv = (NSControl*)self.controlView;
 				NSDraggingSession* session = [cv beginDraggingSessionWithDraggingCell:self
 																				event:theEvent];
+				_dragImageOffset = [cv convertPoint:[theEvent locationInWindow] fromView:nil];
 				// we must NOT let the session handle the cancel/fail animation
 				// if we did we would have an ugly fade out and sudden appearance of the control
 				// we will fake this animation ourselves. see +initialize and NSDraggingSource methods
@@ -271,7 +273,11 @@ static char const * const delegateTagKey = "_swapDelegate";
 		NBBDragAnimationWindow* dw = [NBBDragAnimationWindow sharedAnimationWindow];
 		NSRect frame = dw.frame;
 
-		[dw setFrameTopLeftPoint:screenPoint];
+		NSPoint start = screenPoint;
+		start.y += _dragImageOffset.y;
+		start.x -= _dragImageOffset.x;
+
+		[dw setFrameTopLeftPoint:start];
 		[dw animateToFrame:frame];
 	}
 	// now tell the control view the drag ended so it can do any cleanup it needs
