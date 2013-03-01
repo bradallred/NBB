@@ -135,19 +135,24 @@
 			newSecond = dest;
 			match = YES;
 		}
-		if (match) {
+		if (match && newFirst) {
 			[dest.superview removeConstraint:constraint];
-			NSLayoutConstraint* newConstraint = nil;
-			newConstraint = [NSLayoutConstraint constraintWithItem:newFirst
-														 attribute:constraint.firstAttribute
-														 relatedBy:constraint.relation
-															toItem:newSecond
-														 attribute:constraint.secondAttribute
-														multiplier:constraint.multiplier
-														  constant:constraint.constant];
-			newConstraint.shouldBeArchived = YES;
-			newConstraint.priority = NSLayoutPriorityWindowSizeStayPut;
-			[dest.superview addConstraint:newConstraint];
+			@try {
+				NSLayoutConstraint* newConstraint = nil;
+				newConstraint = [NSLayoutConstraint constraintWithItem:newFirst
+															 attribute:constraint.firstAttribute
+															 relatedBy:constraint.relation
+																toItem:newSecond
+															 attribute:constraint.secondAttribute
+															multiplier:constraint.multiplier
+															  constant:constraint.constant];
+				newConstraint.shouldBeArchived = YES;
+				newConstraint.priority = NSLayoutPriorityWindowSizeStayPut;
+				[dest.superview addConstraint:newConstraint];
+			}
+			@catch (NSException *exception) {
+				NSLog(@"Constraint exception: %@\nFor constraint: %@", exception, constraint);
+			}
 		}
 	}
 	[constraints release];
