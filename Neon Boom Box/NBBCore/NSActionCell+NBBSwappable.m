@@ -334,21 +334,42 @@ NSPoint _dragImageOffset;
 
 	[self setHighlighted:NO];
 
+	NSView* sv = [dest superview];
+	
 	// we need to obtain the coordinates for the drag image representing the source control
 	NSRect startFrame = source.frame;
 	startFrame.origin = [sender draggedImageLocation];
 	[source setFrame:startFrame]; // move the control before making it visible (no animation)
 	[source setHidden:NO];
 
+	CAAnimation* anim = [dest animationForKey:@"frameOrigin"];
+	anim.delegate = self;
+	[anim setValue:source forKey:@"dragSource"];
+	[anim setValue:dest forKey:@"dragDest"];
+
 	// animate both controls to the others original frame
 	[[dest animator] setFrame:srcFrame];
 	[[source animator] setFrame:dstFrame];
+}
 
-	// even though we just set the frames we need to tell the ThemeEngine
-	// otherwise "Auto Layout" will revert our change.
-	// the ThemeEngine will take care of the layout constraints for us
-	// the ThemeEngine will also persist our changes
-	[[NBBThemeEngine sharedThemeEngine] swapView:source withView:dest persist:YES];
+- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
+{
+	if (flag) {
+		id source = [theAnimation valueForKey:@"dragSource"];
+		id dest = [theAnimation valueForKey:@"dragDest"];
+		CAAnimation* anim = [dest animationForKey:@"frameOrigin"];
+		// FIXME: this is a nasty hack. i don't know why this method gets called repeatedly
+		// but im doing this test to avoid calling swapView more than once per swap.
+		if (anim.delegate == self) {
+			anim.delegate = nil;
+
+			// even though we just set the frames we need to tell the ThemeEngine
+			// otherwise "Auto Layout" will revert our change.
+			// the ThemeEngine will take care of the layout constraints for us
+			// the ThemeEngine will also persist our changes
+			[[NBBThemeEngine sharedThemeEngine] swapView:source withView:dest persist:YES];
+		}
+	}
 }
 
 @end

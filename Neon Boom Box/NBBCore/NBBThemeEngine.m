@@ -205,8 +205,7 @@
 
 	[dest addConstraints:newDestConstraints];
 	[source addConstraints:newSourceConstraints];
-	[source updateConstraints];
-	[dest updateConstraints];
+
 	// auto layout makes setting the frame unnecissary, but
 	// we do it because its possible that a module is not using auto layout
 	NSRect srcRect = source.frame;
