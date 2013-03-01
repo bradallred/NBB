@@ -26,6 +26,7 @@
 #import "NBBThemeEngine.h"
 
 static char const * const delegateTagKey = "_swapDelegate";
+static char const * const swappingEnabledKey = "_swappingEnabled";
 NSPoint _dragImageOffset;
 
 @implementation NSActionCell (NBBSwappable)
@@ -141,15 +142,17 @@ NSPoint _dragImageOffset;
 		id <NBBSwappableControl> cv = (id <NBBSwappableControl>)self.controlView;
 		return [cv swappingEnabled];
 	}
-	// FIXME: this is very hackish even for me.
-	return (BOOL)[self.controlView.layer animationForKey:kBTSWiggleTransformAnimation];
+	return objc_getAssociatedObject(self, swappingEnabledKey);;
 }
 
 - (void)swapStateChanged:(NSNotification*) notification
 {
 	NSView* cv = self.controlView;
 	if ([[notification object] isKindOfClass:[cv class]]) {
-		if ([[notification userInfo][@"enabled"] boolValue]) {
+		id <NBBSwappableControlDelegate> delegate = self.swapDelegate;
+		BOOL enable = [[notification userInfo][@"enabled"] boolValue];
+		objc_setAssociatedObject(self, swappingEnabledKey, [NSNumber numberWithBool:enable], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+		if (enable) {
 			[cv.layer startJiggling];
 		} else {
 			[cv.layer stopJiggling];
@@ -167,7 +170,7 @@ NSPoint _dragImageOffset;
 
 	// Catch next mouse-dragged or mouse-up event until timeout (or drag while control is dragable)
 	BOOL mouseIsUp = NO;
-	NSEvent *event;
+	NSEvent *event = nil;
 	while (!done)
 	{
 		NSPoint lastPoint = currentPoint;
