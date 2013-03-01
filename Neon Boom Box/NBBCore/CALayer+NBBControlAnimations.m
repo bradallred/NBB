@@ -41,12 +41,16 @@ Thank you, Brian.
     // Create the rotation animation - a very small angle is all we need to achieve a wiggle effect.
     CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     [rotationAnimation setRepeatCount:MAXFLOAT];
-    [rotationAnimation setDuration:0.1];
+    [rotationAnimation setDuration:0.2];
     [rotationAnimation setAutoreverses:YES];
 	
-    [rotationAnimation setFromValue:@(M_PI/100.0)];
-    [rotationAnimation setToValue:@(-M_PI/100.0)];
+    [rotationAnimation setFromValue:@(M_PI/90.0)];
+    [rotationAnimation setToValue:@(-M_PI/90.0)];
     
+	CGPoint center = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+	self.position = center;
+	self.anchorPoint = CGPointMake(0.5, 0.5);
+	
     // Create the translation animation along the X axis. This gives is a slight sliding effect, which looks nice.
     CABasicAnimation *translationXAnimation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
     [translationXAnimation setRepeatCount:MAXFLOAT];
