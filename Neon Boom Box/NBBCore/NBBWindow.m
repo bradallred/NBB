@@ -26,7 +26,6 @@
 @class NSNextStepFrame;
 @interface NBBWindow()
 - (void)drawRect:(NSRect)rect;
-- (NSRect)bounds;
 - (NSWindow*)window;
 @end
 
@@ -50,7 +49,7 @@
 
 	if ([self.window conformsToProtocol:@protocol(NBBThemable)]) {
 		NBBTheme* theme = [[NBBThemeEngine sharedThemeEngine] theme];
-		NSRect frameRect = [self bounds];
+		NSRect frameRect = [self frame];
 
 		NSBezierPath* border = [NSBezierPath bezierPathWithRect:frameRect];
 		[border setLineWidth:[theme borderWidthForObject:self.window] * self.window.screen.backingScaleFactor];
