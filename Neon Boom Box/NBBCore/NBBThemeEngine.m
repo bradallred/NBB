@@ -146,7 +146,7 @@
 															 attribute:constraint.secondAttribute
 															multiplier:constraint.multiplier
 															  constant:constraint.constant];
-				newConstraint.shouldBeArchived = YES;
+				newConstraint.shouldBeArchived = constraint.shouldBeArchived;
 				newConstraint.priority = NSLayoutPriorityWindowSizeStayPut;
 				[dest.superview addConstraint:newConstraint];
 			}
@@ -175,7 +175,7 @@
 														 attribute:constraint.secondAttribute
 														multiplier:constraint.multiplier
 														  constant:constraint.constant];
-			newConstraint.shouldBeArchived = YES;
+			newConstraint.shouldBeArchived = constraint.shouldBeArchived;
 			[newDestConstraints addObject:newConstraint];
 			[source removeConstraint:constraint];
 		}
@@ -196,7 +196,7 @@
 														 attribute:constraint.secondAttribute
 														multiplier:constraint.multiplier
 														  constant:constraint.constant];
-			newConstraint.shouldBeArchived = YES;
+			newConstraint.shouldBeArchived = constraint.shouldBeArchived;
 			[newSourceConstraints addObject:newConstraint];
 			[dest removeConstraint:constraint];
 		}
