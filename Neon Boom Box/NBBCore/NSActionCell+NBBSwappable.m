@@ -27,6 +27,7 @@
 
 static char const * const delegateTagKey = "_swapDelegate";
 static char const * const swappingEnabledKey = "_swappingEnabled";
+// we assume we can only have a single drag operation at any given time
 NSPoint _dragImageOffset;
 
 @implementation NSActionCell (NBBSwappable)
@@ -60,8 +61,6 @@ NSPoint _dragImageOffset;
 	// the control will forward us the drag destination events via our NBBControlProxy category
 
 	[view registerForDraggedTypes:[NSImage imagePasteboardTypes]];
-	// post notifications so we can store the new frame in the theme prefs
-	[view setPostsFrameChangedNotifications:YES];
 
 	[super setControlView:view];
 }
@@ -334,8 +333,6 @@ NSPoint _dragImageOffset;
 
 	[self setHighlighted:NO];
 
-	NSView* sv = [dest superview];
-	
 	// we need to obtain the coordinates for the drag image representing the source control
 	NSRect startFrame = source.frame;
 	startFrame.origin = [sender draggedImageLocation];
