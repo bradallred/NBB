@@ -123,7 +123,7 @@
 {
 	_dragCell = cell;
 
-	assert(cell.identifier);
+	NSAssert(cell.identifier, @"No identifier for %@", cell);
 	CALayer* layer = _animationLayers[cell.identifier];
 
 	if (layer) {
@@ -230,11 +230,15 @@
 - (void)concludeDragOperation:(id < NSDraggingInfo >)sender
 {
 	NSCell* sourceCell = (NSCell*)[sender draggingSource];
-	assert (sourceCell != _dragDestCell);
+	NSAssert(sourceCell != _dragDestCell,
+			 @"dragging source %@ is not equal to our dragCell %@",
+			 sourceCell, _dragDestCell);
 
 	NSUInteger srcIndex = [_moduleCells indexOfObject:sourceCell];
 	NSUInteger dstIndex = [_moduleCells indexOfObject:_dragDestCell];
-	assert(srcIndex != NSNotFound && dstIndex != NSNotFound);
+	NSAssert((srcIndex != NSNotFound && dstIndex != NSNotFound),
+			 @"drag source %@ and drag dest %@ must both be included in %@",
+			 sourceCell, _dragDestCell, _moduleCells);
 
 	CGRect srcFrame = NSRectToCGRect([self frameForCellIndex:srcIndex]);
 	CGRect dstFrame = NSRectToCGRect([self frameForCellIndex:dstIndex]);
@@ -313,7 +317,7 @@
 			newLayer.contents = [self imageForCell:cell highlighted:NO];
 			[newLayer startJiggling];
 			[self.layer addSublayer:newLayer];
-			assert(cell.identifier);
+			NSAssert(cell.identifier, @"%@ is missing identifier.", cell);
 			_animationLayers[cell.identifier] = newLayer;
 
 			// disable certain implicit animations.

@@ -329,7 +329,9 @@ NSPoint _dragImageOffset;
 	NSRect srcFrame = source.frame;
 	NSRect dstFrame = dest.frame;
 
-	assert(dest && source && dest != source);
+	NSAssert((dest && source && dest != source),
+			 @"drag source %@ and drag dest %@ must not be null or equal.",
+			 source, dest);
 
 	[self setHighlighted:NO];
 
