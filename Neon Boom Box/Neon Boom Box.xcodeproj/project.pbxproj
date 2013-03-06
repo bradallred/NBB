@@ -42,14 +42,10 @@
 		A2689FAC16308DCB00E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
 		A2689FB216308DCB00E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689FB016308DCB00E1AFFB /* InfoPlist.strings */; };
 		A2689FBF16308E6F00E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
-		A2689FC516308E6F00E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689FC316308E6F00E1AFFB /* InfoPlist.strings */; };
 		A2689FCF16308E9E00E1AFFB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689F7216308CE500E1AFFB /* Cocoa.framework */; };
-		A2689FD516308E9E00E1AFFB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689FD316308E9E00E1AFFB /* InfoPlist.strings */; };
 		A2689FE116308F0C00E1AFFB /* MusicModule.nbbmodule in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2689FBE16308E6F00E1AFFB /* MusicModule.nbbmodule */; };
 		A2689FE216308F1000E1AFFB /* VideoModule.nbbmodule in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2689FCE16308E9E00E1AFFB /* VideoModule.nbbmodule */; };
 		A2689FE416308F1D00E1AFFB /* NBBCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
-		A2689FF51630BFD300E1AFFB /* NBBMusicModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689FF41630BFD300E1AFFB /* NBBMusicModule.m */; };
-		A2689FF91630BFF300E1AFFB /* NBBVideoModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689FF71630BFED00E1AFFB /* NBBVideoModule.m */; };
 		A2689FFA1630C12C00E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A2689FFB1630C13100E1AFFB /* NBBCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2689FAB16308DCB00E1AFFB /* NBBCore.framework */; };
 		A26C0D0316D5A49B0007B333 /* NSWindow+NBBWindowProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = A26C0D0116D5A49B0007B333 /* NSWindow+NBBWindowProxy.h */; };
@@ -67,8 +63,6 @@
 		A2A07BF71650AB4B00273E72 /* NBBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = A2689FB416308DCB00E1AFFB /* NBBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2A07BF81650ABAE00273E72 /* NBBSwappableControl.h in Headers */ = {isa = PBXBuildFile; fileRef = A23A3CF416372E4500A622FF /* NBBSwappableControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2A07BFF1651607300273E72 /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2A07BFE1651607300273E72 /* defaults.plist */; };
-		A2A07C01165163D100273E72 /* MusicModule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A07C00165163D100273E72 /* MusicModule.xib */; };
-		A2A07C03165163E500273E72 /* VideoModule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A07C02165163E500273E72 /* VideoModule.xib */; };
 		A2A07C091651799400273E72 /* NBBVirtualKeyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A07C071651799400273E72 /* NBBVirtualKeyboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2A07C0A1651799400273E72 /* NBBVirtualKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A07C081651799400273E72 /* NBBVirtualKeyboard.m */; };
 		A2A07C0D16517A0900273E72 /* NBBKeyboardKeyCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A2A07C0B16517A0900273E72 /* NBBKeyboardKeyCell.h */; };
@@ -91,6 +85,12 @@
 		A2DBB0831631B1BE00C32443 /* NBBSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DBB0811631B1BE00C32443 /* NBBSlider.m */; };
 		A2DBB0851631DAAD00C32443 /* NBBThemable.h in Headers */ = {isa = PBXBuildFile; fileRef = A2DBB0841631DAAD00C32443 /* NBBThemable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2E73B45165C8B5E0039D3D3 /* Home.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2E73B44165C8B5E0039D3D3 /* Home.xib */; };
+		A2F4F59A16E7B77300A692FD /* NBBMusicModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689FF41630BFD300E1AFFB /* NBBMusicModule.m */; };
+		A2F4F59B16E7B77B00A692FD /* MusicModule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A07C00165163D100273E72 /* MusicModule.xib */; };
+		A2F4F59C16E7B79300A692FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689FC316308E6F00E1AFFB /* InfoPlist.strings */; };
+		A2F4F5A116E7B92500A692FD /* VideoModule.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2A07C02165163E500273E72 /* VideoModule.xib */; };
+		A2F4F5A216E7B9EE00A692FD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2689FD316308E9E00E1AFFB /* InfoPlist.strings */; };
+		A2F4F5A316E7B9F600A692FD /* NBBVideoModule.m in Sources */ = {isa = PBXBuildFile; fileRef = A2689FF71630BFED00E1AFFB /* NBBVideoModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,19 +237,19 @@
 		A2689FB316308DCB00E1AFFB /* NBBCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NBBCore-Prefix.pch"; sourceTree = "<group>"; };
 		A2689FB416308DCB00E1AFFB /* NBBCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBBCore.h; sourceTree = "<group>"; };
 		A2689FBE16308E6F00E1AFFB /* MusicModule.nbbmodule */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicModule.nbbmodule; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2689FC216308E6F00E1AFFB /* MusicModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MusicModule-Info.plist"; sourceTree = "<group>"; };
+		A2689FC216308E6F00E1AFFB /* MusicModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MusicModule-Info.plist"; path = "modules/MusicModule/MusicModule-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A2689FC416308E6F00E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A2689FC616308E6F00E1AFFB /* MusicModule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicModule-Prefix.pch"; sourceTree = "<group>"; };
+		A2689FC616308E6F00E1AFFB /* MusicModule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MusicModule-Prefix.pch"; path = "modules/MusicModule/MusicModule-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		A2689FCE16308E9E00E1AFFB /* VideoModule.nbbmodule */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoModule.nbbmodule; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2689FD216308E9E00E1AFFB /* VideoModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VideoModule-Info.plist"; sourceTree = "<group>"; };
+		A2689FD216308E9E00E1AFFB /* VideoModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "VideoModule-Info.plist"; path = "modules/VideoModule/VideoModule-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A2689FD416308E9E00E1AFFB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A2689FD616308E9E00E1AFFB /* VideoModule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VideoModule-Prefix.pch"; sourceTree = "<group>"; };
+		A2689FD616308E9E00E1AFFB /* VideoModule-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "VideoModule-Prefix.pch"; path = "modules/VideoModule/VideoModule-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		A2689FED1630BDA000E1AFFB /* NBBModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBBModule.h; path = ../modules/NBBModule.h; sourceTree = "<group>"; };
 		A2689FEE1630BDA000E1AFFB /* NBBModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBBModule.m; path = ../modules/NBBModule.m; sourceTree = "<group>"; };
-		A2689FF31630BFD300E1AFFB /* NBBMusicModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBMusicModule.h; sourceTree = "<group>"; };
-		A2689FF41630BFD300E1AFFB /* NBBMusicModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBMusicModule.m; sourceTree = "<group>"; };
-		A2689FF61630BFED00E1AFFB /* NBBVideoModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBVideoModule.h; sourceTree = "<group>"; };
-		A2689FF71630BFED00E1AFFB /* NBBVideoModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBVideoModule.m; sourceTree = "<group>"; };
+		A2689FF31630BFD300E1AFFB /* NBBMusicModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBBMusicModule.h; path = modules/MusicModule/NBBMusicModule.h; sourceTree = SOURCE_ROOT; };
+		A2689FF41630BFD300E1AFFB /* NBBMusicModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBBMusicModule.m; path = modules/MusicModule/NBBMusicModule.m; sourceTree = SOURCE_ROOT; };
+		A2689FF61630BFED00E1AFFB /* NBBVideoModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NBBVideoModule.h; path = modules/VideoModule/NBBVideoModule.h; sourceTree = SOURCE_ROOT; };
+		A2689FF71630BFED00E1AFFB /* NBBVideoModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NBBVideoModule.m; path = modules/VideoModule/NBBVideoModule.m; sourceTree = SOURCE_ROOT; };
 		A268A0051630F69800E1AFFB /* NBBTheme.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = NBBTheme.py; sourceTree = "<group>"; };
 		A26C0D0116D5A49B0007B333 /* NSWindow+NBBWindowProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSWindow+NBBWindowProxy.h"; path = "ProxyCategories/NSWindow+NBBWindowProxy.h"; sourceTree = "<group>"; };
 		A26C0D0216D5A49B0007B333 /* NSWindow+NBBWindowProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSWindow+NBBWindowProxy.m"; path = "ProxyCategories/NSWindow+NBBWindowProxy.m"; sourceTree = "<group>"; };
@@ -272,8 +272,8 @@
 		A298057216DC8270009F450B /* NBBWindowBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBWindowBase.h; sourceTree = "<group>"; };
 		A298057316DC8270009F450B /* NBBWindowBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBWindowBase.m; sourceTree = "<group>"; };
 		A2A07BFE1651607300273E72 /* defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaults.plist; sourceTree = "<group>"; };
-		A2A07C00165163D100273E72 /* MusicModule.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicModule.xib; sourceTree = "<group>"; };
-		A2A07C02165163E500273E72 /* VideoModule.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoModule.xib; sourceTree = "<group>"; };
+		A2A07C00165163D100273E72 /* MusicModule.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MusicModule.xib; path = modules/MusicModule/MusicModule.xib; sourceTree = SOURCE_ROOT; };
+		A2A07C02165163E500273E72 /* VideoModule.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoModule.xib; path = modules/VideoModule/VideoModule.xib; sourceTree = SOURCE_ROOT; };
 		A2A07C071651799400273E72 /* NBBVirtualKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBVirtualKeyboard.h; sourceTree = "<group>"; };
 		A2A07C081651799400273E72 /* NBBVirtualKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBVirtualKeyboard.m; sourceTree = "<group>"; };
 		A2A07C0B16517A0900273E72 /* NBBKeyboardKeyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NBBKeyboardKeyCell.h; sourceTree = "<group>"; };
@@ -583,7 +583,7 @@
 				A2A07C02165163E500273E72 /* VideoModule.xib */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		A2689FEA1630B7A800E1AFFB /* Themes */ = {
 			isa = PBXGroup;
@@ -921,8 +921,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2689FC516308E6F00E1AFFB /* InfoPlist.strings in Resources */,
-				A2A07C01165163D100273E72 /* MusicModule.xib in Resources */,
+				A2F4F59C16E7B79300A692FD /* InfoPlist.strings in Resources */,
+				A2F4F59B16E7B77B00A692FD /* MusicModule.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -930,8 +930,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2689FD516308E9E00E1AFFB /* InfoPlist.strings in Resources */,
-				A2A07C03165163E500273E72 /* VideoModule.xib in Resources */,
+				A2F4F5A216E7B9EE00A692FD /* InfoPlist.strings in Resources */,
+				A2F4F5A116E7B92500A692FD /* VideoModule.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1079,7 +1079,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2689FF51630BFD300E1AFFB /* NBBMusicModule.m in Sources */,
+				A2F4F59A16E7B77300A692FD /* NBBMusicModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1087,7 +1087,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2689FF91630BFF300E1AFFB /* NBBVideoModule.m in Sources */,
+				A2F4F5A316E7B9F600A692FD /* NBBVideoModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1183,7 +1183,8 @@
 				A2689FC416308E6F00E1AFFB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
+			path = modules/MusicModule;
+			sourceTree = SOURCE_ROOT;
 		};
 		A2689FD316308E9E00E1AFFB /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -1191,7 +1192,8 @@
 				A2689FD416308E9E00E1AFFB /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
+			path = modules/VideoModule;
+			sourceTree = SOURCE_ROOT;
 		};
 		A26C0D1216D5B2E40007B333 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -1367,8 +1369,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MusicModule/MusicModule-Prefix.pch";
-				INFOPLIST_FILE = "MusicModule/MusicModule-Info.plist";
+				GCC_PREFIX_HEADER = "modules/MusicModule/MusicModule-Prefix.pch";
+				INFOPLIST_FILE = "modules/MusicModule/MusicModule-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = nbbmodule;
@@ -1380,8 +1382,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MusicModule/MusicModule-Prefix.pch";
-				INFOPLIST_FILE = "MusicModule/MusicModule-Info.plist";
+				GCC_PREFIX_HEADER = "modules/MusicModule/MusicModule-Prefix.pch";
+				INFOPLIST_FILE = "modules/MusicModule/MusicModule-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = nbbmodule;
@@ -1393,8 +1395,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "VideoModule/VideoModule-Prefix.pch";
-				INFOPLIST_FILE = "VideoModule/VideoModule-Info.plist";
+				GCC_PREFIX_HEADER = "modules/VideoModule/VideoModule-Prefix.pch";
+				INFOPLIST_FILE = "modules/VideoModule/VideoModule-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = nbbmodule;
@@ -1406,8 +1408,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "VideoModule/VideoModule-Prefix.pch";
-				INFOPLIST_FILE = "VideoModule/VideoModule-Info.plist";
+				GCC_PREFIX_HEADER = "modules/VideoModule/VideoModule-Prefix.pch";
+				INFOPLIST_FILE = "modules/VideoModule/VideoModule-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = nbbmodule;

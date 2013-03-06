@@ -17,6 +17,7 @@
 	self = [super initWithWindowNibName:windowNibName];
     if (self) {
         NSLog(@"initialize music module...");
+		self.moduleIcon = [NSImage imageNamed:NSImageNameBonjour];
 
 		NSArray* dbs = [[NSUserDefaults standardUserDefaults] persistentDomainForName:@"com.apple.iApps"][@"iTunesRecentDatabases"];
 		NSURL* libraryURL = (([dbs count])) ? [NSURL URLWithString:dbs[0]] : nil;
@@ -30,7 +31,7 @@
 			NSDictionary* tracks = library[@"Tracks"];
 			NSDictionary* playlists = library[@"Playlists"];
 			NSMutableArray* musicTracks = [NSMutableArray arrayWithCapacity:tracks.count];
-			
+
 			for (NSDictionary* track in tracks.allValues) {
 				// Filter out podcasts/books/videos
 				if (![track[@"Genre"] isEqualToString:@"Audiobook"]
