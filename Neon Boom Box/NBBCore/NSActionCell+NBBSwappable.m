@@ -112,25 +112,25 @@ NSPoint _dragImageOffset;
 
 - (void)setSwappingEnabled:(BOOL) enable
 {
-	if ([self.controlView conformsToProtocol:@protocol(NBBSwappableControl)]) {
+	NSControl <NBBSwappableControl>* cv = (NSControl <NBBSwappableControl>*)self.controlView;
+	if ([cv conformsToProtocol:@protocol(NBBSwappableControl)]) {
 		// forward to control
-		id <NBBSwappableControl> cv = (id <NBBSwappableControl>)self.controlView;
 		[cv setSwappingEnabled:enable];
 		return;
 	}
 	NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
 	if (enable) {
 		id <NBBSwappableControlDelegate> delegate = self.swapDelegate;
-		if (delegate == nil || [delegate controlAllowedToSwap:self.controlView]) {
+		if (delegate == nil || [delegate controlAllowedToSwap:cv]) {
 			// post a notification to enable swapping. either no delegate or its ok.
 			[nc postNotificationName:@"NBBControlSwappingStateChanged"
-							  object:self.controlView userInfo:@{ @"enabled" : @(YES) }];
+							  object:cv userInfo:@{ @"enabled" : @(YES) }];
 
 		}
 	} else {
 		// post a notification to disable swapping. no need to ask delegate this is always allowed
 		[nc postNotificationName:@"NBBControlSwappingStateChanged"
-						  object:self.controlView userInfo:@{ @"enabled" : @(NO) }];
+						  object:cv userInfo:@{ @"enabled" : @(NO) }];
 	}
 }
 
