@@ -55,7 +55,7 @@
 		A28A93D9164769FB001E71AE /* NSActionCell+NBBSwappable.m in Sources */ = {isa = PBXBuildFile; fileRef = A23A3D171639EF1600A622FF /* NSActionCell+NBBSwappable.m */; };
 		A28A93EA1647814A001E71AE /* Poly.nbbtheme in CopyFiles */ = {isa = PBXBuildFile; fileRef = A295D34A1646F78D00F90780 /* Poly.nbbtheme */; };
 		A28A93ED1647818C001E71AE /* White Leather.nbbtheme in CopyFiles */ = {isa = PBXBuildFile; fileRef = A295D35A1646F7BC00F90780 /* White Leather.nbbtheme */; };
-		A295D3411646DB9C00F90780 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23A3CED16360F2500A622FF /* Python.framework */; };
+		A2934D4C18243CF000B001BF /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2934D4B18243CF000B001BF /* Python.framework */; };
 		A295D3511646F78D00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D34F1646F78D00F90780 /* InfoPlist.strings */; };
 		A295D3611646F7BC00F90780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A295D35F1646F7BC00F90780 /* InfoPlist.strings */; };
 		A298057416DC8270009F450B /* NBBWindowBase.h in Headers */ = {isa = PBXBuildFile; fileRef = A298057216DC8270009F450B /* NBBWindowBase.h */; };
@@ -195,7 +195,6 @@
 		A2334458165806DA00A6B370 /* NBBLaunchPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NBBLaunchPad.m; sourceTree = "<group>"; };
 		A23A3CD61634A9A800A622FF /* NSControl+NBBControlProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSControl+NBBControlProxy.h"; sourceTree = "<group>"; };
 		A23A3CD71634A9A800A622FF /* NSControl+NBBControlProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSControl+NBBControlProxy.m"; sourceTree = "<group>"; };
-		A23A3CED16360F2500A622FF /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		A23A3CF416372E4500A622FF /* NBBSwappableControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NBBSwappableControl.h; sourceTree = "<group>"; };
 		A23A3CFF163777CE00A622FF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A23A3D0116377FAE00A622FF /* CALayer+NBBControlAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+NBBControlAnimations.h"; sourceTree = "<group>"; };
@@ -259,6 +258,8 @@
 		A26C0D1516D5B2E40007B333 /* LondonFog.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = LondonFog.py; path = themes/LondonFog/LondonFog.py; sourceTree = SOURCE_ROOT; };
 		A26C0D1616D5B2E40007B333 /* NBBTheme.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = NBBTheme.py; path = themes/NBBTheme.py; sourceTree = SOURCE_ROOT; };
 		A26C0D1716D5B2E40007B333 /* setup.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = setup.py; path = themes/LondonFog/setup.py; sourceTree = SOURCE_ROOT; };
+		A2934D481824337D00B001BF /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = ../../../../../System/Library/Frameworks/Python.framework; sourceTree = "<group>"; };
+		A2934D4B18243CF000B001BF /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = ../../../../../Library/Frameworks/Python.framework; sourceTree = "<group>"; };
 		A295D34A1646F78D00F90780 /* Poly.nbbtheme */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Poly.nbbtheme; sourceTree = BUILT_PRODUCTS_DIR; };
 		A295D34E1646F78D00F90780 /* Poly-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Poly-Info.plist"; path = "themes/Poly/Poly-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A295D3501646F78D00F90780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -327,7 +328,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A295D3411646DB9C00F90780 /* Python.framework in Frameworks */,
+				A2934D4C18243CF000B001BF /* Python.framework in Frameworks */,
 				A23A3D00163777CE00A622FF /* QuartzCore.framework in Frameworks */,
 				A2689FAC16308DCB00E1AFFB /* Cocoa.framework in Frameworks */,
 			);
@@ -418,10 +419,11 @@
 		A2689F7116308CE500E1AFFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2934D4B18243CF000B001BF /* Python.framework */,
+				A2934D481824337D00B001BF /* Python.framework */,
 				A2A929BE164C9A6A007BC253 /* AudioToolbox.framework */,
 				A2A929C9164CA613007BC253 /* AudioUnit.framework */,
 				A2689F7216308CE500E1AFFB /* Cocoa.framework */,
-				A23A3CED16360F2500A622FF /* Python.framework */,
 				A23A3CFF163777CE00A622FF /* QuartzCore.framework */,
 				A2689F9016308CE500E1AFFB /* SenTestingKit.framework */,
 				A2689F7416308CE500E1AFFB /* Other Frameworks */,
@@ -853,7 +855,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = NBB;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = NBB;
 			};
 			buildConfigurationList = A2689F6816308CE500E1AFFB /* Build configuration list for PBXProject "Neon Boom Box" */;
@@ -1229,7 +1231,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1259,7 +1260,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1338,6 +1338,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NBBCore/NBBCore-Prefix.pch";
@@ -1354,6 +1358,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NBBCore/NBBCore-Prefix.pch";
