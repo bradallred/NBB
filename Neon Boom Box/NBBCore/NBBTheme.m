@@ -80,33 +80,58 @@
 
 - (CAAnimation*)windowInAnimation
 {
-	CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"frameOrigin"];
 	// assumes all windows are the same size.
 	NSWindow* keyWin = [NSApp keyWindow];
-	NSPoint fromPoint = NSMakePoint(0.0, NSHeight(keyWin.frame));
-	animation.fromValue = [NSValue valueWithPoint:fromPoint];
-	animation.toValue = [NSValue valueWithPoint:NSZeroPoint];
-	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-	animation.duration = 0.5;
-	animation.repeatCount = 1.0;
-	[animation setValue:NSAnimationTriggerOrderIn forKey:@"animationType"];
 
-	return animation;
+	CABasicAnimation* alphaAnim = [CABasicAnimation animationWithKeyPath:@"alphaValue"];
+	alphaAnim.toValue = [NSNumber numberWithDouble:1.0];
+
+	CABasicAnimation* anim = nil;
+	if (keyWin) {
+		anim = [CABasicAnimation animationWithKeyPath:@"frame"];
+		// FIXME: hardcoded size
+		NSRect rect = NSMakeRect(0.0, 0.0, 800.0, 480.0);
+		anim.toValue = [NSValue valueWithRect:rect];
+
+		NSPoint fromPoint = NSMakePoint(0.5, rect.size.height);
+		rect.origin = fromPoint;
+		rect.size.height = 2.0;
+		anim.fromValue = [NSValue valueWithRect:rect];
+	} else {
+		anim = [CABasicAnimation animationWithKeyPath:@"frameOrigin"];
+		anim.toValue = [NSValue valueWithPoint:NSZeroPoint];
+	}
+
+	CAAnimationGroup *group = [CAAnimationGroup animation];
+	group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+	group.duration = 0.5;
+	group.repeatCount = 1.0;
+	[group setValue:NSAnimationTriggerOrderIn forKey:@"animationType"];
+	group.animations = @[alphaAnim, anim];
+
+	return group;
 }
 
 - (CAAnimation*)windowOutAnimation
 {
-	CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"frameOrigin"];
-	// assumes all windows are the same size.
-	NSWindow* keyWin = [NSApp keyWindow];
-	NSPoint toPoint = NSMakePoint(0.0, NSHeight(keyWin.frame));
-	animation.toValue = [NSValue valueWithPoint:toPoint];
-	animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-	animation.duration = 0.5;
-	animation.repeatCount = 1.0;
-	[animation setValue:NSAnimationTriggerOrderOut forKey:@"animationType"];
+	// FIXME: hardcoded size
+	NSRect rect = NSMakeRect(0.0, 480.0, 800.0, 2.0);
 
-	return animation;
+	CABasicAnimation* alphaAnim = [CABasicAnimation animationWithKeyPath:@"alphaValue"];
+	alphaAnim.toValue = [NSNumber numberWithDouble:0.5];
+
+	CABasicAnimation* collapseAnim = [CABasicAnimation animationWithKeyPath:@"frame"];
+	//rect.origin.y = NSHeight(rect);
+	collapseAnim.toValue = [NSValue valueWithRect:rect];
+
+	CAAnimationGroup *group = [CAAnimationGroup animation];
+	group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+	group.duration = 0.5;
+	group.repeatCount = 1.0;
+	[group setValue:NSAnimationTriggerOrderOut forKey:@"animationType"];
+	group.animations = @[alphaAnim, collapseAnim];
+
+	return group;
 }
 
 // combination for font, color and alignment
