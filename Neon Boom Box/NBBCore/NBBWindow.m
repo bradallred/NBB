@@ -77,7 +77,7 @@
 - (void)orderOut:(id)sender
 {
 	// actual order out takes place on animation completion.
-	[[self animator] setValue:nil forKey:NSAnimationTriggerOrderOut];
+	[[self animator] setValue:@"" forKey:NSAnimationTriggerOrderOut];
 }
 
 - (void)orderWindow:(NSWindowOrderingMode)orderingMode relativeTo:(NSInteger)otherWindowNumber
@@ -95,7 +95,7 @@
 
 	[super orderWindow:orderingMode relativeTo:otherWindowNumber];
 	if (orderingMode == NSWindowAbove) {
-		[[self animator] setValue:nil forKey:NSAnimationTriggerOrderIn];
+		[[self animator] setValue:@"" forKey:NSAnimationTriggerOrderIn];
 	}
 }
 
