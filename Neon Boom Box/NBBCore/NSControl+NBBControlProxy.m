@@ -91,9 +91,10 @@
 		// subclasses that have multiple cells may wish to override this to only draw the cell
 		NSBitmapImageRep* rep = [self bitmapImageRepForCachingDisplayInRect:cellFrame];
 		NSImage* image = [[NSImage alloc] initWithSize:rep.size];
-		if([self needsToDrawRect:cellFrame]) {
-			[self drawRect:cellFrame];
-		}
+		// this drawRect hack is no longer required on 10.9 and in fact breaks stuff
+		//if([self needsToDrawRect:cellFrame]) {
+		//	[self drawRect:cellFrame];
+		//}
 		[self cacheDisplayInRect:cellFrame toBitmapImageRep:rep];
 		[image addRepresentation:rep];
 		// reset the original cell state
