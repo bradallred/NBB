@@ -24,8 +24,8 @@
 @interface NBBLaunchPad : NSControl <NBBSwappableControl>
 {
 	@private
-	NSCell* _dragCell;
-	NSCell* _dragDestCell;
+	NSCell <NSDraggingSource>* _dragCell;
+	NSCell <NSDraggingDestination>* _dragDestCell;
 
 	NSMutableArray* _moduleCells;
 	NSMutableDictionary* _animationLayers;

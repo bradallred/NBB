@@ -22,8 +22,6 @@
 #import <objc/runtime.h>
 #import <QuartzCore/QuartzCore.h>
 
-// Part of the window theming hack
-@class NSNextStepFrame;
 @interface NBBWindow()
 - (void)drawRect:(NSRect)rect;
 - (NSWindow*)window;
@@ -33,7 +31,7 @@
 
 + (void)load
 {
-	Class frameClass = [NSNextStepFrame class];
+	Class frameClass = NSClassFromString(@"NSNextStepFrame");
 	Method m0 = class_getInstanceMethod(self, @selector(drawFrame:));
 	class_addMethod(frameClass, @selector(drawFrame:), method_getImplementation(m0), method_getTypeEncoding(m0));
 

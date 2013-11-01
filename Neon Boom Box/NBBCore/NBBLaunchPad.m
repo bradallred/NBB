@@ -19,8 +19,9 @@
 #import "NBBLaunchPad.h"
 
 #import <NBBCore/NBBButton.h>
-
 #import <NBBCore/CALayer+NBBControlAnimations.h>
+
+#import "NSControl+NBBControlProxy.h"
 
 @implementation NBBLaunchPad
 
@@ -210,11 +211,11 @@
 			return NSDragOperationNone;
 		}
 
-		_dragDestCell = cell;
+		_dragDestCell = (NSCell <NSDraggingDestination>*)cell;
 
 		CALayer* layer = _animationLayers[cell.identifier];
 		layer.contents = [self imageForCell:cell highlighted:YES];
-		return [cell draggingEntered:sender];
+		return [_dragDestCell draggingEntered:sender];
 	}
 	return NSDragOperationNone;
 }
