@@ -99,6 +99,19 @@
 	}
 }
 
++ (id)defaultAnimationForKey:(NSString *)key
+{
+	if ([key isEqualToString:NSAnimationTriggerOrderIn])
+    {
+        return [[NBBThemeEngine sharedThemeEngine].theme windowInAnimation];
+    }
+	if ([key isEqualToString:NSAnimationTriggerOrderOut])
+    {
+		return [[NBBThemeEngine sharedThemeEngine].theme windowOutAnimation];
+    }
+	return [super defaultAnimationForKey:key];
+}
+
 #pragma mark Animation Delegation
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
 {
