@@ -27,44 +27,11 @@
 
 + (NBBThemeEngine*)sharedThemeEngine
 {
-	static NBBThemeEngine* sharedThemeEngine = nil;
-    if (sharedThemeEngine == nil) {
-        sharedThemeEngine = [[super allocWithZone:NULL] init];
-    }
+	static dispatch_once_t once;
+    static NBBThemeEngine* sharedThemeEngine = nil;
+    dispatch_once(&once, ^ { sharedThemeEngine = [[self alloc] init]; });
     return sharedThemeEngine;
 }
-
-+ (id)allocWithZone:(NSZone *)zone
-{
-    return [[self sharedThemeEngine] retain];
-}
-
-- (id)copyWithZone:(NSZone *)zone
-{
-    return self;
-}
-
-- (id)retain
-{
-    return self;
-}
-
-- (NSUInteger)retainCount
-{
-    return NSUIntegerMax;  //denotes an object that cannot be released
-}
-
-- (oneway void)release
-{
-    //do nothing
-}
-
-- (id)autorelease
-{
-    return self;
-}
-
-// end singleton pattern
 
 - (id)init
 {
