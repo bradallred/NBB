@@ -141,7 +141,7 @@ NSPoint _dragImageOffset;
 		id <NBBSwappableControl> cv = (id <NBBSwappableControl>)self.controlView;
 		return [cv swappingEnabled];
 	}
-	return objc_getAssociatedObject(self, swappingEnabledKey);;
+	return [objc_getAssociatedObject(self, swappingEnabledKey) boolValue];
 }
 
 - (void)swapStateChanged:(NSNotification*) notification
