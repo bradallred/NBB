@@ -157,6 +157,13 @@
 {
 	NSClipView* clipView=(NSClipView*)[self superview];
 	NSPoint newPoint = NSMakePoint(0.0, ([clipView documentVisibleRect].origin.y - [theEvent deltaY]));
+	CGFloat limit = self.frame.size.height;
+
+	if (newPoint.y >= limit) {
+		newPoint.y = limit - 1.0;
+	} else if (newPoint.y <= limit * -1) {
+		newPoint.y = (limit * -1) + 1;
+	}
 	// do NOT constrain the point here. we want to "rubber band"
 	[clipView scrollToPoint:newPoint];
 	[[self enclosingScrollView] reflectScrolledClipView:clipView];
@@ -168,7 +175,7 @@
 
 	// because we have to animate asyncronously, we must save the target value to use later
 	// instead of setting it in the animation here
-	_scrollDelta = [theEvent deltaY] * 3;
+	_scrollDelta = [theEvent deltaY] * 3.5;
 }
 
 - (BOOL)autoscroll:(NSEvent *)theEvent
