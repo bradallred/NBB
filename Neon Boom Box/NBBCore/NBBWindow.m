@@ -115,9 +115,14 @@
 #pragma mark Animation Delegation
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
 {
-	if (flag
-		&& [[theAnimation valueForKey:@"animationType"] isEqualToString:NSAnimationTriggerOrderOut]) {
-		[super orderOut:nil];
+	if (flag) {
+		if ([[theAnimation valueForKey:@"animationType"] isEqualToString:NSAnimationTriggerOrderOut]) {
+			[super orderOut:nil];
+		} else if ([[theAnimation valueForKey:@"animationType"] isEqualToString:NSAnimationTriggerOrderIn]) {
+			// ensure the window is always in place after the animation
+			// FIXME: this seems like a hack. why is the animation sometimes ending at the wrong point?
+			[self setFrameOrigin:NSZeroPoint];
+		}
 	}
 }
 
