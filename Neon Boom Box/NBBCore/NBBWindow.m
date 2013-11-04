@@ -22,29 +22,29 @@
 #import <objc/runtime.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface NBBWindow()
+@interface NBBWindowFrameProxy : NSProxy
+@property(readwrite) NSRect frame;
+@property(readonly) NSWindow* window;
+
 - (void)drawRect:(NSRect)rect;
-- (NSWindow*)window;
 @end
 
-@implementation NBBWindow
+@implementation NBBWindowFrameProxy
+@dynamic frame, window;
 
 + (void)load
 {
 	Class frameClass = NSClassFromString(@"NSNextStepFrame");
-	Method m0 = class_getInstanceMethod(self, @selector(drawFrame:));
-	class_addMethod(frameClass, @selector(drawFrame:), method_getImplementation(m0), method_getTypeEncoding(m0));
+	SEL drawSEL = @selector(drawRect:);
+	Method m1 = class_getInstanceMethod(self, drawSEL);
+	Method m2 = class_getInstanceMethod(frameClass, drawSEL);
 
-	Method m1 = class_getInstanceMethod(frameClass, @selector(drawRect:));
-	Method m2 = class_getInstanceMethod(frameClass, @selector(drawFrame:));
-
-	method_exchangeImplementations(m1, m2);
+	IMP imp1 = method_getImplementation(m1);
+	method_setImplementation(m2, imp1);
 }
 
-- (void)drawFrame:(NSRect)rect
+- (void)drawRect:(NSRect)rect
 {
-	[self drawFrame:rect];
-
 	if ([self.window conformsToProtocol:@protocol(NBBThemable)]) {
 		NBBTheme* theme = [[NBBThemeEngine sharedThemeEngine] theme];
 		NSRect frameRect = [self frame];
@@ -55,6 +55,9 @@
 		[border stroke];
 	}
 }
+@end
+
+@implementation NBBWindow
 
 - (void)finalizeInit
 {
