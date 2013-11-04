@@ -87,9 +87,9 @@
 {
 	// we set the animations here to keep them updated if they change
 	// also default animations are based on the applications window size
-	CAAnimation* inAnim = [[self theme] windowInAnimation];
+	CAAnimation* inAnim = [[NBBTheme activeTheme] windowInAnimation];
 	inAnim.delegate = self;
-	CAAnimation* outAnim = [[self theme] windowOutAnimation];
+	CAAnimation* outAnim = [[NBBTheme activeTheme] windowOutAnimation];
 	outAnim.delegate = self;
 
 	[self setAnimations:@{ NSAnimationTriggerOrderIn  : inAnim,

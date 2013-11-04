@@ -19,7 +19,6 @@
 #import "NBBTextField.h"
 
 @implementation NBBTextField
-@dynamic theme;
 
 # pragma mark - NBBThemable
 - (id)initWithTheme:(NBBTheme*) theme

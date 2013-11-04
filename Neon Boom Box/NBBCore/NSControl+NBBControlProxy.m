@@ -40,18 +40,9 @@
 	[super viewWillMoveToWindow:newWindow]; // shouldnt do anything (default implementation is noop)
 }
 
-- (NBBTheme*) theme
-{
-	if ([self conformsToProtocol:@protocol(NBBThemable)]) {
-		return [NBBThemeEngine sharedThemeEngine].theme;
-	}
-	return nil;
-}
-
 - (NSDraggingSession*)beginDraggingSessionWithDraggingCell:(NSCell <NSDraggingSource> *)cell event:(NSEvent*) theEvent
 {
 	NSImage* image = [self imageForCell:cell];
-
 	NSDraggingItem* di = [[[NSDraggingItem alloc] initWithPasteboardWriter:image] autorelease];
 	NSRect dragFrame = [self frameForCell:cell];
 	dragFrame.size = image.size;

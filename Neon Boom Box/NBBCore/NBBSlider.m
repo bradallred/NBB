@@ -19,7 +19,6 @@
 #import "NBBSlider.h"
 
 @implementation NBBSlider
-@dynamic theme;
 
 # pragma mark - NBBThemable
 - (id)initWithTheme:(NBBTheme*) theme

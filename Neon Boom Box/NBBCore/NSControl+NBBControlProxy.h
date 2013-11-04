@@ -29,8 +29,6 @@ The goal is to allocate and return overriding theme specific subclasses instead
 + (id)allocWithZone:(NSZone *)zone;
 - (void)viewWillMoveToWindow:(NSWindow *)newWindow;
 
-- (NBBTheme*) theme; // part of NBBThemable protocol
-
 - (NSDraggingSession*)beginDraggingSessionWithDraggingCell:(NSCell <NSDraggingSource> *)cell event:(NSEvent*) theEvent;
 - (NSImage*)imageForCell:(NSCell*)cell;
 - (NSImage*)imageForCell:(NSCell*)cell highlighted:(BOOL) highlight;

@@ -21,8 +21,6 @@
 @class NBBTheme;
 
 @protocol NBBThemable <NSObject>
-@property(readonly) NBBTheme* theme;
-
 - (id) initWithTheme:(NBBTheme*) theme;
 - (BOOL) applyTheme:(NBBTheme*) theme;
 @end

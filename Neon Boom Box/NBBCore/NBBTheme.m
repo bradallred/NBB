@@ -19,8 +19,14 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "NBBTheme.h"
+#import "NBBThemeEngine.h"
 
 @implementation NBBTheme
+
++ (NBBTheme*)activeTheme
+{
+	return [NBBThemeEngine sharedThemeEngine].theme;
+}
 
 - (void)dealloc
 {

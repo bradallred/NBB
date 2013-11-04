@@ -79,7 +79,6 @@
 
 
 @implementation NBBTableView
-@dynamic theme;
 
 - (void)dealloc
 {

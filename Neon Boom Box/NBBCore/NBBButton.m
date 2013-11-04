@@ -23,7 +23,6 @@
 @end
 
 @implementation NBBButton
-@dynamic theme;
 
 + (void)initialize
 {

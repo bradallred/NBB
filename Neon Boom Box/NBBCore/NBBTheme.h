@@ -24,6 +24,8 @@
 @property(nonatomic, copy) NSString* identifier;
 @property(nonatomic, retain) NSMutableDictionary* prefrences;
 
++ (NBBTheme*)activeTheme;
+
 // generic theme methods
 - (NSFont*)smallFont;
 - (NSFont*)normalFont;

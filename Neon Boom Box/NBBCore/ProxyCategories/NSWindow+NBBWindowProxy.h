@@ -22,6 +22,4 @@
 
 @interface NSWindow (NBBWindowProxy)
 + (id)allocWithZone:(NSZone *)zone;
-
-- (NBBTheme*) theme; // part of NBBThemable protocol
 @end
